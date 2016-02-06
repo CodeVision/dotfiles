@@ -30,9 +30,9 @@ cursor_shape = block
 
 [colors]
 #cursor = #dcdccc
-foreground = #dcdccc
-foreground_bold = #ffffff
-background = #3f3f3f
+foreground = #a0a0a0
+foreground_bold = #cfcfcf
+background = #232323
 
 # 20% background transparency (requires a compositor)
 #background = rgba(63, 63, 63, 0.8)
@@ -41,21 +41,21 @@ background = #3f3f3f
 highlight = #2f2f2f
 
 # colors from color0 to color254 can be set
-color0 = #3f3f3f
-color1 = #705050
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #506070
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
+color0 = #302020
+color1 = #ffa6af
+color2 = #a5edaa
+color3 = #b58858
+color4 = #6095c5
+color5 = #ac7bde
+color6 = #b4d6d9
+color7 = #cfcfcf
+color8 = #686868
+color9 = #d16d79
+color10 = #59ba55
+color11 = #efbd8b
+color12 = #98cbfe
+color13 = #e5b0ff
+color14 = #63aab0
 color15 = #ffffff
 
 [hints]
