@@ -30,7 +30,7 @@ function title() {
     local a=${(V)1//\%/\%\%}
 
     # Truncate command, and join lines.
-    a=$(print -Pn "%40>...>$a" | tr -d "\n")
+    a=$(print -Pnr "%40>...>$a" | tr -d "\n")
     case $TERM in
         screen*)
             print -Pn "\e]2;$a @ $2\a" # plain xterm title
