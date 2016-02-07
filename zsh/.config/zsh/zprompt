@@ -1,0 +1,87 @@
+# zsh prompt configuration file
+
+# possibly useful escape sequences
+# %#      : shell elevation state
+# %M / %m : full / short hostname
+# %n      : username
+# %d / %/ : current directory ($PWD)
+# %~      : current directory (shortened with ~ if applicable)
+# %c / %. : directories preceding $PWD (usage: %c, %2c, etc..)
+#
+# open / close sequences
+# %U %u   : underline
+# %B %b   : bold
+# %K %k   : background color (usage: %K{red}%k )
+# %F %f   : foreground color (usage: see above)
+# %S %s   : highlight
+
+# TODO:
+# - add vcs info
+# - differentiate between root / regular user
+# - display hostname (for ssh)
+# - look into prompt newline
+# - use colors?
+
+setopt prompt_subst
+setopt transient_rprompt
+
+function title() {
+    # escape '%' chars in $1, make nonprintables visible
+    local a=${(V)1//\%/\%\%}
+
+    # Truncate command, and join lines.
+    a=$(print -Pn "%40>...>$a" | tr -d "\n")
+    case $TERM in
+        screen*)
+            print -Pn "\e]2;$a @ $2\a" # plain xterm title
+            print -Pn "\ek$a\e\\"      # screen title (in ^A")
+            print -Pn "\e_$2   \e\\"   # screen location
+            ;;
+        xterm*)
+            print -Pn "\e]2;$a @ $2\a" # plain xterm title
+            ;;
+    esac
+}
+
+local prompt_newline=$'\n%{\r%}'
+
+autoload add-zsh-hook
+add-zsh-hook precmd theme_precmd
+add-zsh-hook preexec theme_preexec
+
+local git_symbol='∓'
+local hg_symbol='↯'
+
+# precmd is called just before the prompt is printed
+theme_precmd() {
+    # vcs_info
+    title "zsh" "%m:%55<...<%~"
+}
+
+# preexec is called just before any command line is executed
+theme_preexec() {
+    title "$1" "%m:%35<...<%~"
+}
+
+function zle-line-init zle-keymap-select {
+    set_rprompt
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+# Highlight (bold) user input
+zle_highlight[(r)default:*]="default:fg=white,bold"
+
+set_rprompt() {
+    RPROMPT="${${KEYMAP/(main|viins)/-- INSERT --}/vicmd/-- NORMAL --}"
+    RPROMPT2=$RPROMPT
+}
+
+set_prompts() {
+    PROMPT="%B┌─[%b %n %B]─[%b %~ %B]─%b$prompt_newline%B└─●❯%b "
+    PS4='+%N:%i:%_>'
+}
+
+set_prompts
+set_rprompt
