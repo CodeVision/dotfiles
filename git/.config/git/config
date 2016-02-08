@@ -1,0 +1,7 @@
+[alias]
+	br = branch
+	ci = commit --verbose
+	co = checkout
+	st = status -sbu
+[include]
+	path = userconfig
