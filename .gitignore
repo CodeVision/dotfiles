@@ -3,3 +3,10 @@ userconfig
 
 # zsh temp files
 .zcompdump
+
+# neovim files
+.netrwhist
+
+## neovim plugins
+**/nvim/autoload
+**/nvim/plugged
