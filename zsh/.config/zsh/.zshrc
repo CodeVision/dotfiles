@@ -22,10 +22,11 @@ bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 
 # completions
-zstyle :compinstall filename '/home/codevision/.zshrc'
-
 autoload -Uz compinit
 compinit
 
 # prompt
 [[ -f "$zprompt" ]] && source "$zprompt"
+
+# aliases
+[[ -f "$zalias" ]] && source "$zalias"
