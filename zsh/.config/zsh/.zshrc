@@ -62,3 +62,5 @@ bindkey -v
 
 bindkey -M viins 'jj' vi-cmd-mode
 
+# external program configs
+eval $(dircolors ~/.dircolors)
