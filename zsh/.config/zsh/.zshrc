@@ -58,9 +58,22 @@ compinit
 
 # key bindings
 # TODO
+KEYTIMEOUT=20
 bindkey -v
 
+# insert mode
 bindkey -M viins 'jj' vi-cmd-mode
+
+bindkey -M viins '^[^M' self-insert-unmeta
+bindkey -M viins '^[h' run-help
+
+bindkey -M viins '^H' backward-delete-char
+bindkey -M viins '^?' backward-delete-char
+
+bindkey -M viins '^o' push-line-or-edit
+
+# normal mode
+bindkey -M vicmd '^[h' run-help
 
 # external program configs
 eval $(dircolors ~/.dircolors)
