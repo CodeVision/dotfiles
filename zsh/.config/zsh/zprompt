@@ -17,10 +17,10 @@
 
 # TODO:
 # - add vcs info
-# - differentiate between root / regular user
-# - display hostname (for ssh)
 # - look into prompt newline
-# - use colors?
+
+autoload -U colors
+colors
 
 setopt prompt_subst
 setopt transient_rprompt
@@ -79,7 +79,7 @@ set_rprompt() {
 }
 
 set_prompts() {
-    PROMPT="%B┌─[%b %n %B]─[%b %~ %B]─%b$prompt_newline%B└─●❯%b "
+    PROMPT="%B┌─[%b %n${SSH_TTY:+@%m} %B]─[%b %~ %B]─%b$prompt_newline%B└─●%(?.%F{green}❯%f.%F{red}❯%f)%b "
     PS4='+%N:%i:%_>'
 }
 
