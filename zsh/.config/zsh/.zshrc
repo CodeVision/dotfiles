@@ -58,6 +58,40 @@ setopt notify
 autoload -Uz compinit
 compinit
 
+setopt list_ambiguous       # show completion list on ambigious input
+setopt complete_in_word     # allow completion inside words
+
+zstyle ':completion:::::' completer _expand _complete _approximate _ignored
+
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' list-separator " "
+zstyle ':completion:*' auto-description 'specification: %d'
+
+zstyle ':completion:*' ignore-parents parent pwd
+
+zstyle ':completion:*:expand:*' accept-exact continue
+
+zstyle ':completion::*:(cvs-add|less|rm|vi):*' ignore-line true
+
+zstyle ':completion::complete:^rm:*files' ignored-patterns '*?.o' '*?~' '*?.swp'
+zstyle ':completion:*:complete:cd:*' ignored-patterns '(*/|)(CVS|SCCS|.git|.hg)'
+
+zstyle ':completion:*:approximate:*' max-errors \
+    'reply=( $(( ($#PREFIX + $#SUFFIX) / 3 )) )'
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+
+zstyle ':completion:*:(^approximate):*' matcher-list 'm:{a-z}={A-Z}'
+
+zstyle ':completion:*:messages' format %d
+zstyle ':completion:*:warnings' format 'No matches'
+zstyle ':completion:*:descriptions' format %B%d%b
+zstyle ':completion:*:manuals' separate-sections true
+
+zmodload zsh/complist
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+
+
 # key bindings
 # TODO
 KEYTIMEOUT=20
@@ -65,6 +99,9 @@ bindkey -v
 
 # insert mode
 bindkey -M viins 'jj' vi-cmd-mode
+
+bindkey -M viins '\C-i' complete-word
+bindkey -M viins '\eu' undo
 
 bindkey -M viins '^o' push-line-or-edit
 
@@ -83,6 +120,10 @@ bindkey -M viins '^?' backward-delete-char
 
 # normal mode
 bindkey -M vicmd '\eh' run-help
+
+# list scroll
+bindkey -M listscroll q send-break
+bindkey -M listscroll j accept-line
 
 # external program configs
 eval $(dircolors ~/.dircolors)
