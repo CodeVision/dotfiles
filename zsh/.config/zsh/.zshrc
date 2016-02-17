@@ -46,7 +46,8 @@ setopt nobeep
 
 # - scripts & functions
 setopt c_bases              # print hexidecimals in C format (0xFF)
-setopt octal_zeroes         # print octals per IEEE standard (077)
+# setopt octal_zeroes         # print octals per IEEE standard (077)
+                            # (affects 0 prefixed strings such as timestamps)
 
 # TODO:
 # - job control
