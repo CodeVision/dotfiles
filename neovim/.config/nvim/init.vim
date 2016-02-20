@@ -18,7 +18,12 @@ call plug#begin()
 " ------------------------------------------------------------------------------
 
 " Nerdtree file browser
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle', 'NERDTree'] }
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+
+" Colorschemes
+Plug 'twerth/ir_black'
+Plug 'johnantoni/grb256'
 
 call plug#end()
 
@@ -30,6 +35,7 @@ set number                      " show line numbers
 set showmode                    " show vi mode
 set showcmd                     " show commands while typing
 set cmdheight=1                 " set number of command lines
+set laststatus=2
 set pumheight=8                 " maximum number of completion options
 set noswapfile                  " don't use swap files
 set scrolloff=5                 " start scrolling when coming near edge
@@ -56,9 +62,13 @@ set nohlsearch                  " don't highlight searches
 
 
 " ------------------------------------------------------------------------------
-" Syntax highlighting
+" Syntax highlighting & Colorschemes
 " ------------------------------------------------------------------------------
 syntax on
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+colorscheme grb256
 
 " ------------------------------------------------------------------------------
 " Filetype settings
@@ -79,6 +89,21 @@ set tabstop=4
 let mapleader=";"
 
 inoremap jj <Esc>
+
+" ==============================================================================
+" Plugin settings
+" ==============================================================================
+
+" NERDtree
+let g:NERDTreeAutoDeleteBuffer=1
+
+map <C-n> :NERDTreeToggle<CR>
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Airline
+let g:airline_powerline_fonts=1
+
 
 " ==============================================================================
 " TODO:
