@@ -10,3 +10,4 @@ userconfig
 ## neovim plugins
 **/nvim/autoload
 **/nvim/plugged
+.init.vim-rplugin*

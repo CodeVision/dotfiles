@@ -3,7 +3,6 @@
 " main neovim configuration file
 "
 " ##############################################################################
-
 let config_dir = split(&rtp, ',')[0]
 if !filereadable(config_dir . '/autoload/plug.vim')
     execute '!curl -fLo ' . config_dir . '/autoload/plug.vim --create-dirs '
@@ -13,9 +12,9 @@ endif
 
 call plug#begin()
 
-" ------------------------------------------------------------------------------
+" ==============================================================================
 "  Plugins
-" ------------------------------------------------------------------------------
+" ==============================================================================
 
 " Interface
 Plug 'scrooloose/nerdtree'
@@ -25,9 +24,21 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" Completion
+Plug 'Shougo/deoplete.nvim'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
 " Colorschemes
 Plug 'twerth/ir_black'
 Plug 'johnantoni/grb256'
+
+" ------------------------------------------------------------------------------
+" Languages
+" ------------------------------------------------------------------------------
+
+" HTML / CSS
+Plug 'othree/html5.vim'
+
 
 call plug#end()
 
@@ -71,6 +82,7 @@ set nohlsearch                  " don't highlight searches
 syntax on
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 colorscheme grb256
 
@@ -88,11 +100,52 @@ set softtabstop=4
 set tabstop=4
 
 " ==============================================================================
+" Completions
+" ==============================================================================
+
+set wildmode=full
+
+" ignore files for wildcard expansion and completion
+set wildignore+=*.o,*.out,*.obj,*.rbc,*.rbo,*.class,*.gem,.git,.svn
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*/vendor/gems/*,*/vendor/cache/*,*/.bundle/*
+set wildignore+=*.swp,*~,._*
+
+" lower prio for following file extensions for file name completion
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb
+set suffixes+=.ind,.idx,.ilg,.inx,.out,.toc
+
+
+" ==============================================================================
 " Mappings
 " ==============================================================================
 let mapleader=";"
 
-inoremap jj <Esc>
+noremap! jj <Esc>
+
+nnoremap Y y$
+
+nnoremap Q @q
+
+" text editing (S-Enter doesn't work in terminal)
+nnoremap <S-Enter> O<Esc>
+nnoremap <Enter> o<Esc>
+
+" movement
+noremap k gk
+noremap j gj
+noremap gj 5j
+noremap gk 5k
+
+" buffers
+map <silent> <Leader>l :ls<CR>
+map <silent> <Leader>b <C-^>
+
+map <silent> + :bn<CR>
+map <silent> - :bp<CR>
+
+map <C-n> <Down>
+map <C-p> <Up>
 
 " ==============================================================================
 " Colors & Theming
@@ -135,6 +188,23 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 " FZF
 nnoremap <C-p> :FZF<CR>
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_refresh_always = 1
+
+let g:deoplete#file#enable_buffer_path = 1
+
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['buffer', 'file', 'ultisnips']
+
+" Ultisnips
+let g:UltiSnipsUsePythonVersion = 3
+
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsListSnippets = '<C-l>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 " ==============================================================================
 " TODO:
