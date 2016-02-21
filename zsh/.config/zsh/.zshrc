@@ -79,10 +79,10 @@ zstyle ':completion::complete:^rm:*files' ignored-patterns '*?.o' '*?~' '*?.swp'
 zstyle ':completion:*:complete:cd:*' ignored-patterns '(*/|)(CVS|SCCS|.git|.hg)'
 
 zstyle ':completion:*:approximate:*' max-errors \
-    'reply=( $(( ($#PREFIX + $#SUFFIX) / 3 )) )'
+    'reply=( $(( ($#PREFIX + $#SUFFIX) / 4 )) )'
 zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
 
-zstyle ':completion:*:(^approximate):*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:(^approximate):*' matcher-list '' 'm:{a-z}={A-Z}'
 
 zstyle ':completion:*:messages' format %d
 zstyle ':completion:*:warnings' format 'No matches'
