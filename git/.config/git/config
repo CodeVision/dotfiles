@@ -7,3 +7,5 @@
 	st = status -sbu
 [include]
 	path = userconfig
+[push]
+	default = simple
