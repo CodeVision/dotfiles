@@ -14,12 +14,16 @@ endif
 call plug#begin()
 
 " ------------------------------------------------------------------------------
-"  Interface plugins
+"  Plugins
 " ------------------------------------------------------------------------------
 
-" Nerdtree file browser
+" Interface
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
+
+" Utility
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Colorschemes
 Plug 'twerth/ir_black'
@@ -91,6 +95,26 @@ let mapleader=";"
 inoremap jj <Esc>
 
 " ==============================================================================
+" Colors & Theming
+" ==============================================================================
+let g:terminal_color_0 = '#302020'
+let g:terminal_color_1 = '#ffa6af'
+let g:terminal_color_2 = '#a5edaa'
+let g:terminal_color_3 = '#b58858'
+let g:terminal_color_4 = '#6095c5'
+let g:terminal_color_5 = '#ac7bde'
+let g:terminal_color_6 = '#b4d6d9'
+let g:terminal_color_7 = '#cfcfcf'
+let g:terminal_color_8 = '#686868'
+let g:terminal_color_9 = '#d16d79'
+let g:terminal_color_10 = '#59ba55'
+let g:terminal_color_11 = '#efbd8b'
+let g:terminal_color_12 = '#98cbfe'
+let g:terminal_color_13 = '#e5b0ff'
+let g:terminal_color_14 = '#63aab0'
+let g:terminal_color_15 = '#ffffff'
+
+" ==============================================================================
 " Plugin settings
 " ==============================================================================
 
@@ -104,12 +128,18 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Airline
 let g:airline_powerline_fonts=1
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" FZF
+nnoremap <C-p> :FZF<CR>
+let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 
 " ==============================================================================
 " TODO:
 " ==============================================================================
 " - completions
-" - theme
 " - search
 " - indentation
 " - mappings

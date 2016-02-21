@@ -128,3 +128,5 @@ bindkey -M listscroll j accept-line
 
 # external program configs
 eval $(dircolors ~/.dircolors)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
