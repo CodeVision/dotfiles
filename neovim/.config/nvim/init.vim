@@ -24,6 +24,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+Plug 'cohama/lexima.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+
 " Completion
 Plug 'Shougo/deoplete.nvim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -38,6 +42,9 @@ Plug 'johnantoni/grb256'
 
 " HTML / CSS
 Plug 'othree/html5.vim'
+
+" Ruby
+Plug 'vim-ruby/vim-ruby'
 
 
 call plug#end()
