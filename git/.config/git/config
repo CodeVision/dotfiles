@@ -1,4 +1,6 @@
 [alias]
+    a = add -A
+    aa = add -a
 	br = branch
 	ci = commit --verbose
 	co = checkout
