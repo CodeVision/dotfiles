@@ -126,6 +126,11 @@ bindkey -M vicmd '\eh' run-help
 bindkey -M listscroll q send-break
 bindkey -M listscroll j accept-line
 
+## load funcs
+typeset -U fpath
+fpath=( $ZDOTDIR/funcs $fpath )
+[[ -n ${fpath[1]}/* ]] && autoload -U ${fpath[1]}/*(:t)
+
 # external program configs
 eval $(dircolors ~/.dircolors)
 

@@ -1,0 +1,32 @@
+emulate -RL zsh
+
+local test_files=( 'PKGBUILD' )
+local test_dirs=( 'src' '.git' '.hg' '.svn' 'CVS' )
+
+local cdr
+local ccd="$PWD"
+
+while [[ "$ccd" != $HOME ]]
+do
+    for f in $test_files; do
+        if [[ -f "$ccd/$f" ]]; then
+            cdr="$ccd"
+            break 2
+        fi
+    done
+    for d in $test_dirs; do
+        if [[ -d "$ccd/$d" ]]; then
+            cdr="$ccd"
+            break 2
+        fi
+    done
+
+    ccd=${ccd%/*}
+done
+
+if [[ -n "$cdr" ]] 
+then
+    cd "$cdr"
+else
+    cd ~
+fi
