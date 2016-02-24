@@ -3,11 +3,14 @@
 " main neovim configuration file
 "
 " ##############################################################################
-let config_dir = split(&rtp, ',')[0]
-if !filereadable(config_dir . '/autoload/plug.vim')
-    execute '!curl -fLo ' . config_dir . '/autoload/plug.vim --create-dirs '
+let s:config_dir = split(&runtimepath, ',')[0]
+if !filereadable(s:config_dir . '/autoload/plug.vim')
+    execute '!curl -fLo ' . s:config_dir . '/autoload/plug.vim --create-dirs '
         \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    autocmd VimEnter * PlugInstall
+    augroup plug
+        au!
+        autocmd VimEnter * PlugInstall
+    augroup END
 endif
 
 call plug#begin()
@@ -28,7 +31,7 @@ Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
-Plug 'benekastah/neomake'
+Plug 'benekastah/neomake', { 'on': ['Neomake'] }
 
 " Completion
 Plug 'Shougo/deoplete.nvim'
@@ -71,6 +74,8 @@ set matchtime=3                 " duration to show matching brackets
 
 set splitbelow                  " new split window goes below
 set splitright                  " new split window goes right
+
+scriptencoding = 'utf-8'
 
 " set characters to show when listing whitespace
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:·,nbsp:·
@@ -128,7 +133,7 @@ set suffixes+=.ind,.idx,.ilg,.inx,.out,.toc
 " ==============================================================================
 " Mappings
 " ==============================================================================
-let mapleader=";"
+let g:mapleader=';'
 
 noremap! jj <Esc>
 
@@ -155,6 +160,11 @@ map <silent> - :bp<CR>
 
 map <C-n> <Down>
 map <C-p> <Up>
+
+" neomake
+nnoremap <Leader>e :ll<CR>
+nnoremap ]e :lnext<CR>
+nnoremap [e :lprevious<CR>
 
 " ==============================================================================
 " Colors & Theming
@@ -232,6 +242,9 @@ let g:neomake_warning_sign = {
     \ }
 
 augroup Neomake
+    au!
+    autocmd BufWritePost *.zsh,*.sh Neomake shellcheck
+    autocmd BufWritePost *.vim Neomake vint
     autocmd BufWritePost *.rb Neomake rubocop
 augroup END
 
