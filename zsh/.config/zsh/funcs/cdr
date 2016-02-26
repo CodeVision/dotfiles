@@ -1,3 +1,5 @@
+#/bin/zsh
+# vim: ft=zsh
 emulate -RL zsh
 
 local test_files=( 'PKGBUILD' )
