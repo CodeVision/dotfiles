@@ -133,7 +133,11 @@ set suffixes+=.ind,.idx,.ilg,.inx,.out,.toc
 " ==============================================================================
 " Mappings
 " ==============================================================================
-let g:mapleader=';'
+let g:mapleader = ';'
+let g:maplocalleader = ','
+
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 noremap! jj <Esc>
 
@@ -152,14 +156,11 @@ noremap gj 5j
 noremap gk 5k
 
 " buffers
-map <silent> <Leader>l :ls<CR>
-map <silent> <Leader>b <C-^>
+noremap <silent> <Leader>l :ls<CR>
+noremap <silent> <Leader>b <C-^>
 
-map <silent> + :bn<CR>
-map <silent> - :bp<CR>
-
-map <C-n> <Down>
-map <C-p> <Up>
+noremap <silent> + :bn<CR>
+noremap <silent> - :bp<CR>
 
 " ==============================================================================
 " Colors & Theming
