@@ -13,7 +13,7 @@ if !filereadable(s:config_dir . '/autoload/plug.vim')
     augroup END
 endif
 
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugins')
 
 " ==============================================================================
 "  Plugins
@@ -34,8 +34,8 @@ Plug 'tpope/vim-repeat'
 Plug 'benekastah/neomake', { 'on': ['Neomake'] }
 
 " Completion
-Plug 'Shougo/deoplete.nvim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'Shougo/deoplete.nvim'
 
 " Colorschemes
 Plug 'twerth/ir_black'
@@ -161,11 +161,6 @@ map <silent> - :bp<CR>
 map <C-n> <Down>
 map <C-p> <Up>
 
-" neomake
-nnoremap <Leader>e :ll<CR>
-nnoremap ]e :lnext<CR>
-nnoremap [e :lprevious<CR>
-
 " ==============================================================================
 " Colors & Theming
 " ==============================================================================
@@ -185,76 +180,3 @@ let g:terminal_color_12 = '#98cbfe'
 let g:terminal_color_13 = '#e5b0ff'
 let g:terminal_color_14 = '#63aab0'
 let g:terminal_color_15 = '#ffffff'
-
-" ==============================================================================
-" Plugin settings
-" ==============================================================================
-
-" NERDtree
-let g:NERDTreeAutoDeleteBuffer=1
-
-map <C-n> :NERDTreeToggle<CR>
-
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Airline
-let g:airline_powerline_fonts=1
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-
-" FZF
-nnoremap <C-p> :FZF<CR>
-let g:fzf_nvim_statusline = 0 " disable statusline overwriting
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_refresh_always = 1
-
-let g:deoplete#file#enable_buffer_path = 1
-
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['buffer', 'file', 'ultisnips']
-let g:deoplete#sources.ruby = ['buffer', 'member', 'file', 'ultisnips']
-
-" Ultisnips
-let g:UltiSnipsUsePythonVersion = 3
-
-let g:UltiSnipsExpandTrigger = '<C-j>'
-let g:UltiSnipsListSnippets = '<C-l>'
-let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-
-" Neomake
-let g:neomake_verbose = 1
-let g:neomake_open_list = 2
-let g:neomake_list_height = 5
-let g:neomake_airline = 1
-
-let g:neomake_error_sign = {
-    \ 'text': '✖',
-    \ 'texthl': 'ErrorMsg',
-    \ }
-let g:neomake_warning_sign = {
-    \ 'text': '⚠',
-    \ 'texthl': 'WarningMsg',
-    \ }
-
-augroup Neomake
-    au!
-    autocmd BufWritePost *.zsh,*.sh Neomake shellcheck
-    autocmd BufWritePost *.vim Neomake vint
-    autocmd BufWritePost *.rb Neomake rubocop
-augroup END
-
-" ==============================================================================
-" TODO:
-" ==============================================================================
-" - completions
-" - search
-" - indentation
-" - mappings
-"   - buffers
-" - folding
-" - spelling
