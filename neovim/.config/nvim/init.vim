@@ -28,6 +28,8 @@ Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
+Plug 'benekastah/neomake'
+
 " Completion
 Plug 'Shougo/deoplete.nvim'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -204,6 +206,7 @@ let g:deoplete#file#enable_buffer_path = 1
 
 let g:deoplete#sources = {}
 let g:deoplete#sources._ = ['buffer', 'file', 'ultisnips']
+let g:deoplete#sources.ruby = ['buffer', 'member', 'file', 'ultisnips']
 
 " Ultisnips
 let g:UltiSnipsUsePythonVersion = 3
@@ -212,6 +215,25 @@ let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsListSnippets = '<C-l>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
+" Neomake
+let g:neomake_verbose = 1
+let g:neomake_open_list = 2
+let g:neomake_list_height = 5
+let g:neomake_airline = 1
+
+let g:neomake_error_sign = {
+    \ 'text': '✖',
+    \ 'texthl': 'ErrorMsg',
+    \ }
+let g:neomake_warning_sign = {
+    \ 'text': '⚠',
+    \ 'texthl': 'WarningMsg',
+    \ }
+
+augroup Neomake
+    autocmd BufWritePost *.rb Neomake rubocop
+augroup END
 
 " ==============================================================================
 " TODO:
