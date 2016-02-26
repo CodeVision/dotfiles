@@ -95,7 +95,7 @@ zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 
 # key bindings
 # TODO
-KEYTIMEOUT=20
+KEYTIMEOUT=25
 bindkey -v
 
 # insert mode
@@ -139,4 +139,4 @@ eval $(dircolors -b)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # start keychain
-eval $(keychain --eval --quiet --agents ssh,gpg id_rsa $GPG_KEY)
+eval $(keychain --eval --quiet id_rsa)
