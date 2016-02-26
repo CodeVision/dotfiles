@@ -132,8 +132,11 @@ fpath=( $ZDOTDIR/funcs $fpath )
 [[ -n ${fpath[1]}/* ]] && autoload -U ${fpath[1]}/*(:t)
 
 # external program configs
-eval $(dircolors ~/.dircolors)
+eval $(dircolors -b)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# start keychain
+eval $(keychain --eval --quiet --agents ssh,gpg id_rsa $GPG_KEY)
