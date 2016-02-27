@@ -1,0 +1,22 @@
+loadplugins '\.(js|penta)$'
+group user
+highlight Hint 
+        \text-transform:    uppercase;
+        \font-weight:       bolder;
+        \font-size:         11px;
+        \color:             #232323;
+        \background:        -moz-linear-gradient(top, #A5EDAA, #59BA55) !important;
+        \border:            solid black 1px;
+        \border-radius:     3px;
+        \box-shadow:        0 0 2px black;
+        \padding:           3px 3px 1px 3px;
+highlight HintElem 
+        \background-color:  inherit !important;
+map -count -modes=n J <count><C-p>
+map -count -modes=n K <count><C-n>
+map -count -modes=i jj -builtin <Esc>
+map -count -modes=I,hints jj -builtin <Esc>
+set hintkeys=qwertyuiopasdfghkl;zxcvbnm
+set strictfocus='chrome:*':laissez-faire,'google.(com|nl)':laissez-faire,*:moderate
+
+" vim: set ft=pentadactyl:
