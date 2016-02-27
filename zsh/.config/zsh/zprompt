@@ -64,17 +64,21 @@ theme_preexec() {
 }
 
 function zle-line-init zle-keymap-select {
-    case $KEYMAP in
-        vicmd)      print -n -- "\e[1 q";;  # block cursor
-        viins|main) print -n -- "\e[5 q";;  # line cursor
-    esac
+    if [[ ${${TTY##*/}%%[1-9]} != 'tty' ]]; then
+        case $KEYMAP in
+            vicmd)      print -n -- "\e[1 q";;  # block cursor
+            viins|main) print -n -- "\e[5 q";;  # line cursor
+        esac
+    fi
 
     set_rprompt
     zle reset-prompt
 }
 
 function zle-line-finish {
-    print -n -- "\e[1 q"  # block cursor
+    if [[ ${${TTY##*/}%%[1-9]} != 'tty' ]]; then
+        print -n -- "\e[1 q"  # block cursor
+    fi
 }
 
 zle -N zle-line-init
