@@ -27,14 +27,15 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'cohama/lexima.vim'
-Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 
 Plug 'benekastah/neomake', { 'on': ['Neomake'] }
 
 " Completion
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 Plug 'Shougo/deoplete.nvim'
 
 " Colorschemes
@@ -47,6 +48,7 @@ Plug 'johnantoni/grb256'
 
 " HTML / CSS
 Plug 'othree/html5.vim'
+Plug 'mattn/emmet-vim'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'

@@ -1,0 +1,44 @@
+# HTML Doctype 5
+snippet doct5
+<!DOCTYPE html>
+endsnippet
+
+snippet body "<body>" b
+<body>
+	$0
+</body>
+endsnippet
+
+snippet html5 "Basic HTML5 document" b
+<!DOCTYPE html>
+<html lang="${1:en}">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>${2:Page Title}</title>
+</head>
+<body>
+	$0
+</body>
+</html>
+endsnippet
+
+# link tags
+snippet link "<link ...>" b
+<link rel="$1" href="$2" title="$3" type="$0">
+endsnippet
+
+snippet link:s "<link rel='stylesheet'...>" b
+<link rel="stylesheet" href="${1:style}.css">
+endsnippet
+
+# script tags
+snippet scripts "<script ...>" b
+<script src="${0}.js"></script>
+endsnippet
+
+snippet scriptt "<script type=...>" b
+<script type="$1" id="$2">
+	$0
+</script>
+endsnippet
