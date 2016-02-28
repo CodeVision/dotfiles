@@ -23,6 +23,45 @@ snippet html5 "Basic HTML5 document" b
 </html>
 endsnippet
 
+# entity references
+snippet lt "<" b
+&lt;
+endsnippet
+
+snippet gt ">" b
+&gt;
+endsnippet
+
+snippet amp "&" b
+&amp;
+endsnippet
+
+snippet nbs "nbsp" b
+&nbsp;
+endsnippet
+
+snippet quot "quot" b
+&quot;
+endsnippet
+
+# images
+snippet img "<img src.. alt..>" b
+<img src="$0" alt="$1">
+endsnippet
+
+# links
+snippet a "<a href=...>" b
+<a href="${1:#}" title="$2">${0:$2}</a>
+endsnippet
+
+snippet a:ext "<a href=http...>" b
+<a href="http${1}://${2}" title="$3">${0:$3}</a>
+endsnippet
+
+snippet a:extt "<a href=http... target=...>" b
+<a href="http${1}://${2}"${3: target="${4:_blank}"} title="$5">${0:$5}</a>
+endsnippet
+
 # link tags
 snippet link "<link ...>" b
 <link rel="$1" href="$2" title="$3" type="$0">
