@@ -4,6 +4,7 @@
 	br = branch
 	ci = commit --verbose
 	co = checkout
+    com = checkout master
 	st = status -sbu
 [include]
 	path = userconfig
