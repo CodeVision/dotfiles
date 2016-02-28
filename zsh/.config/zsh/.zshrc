@@ -2,6 +2,7 @@
 
 zprompt="$ZDOTDIR/zprompt"
 zalias="$ZDOTDIR/zalias"
+named_dirs="$ZDOTDIR/named_dirs"
 
 # prompt
 [[ -f "$zprompt" ]] && source "$zprompt"
@@ -130,6 +131,9 @@ bindkey -M listscroll j accept-line
 typeset -U fpath
 fpath=( $ZDOTDIR/funcs $fpath )
 [[ -n ${fpath[1]}/* ]] && autoload -U ${fpath[1]}/*(:t)
+
+## load named dirs
+[[ -r $named_dirs ]] && source $named_dirs
 
 # external program configs
 eval $(dircolors -b)

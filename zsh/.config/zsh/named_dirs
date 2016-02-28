@@ -1,0 +1,26 @@
+#!/bin/zsh
+typeset -A NAMED_DIRS
+
+NAMED_DIRS=(
+    bin     ~/bin
+    conf    ~/.config
+    dot     ~/config/dotfiles
+)
+local_named_dirs=~/.local/share/zsh/named_dirs
+
+for key in ${(k)NAMED_DIRS}
+do
+    if [[ -d ${NAMED_DIRS[$key]} ]]; then
+        hash -d $key=${NAMED_DIRS[$key]}
+    fi
+done
+
+if [[ -r $local_named_dirs ]]; then
+    . $local_named_dirs
+    for key in ${(k)LOCAL_NAMED_DIRS}
+    do
+        if [[ -d ${LOCAL_NAMED_DIRS[$key]} ]]; then
+            hash -d $key=${LOCAL_NAMED_DIRS[$key]}
+        fi
+    done
+fi
