@@ -49,6 +49,7 @@ Plug 'johnantoni/grb256'
 " HTML / CSS
 Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
+Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xhtml', 'javascript', 'javascript.jsx'] }
 
 " JS
 Plug 'jelera/vim-javascript-syntax'
