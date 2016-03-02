@@ -61,6 +61,8 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 " Ruby
 Plug 'vim-ruby/vim-ruby'
 
+" Python
+Plug 'zchee/deoplete-jedi'
 
 call plug#end()
 
