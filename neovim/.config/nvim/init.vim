@@ -50,6 +50,13 @@ Plug 'johnantoni/grb256'
 Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
 
+" JS
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
+
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+
 " Ruby
 Plug 'vim-ruby/vim-ruby'
 
