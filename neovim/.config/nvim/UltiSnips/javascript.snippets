@@ -1,0 +1,42 @@
+snippet :f "Object Method"
+${1:method_name}: function(${3:attribute}) {
+	${VISUAL}$0
+}${10:,}
+endsnippet
+
+snippet :, "Object Value JS"
+${1:value_name}: ${0:value},
+endsnippet
+
+snippet fun "function"
+function ${1:function_name}(${2:argument}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet vf "Function variable"
+${1:var }${2:function_name} = function $2($3) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet iife "Immediately-Invoked Function Expression (iife)"
+(function($1) {
+	${VISUAL}$0
+}(${2:$1}));
+endsnippet
+
+snippet timeout "setTimeout"
+setTimeout(function() {
+	${VISUAL}$0
+}${2:.bind(${3:this})}, ${1:10});
+endsnippet
+
+# console logging
+snippet ca "console.assert" b
+console.assert(${1:assertion}, ${2:"${3:message}"});
+endsnippet
+
+snippet cl "console.log" b
+console.log(${1:"${2:value}"});
+endsnippet

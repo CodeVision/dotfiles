@@ -49,6 +49,43 @@ snippet img "<img src.. alt..>" b
 <img src="$0" alt="$1">
 endsnippet
 
+# input
+snippet input:text "<input type=text..>" b
+<input type="text" name="$1" id="${2:$1}" value="$3">
+endsnippet
+
+snippet input:submit "<input type=submit...>" b
+<input type="submit" name="$1" id="${2:$1}" value="$3">
+endsnippet
+
+snippet input:number "<input type=number..>" b
+<input type="number" name="$1" id="${2:$1}" value="$3">
+endsnippet
+
+snippet input:checkbox "<input type=checkbox...>" b
+<input type="checkbox" name="$1" id="${2:$1}">
+endsnippet
+
+snippet input:radio "<input type=radio...>" b
+<input type="radio" name="$1" id="${2:$1}">
+endsnippet
+
+snippet input:hidden "<input type=hidden...>" b
+<input type="hidden" name="$1" id="${2:$1}" value="$3">
+endsnippet
+
+snippet input:password "<input type=hidden...>" b
+<input type="password" name="$1" id="${2:$1}" value="$3">
+endsnippet
+
+snippet input:email "<input type=email..>" b
+<input type="email" name="$1" id="${2:$1}" value="$3">
+endsnippet
+
+snippet input:button "<input type=button...>" b
+<input type="button" name="$1" id="${2:$1}" value="$3">
+endsnippet
+
 # links
 snippet a "<a href=...>" b
 <a href="${1:#}" title="$2">${0:$2}</a>
