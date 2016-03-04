@@ -21,4 +21,14 @@ nnoremap [e :lprevious<CR>
 augroup Neomake
     au!
     autocmd BufEnter,BufWritePost * silent! Neomake
+    autocmd BufEnter * call s:CloseLastWindow()
 augroup END
+
+" auto close quickfix / location list if it's the last buffer in window
+function s:CloseLastWindow()
+    if &buftype ==# 'quickfix'
+        if winbufnr(2) == -1
+            quit!
+        endif
+    endif
+endfunction
