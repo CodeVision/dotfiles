@@ -1,8 +1,12 @@
 # vim: ft=zsh
 emulate -RL zsh
 
-if [[ ! -f "$1" ]]; then
-    mkdir -p "$1"
-fi
+mcd() {
+    if [[ ! -f "$1" ]]; then
+        mkdir -p "$1"
+    fi
 
-cd "$1"
+    cd "$1"
+}
+
+mcd "$@"

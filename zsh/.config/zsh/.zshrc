@@ -93,6 +93,8 @@ zstyle ':completion:*:manuals' separate-sections true
 zmodload zsh/complist
 zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 
+# custom function completions
+compdef _files mcd
 
 # key bindings
 # TODO
