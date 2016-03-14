@@ -4,6 +4,9 @@
         "node": true,
         "jquery": true
     },
+    "plugins": [
+        "json"
+    ],
     "extends": "eslint:recommended",
     "rules": {
         "no-console": 0,
