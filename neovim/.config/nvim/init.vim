@@ -161,6 +161,8 @@ nnoremap Q @q
 nnoremap <S-Enter> O<Esc>
 nnoremap <Enter> o<Esc>
 
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h') . '/' : '%%'
+
 " movement
 noremap k gk
 noremap j gj
