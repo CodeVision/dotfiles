@@ -19,7 +19,7 @@
 # - add vcs info
 # - look into prompt newline
 
-autoload -U colors
+autoload -Uz colors
 colors
 
 setopt prompt_subst
@@ -49,13 +49,35 @@ autoload add-zsh-hook
 add-zsh-hook precmd theme_precmd
 add-zsh-hook preexec theme_preexec
 
-local git_symbol='∓'
-local hg_symbol='↯'
+vcs-status() {
+    vcs_prompt=''
+    git-status
+}
+
+git-status() {
+    # only git for now
+    ([ -d ".git" ] || git status --porcelain &> /dev/null) || return 1
+
+    branch=$(git symbolic-ref -q HEAD)
+    branch=${branch##refs/heads/}
+    branch=${branch:-HEAD}
+
+    [ -n "$(git ls-files -m)" ] && mod_color=red || mod_color=green
+
+    vcs_prompt="%B[%b %F{green}$branch%f %F{$mod_color}%B∓%b%f %B]─%b"
+
+    return 0
+}
+
+hg-status() {
+    vcs_prompt="%B[%b %F{green}$branch%f %F{$mod_color}%B↯%b%f %B]─%b"
+}
 
 # precmd is called just before the prompt is printed
 theme_precmd() {
-    # vcs_info
     title "zsh" "%m:%55<...<%~"
+    vcs-status
+    set_prompts
 }
 
 # preexec is called just before any command line is executed
@@ -94,7 +116,7 @@ set_rprompt() {
 }
 
 set_prompts() {
-    PROMPT="%B┌─[%b %n${SSH_TTY:+@%m} %B]─[%b %~ %B]─%b$prompt_newline%B└─●%(?.%F{green}❯%f.%F{red}❯%f)%b "
+    PROMPT="%B┌─[%b %n${SSH_TTY:+@%m} %B]─[%b %~ %B]─$vcs_prompt$prompt_newline%B└─●%(?.%F{green}❯%f.%F{red}❯%f)%b "
     PS4='+%N:%i:%_>'
 }
 
