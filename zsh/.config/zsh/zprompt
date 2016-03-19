@@ -1,4 +1,5 @@
 # zsh prompt configuration file
+# vim: ft=zsh
 
 # possibly useful escape sequences
 # %#      : shell elevation state
@@ -62,7 +63,14 @@ git-status() {
     branch=${branch##refs/heads/}
     branch=${branch:-HEAD}
 
-    [ -n "$(git ls-files -m)" ] && mod_color=red || mod_color=green
+    status_info=$(git status --porcelain)
+    if [[ $status_info =~ "^ M" ]]; then
+        mod_color=red
+    elif [[ $status_info =~ "^\?\?" ]]; then
+        mod_color=yellow
+    else
+        mod_color=green
+    fi
 
     vcs_prompt="%B[%b %F{green}$branch%f %F{$mod_color}%B∓%b%f %B]─%b"
 
