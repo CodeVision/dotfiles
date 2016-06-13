@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# TODO: obtain monitors automatically
+MAIN="VGA-1"
+EXT1="VGA-2"
+EXT2="VGA-3"
+
+if (xrandr | grep "$EXT2 disconnected"); then
+    xrandr --output $MAIN --auto --primary --output $EXT1 --auto --left-of $MAIN --output $EXT2 --off
+elif (xrandr | grep "$EXT1 disconnected"); then
+    xrandr --output $MAIN --auto --output $EXT1 --off --output $EXT2 --off
+else
+    xrandr --output $MAIN --auto --primary --output $EXT1 --auto --left-of $MAIN --output $EXT --auto --right-of $MAIN
+fi
