@@ -29,9 +29,9 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'eapache/auto-pairs'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'godlygeek/tabular'
 
 Plug 'benekastah/neomake', { 'on': ['Neomake'] }
 
@@ -42,6 +42,10 @@ Plug 'Shougo/deoplete.nvim'
 " Colorschemes
 Plug 'twerth/ir_black'
 Plug 'johnantoni/grb256'
+
+" Development
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary'
 
 " ------------------------------------------------------------------------------
 " Languages
