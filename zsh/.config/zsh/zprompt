@@ -48,7 +48,9 @@ local prompt_newline=$'\n%{\r%}'
 
 autoload add-zsh-hook
 add-zsh-hook precmd theme_precmd
-add-zsh-hook preexec theme_preexec
+# disable for now to prevent double execution when capturing command output
+# (i.e. $(..))
+# add-zsh-hook preexec theme_preexec
 
 vcs-status() {
     vcs_prompt=''

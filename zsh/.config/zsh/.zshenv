@@ -1,5 +1,5 @@
 typeset -U path
-path=(~/bin "$HOME/.rvm/bin" $path)
+path=(~/bin "$HOME/.rvm/bin" /usr/local/heroku/bin $path)
 
 export EDITOR=nvim
 export PAGER=less
