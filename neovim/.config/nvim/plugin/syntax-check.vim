@@ -20,7 +20,7 @@ nnoremap [e :lprevious<CR>
 
 augroup Neomake
     au!
-    autocmd BufEnter,BufWritePost * silent! Neomake
+    autocmd BufWritePost * silent! Neomake
     autocmd BufEnter * call s:CloseLastWindow()
 augroup END
 
