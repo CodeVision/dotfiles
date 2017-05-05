@@ -19,10 +19,6 @@ call plug#begin('~/.local/share/nvim/plugins')
 "  Plugins
 " ==============================================================================
 
-" Interface
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-
 " Utility
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -33,7 +29,10 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 
-Plug 'benekastah/neomake', { 'on': ['Neomake'] }
+" Interface
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+
 
 " Completion
 Plug 'SirVer/ultisnips'
@@ -68,6 +67,9 @@ Plug 'vim-ruby/vim-ruby'
 
 " Python
 Plug 'zchee/deoplete-jedi'
+
+" Misc
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
