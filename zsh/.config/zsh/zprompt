@@ -92,6 +92,8 @@ theme_precmd() {
 
 # preexec is called just before any command line is executed
 theme_preexec() {
+    # executes captured commands ($(..)) twice, e.g. $(docker run ...) runs docker 
+    # twice, so disabled for now (by disabling hook)
     title "$1" "%m:%35<...<%~"
 }
 
