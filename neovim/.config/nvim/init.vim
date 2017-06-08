@@ -33,6 +33,8 @@ Plug 'godlygeek/tabular'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 
+Plug 'w0rp/ale'
+
 
 " Completion
 Plug 'SirVer/ultisnips'
