@@ -38,3 +38,6 @@ Thumbs.db
 
 # Editor files
 *.swp
+
+# config files
+.nvmrc
