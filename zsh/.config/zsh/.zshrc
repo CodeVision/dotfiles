@@ -4,6 +4,9 @@ zprompt="$ZDOTDIR/zprompt"
 zalias="$ZDOTDIR/zalias"
 named_dirs="$ZDOTDIR/named_dirs"
 
+completions="/home/$USER/.local/share/zsh/completions"
+hooks="$ZDOTDIR/hooks"
+
 # prompt
 [[ -f "$zprompt" ]] && source "$zprompt"
 
@@ -137,12 +140,19 @@ fpath=( $ZDOTDIR/funcs $fpath )
 ## load named dirs
 [[ -r $named_dirs ]] && source $named_dirs
 
+## load completions
+[[ -r $completions ]] && for f in $completions/*; do source $f; done
+
 # external program configs
 eval $(dircolors -b)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[[ -s "$HOME/.local/share/zsh/zsh-nvm/zsh-nvm.plugin.zsh" ]] && source "$HOME/.local/share/zsh/zsh-nvm/zsh-nvm.plugin.zsh"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+## load hooks
+[[ -s "$hooks" ]] && for f in $hooks/*; do source "$f"; done
+
 # start keychain
-eval $(keychain --eval --quiet id_rsa)
+eval $(keychain --eval --quiet id_rsa tom)
