@@ -14,9 +14,22 @@
   "extends": "eslint:recommended",
   "rules": {
     "no-console": 0,
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "[dD]ummy"
+      }
+    ],
     "indent": [
       2,
-      2
+      2,
+      {
+        "ArrayExpression": "first",
+        "CallExpression": { "arguments": "first" },
+        "FunctionDeclaration": { "parameters": "first" },
+        "MemberExpression": 1,
+        "VariableDeclarator": { "var": 2, "let": 2, "const": 2 }
+      }
     ],
     "linebreak-style": [
       2,
@@ -24,7 +37,10 @@
     ],
     "quotes": [
       2,
-      "single"
+      "double",
+      {
+        "avoidEscape": true
+      }
     ],
     "semi": [
       2,
