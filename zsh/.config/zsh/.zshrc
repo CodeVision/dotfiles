@@ -156,3 +156,6 @@ eval $(dircolors -b)
 
 # start keychain
 eval $(keychain --eval --quiet id_rsa tom)
+
+# load temp / package specific settings
+[ -f ~/.zshrc ] && source ~/.zshrc
