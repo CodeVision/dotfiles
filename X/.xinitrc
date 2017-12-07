@@ -46,4 +46,6 @@ fi
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 
-exec i3 -V >> ~/.logs/i3/log-$(date +'%F') 2>&1
+i3_log_dir=~/.local/share/i3
+[ ! -d "$i3_log_dir" ] && mkdir -p "$i3_log_dir"
+exec i3 -V >> $i3_log_dir/log-$(date +'%F') 2>&1
