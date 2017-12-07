@@ -159,3 +159,5 @@ eval $(dircolors -b)
 
 # load temp / package specific settings
 [ -f ~/.zshrc ] && source ~/.zshrc
+
+:
