@@ -146,6 +146,9 @@ fpath=( $ZDOTDIR/funcs $fpath )
 # external program configs
 eval $(dircolors -b)
 
+# start keychain
+# [ -x "$(command -v keychain)" ] && eval $(keychain --eval --quiet id_rsa tom)
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [[ -s "$HOME/.local/share/zsh/zsh-nvm/zsh-nvm.plugin.zsh" ]] && source "$HOME/.local/share/zsh/zsh-nvm/zsh-nvm.plugin.zsh"
@@ -153,6 +156,3 @@ eval $(dircolors -b)
 
 ## load hooks
 [[ -s "$hooks" ]] && for f in $hooks/*; do source "$f"; done
-
-# start keychain
-eval $(keychain --eval --quiet id_rsa tom)
