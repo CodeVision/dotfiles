@@ -156,3 +156,6 @@ eval $(dircolors -b)
 
 ## load hooks
 [[ -s "$hooks" ]] && for f in $hooks/*; do source "$f"; done
+
+# load temp / package specific settings
+[ -f ~/.zshrc ] && source ~/.zshrc

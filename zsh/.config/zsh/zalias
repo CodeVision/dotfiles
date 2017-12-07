@@ -13,6 +13,8 @@ alias lla='ls --all --classify --color=auto --escape --human-readable -l'
 alias ssh='TERM=xterm ssh'
 alias vim=nvim
 
+alias ziplambda="zip -r9 lambda.zip . -x package.json README.md TEST_SCENARIOS.txt 'config.json.*' 'config.*.json' '*.git*' local.js .nvmrc .gitignore"
+
 # globals
 alias -g H='| head'
 alias -g T='| tail'
