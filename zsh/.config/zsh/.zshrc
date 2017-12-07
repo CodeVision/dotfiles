@@ -43,7 +43,7 @@ setopt numeric_glob_sort    # sort 'numeric' filenames by number instead of lexi
                             #  graphically
 setopt correct              # enable spelling correction
 
-setopt extendedglob
+# setopt extendedglob
 
 # - zle
 setopt nobeep
