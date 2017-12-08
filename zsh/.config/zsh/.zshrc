@@ -147,7 +147,7 @@ fpath=( $ZDOTDIR/funcs $fpath )
 eval $(dircolors -b)
 
 # start keychain
-# [ -x "$(command -v keychain)" ] && eval $(keychain --eval --quiet id_rsa tom)
+[ -x "$(command -v keychain)" ] && eval $(keychain --eval --quiet id_rsa tom)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
