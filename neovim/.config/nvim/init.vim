@@ -35,7 +35,6 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'w0rp/ale'
 
-
 " Completion
 Plug 'SirVer/ultisnips'
 Plug 'Shougo/deoplete.nvim'
@@ -56,11 +55,13 @@ Plug 'tpope/vim-commentary'
 Plug 'othree/html5.vim'
 Plug 'mattn/emmet-vim'
 Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xhtml', 'javascript', 'javascript.jsx'] }
+Plug 'gregsexton/MatchTag'
 
 " JS
 Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
+Plug 'leafgarland/typescript-vim'
 
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 
