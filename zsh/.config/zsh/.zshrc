@@ -16,8 +16,8 @@ hooks="$ZDOTDIR/hooks"
 # Set options
 # - history
 HISTFILE=~/.history
-HISTSIZE=1000
-SAVEHIST=5000
+HISTSIZE=10000
+SAVEHIST=10000
 
 setopt hist_ignore_all_dups # don't write duplicates to history file
 setopt hist_ignore_space    # don't write commands starting with space to history
