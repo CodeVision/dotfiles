@@ -1,15 +1,17 @@
 {
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 2017
   },
   "env": {
     "browser": true,
     "node": true,
     "es6": true,
-    "jquery": true
+    "jquery": true,
+    "jasmine": true
   },
   "plugins": [
-    "json"
+    "json",
+    "be-consistent"
   ],
   "extends": "eslint:recommended",
   "rules": {
@@ -37,16 +39,10 @@
       2,
       "unix"
     ],
-    "quotes": [
-      2,
-      "double",
-      {
-        "avoidEscape": true
-      }
-    ],
     "semi": [
-      2,
+      "error",
       "always"
-    ]
+    ],
+    "be-consistent/quotes": 2
   }
 }
