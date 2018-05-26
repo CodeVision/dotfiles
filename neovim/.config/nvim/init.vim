@@ -19,8 +19,15 @@ call plug#begin('~/.local/share/nvim/plugins')
 "  Plugins
 " ==============================================================================
 
+" General
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+
 " Interface
 Plug 'dunstontc/vim-code-dark'
+
+" Coding (General)
+Plug 'tpope/vim-commentary'
 
 " ------------------------------------------------------------------------------
 " Languages
