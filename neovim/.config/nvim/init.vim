@@ -25,6 +25,7 @@ Plug 'kana/vim-textobj-entire'
 
 " Interface
 Plug 'dunstontc/vim-code-dark'
+Plug 'vim-airline/vim-airline'
 
 " Coding (General)
 Plug 'tpope/vim-commentary'
