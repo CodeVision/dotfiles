@@ -26,6 +26,10 @@ Plug 'dunstontc/vim-code-dark'
 " Languages
 " ------------------------------------------------------------------------------
 
+" CSS
+Plug 'JulesWang/css.vim'
+Plug 'ap/vim-css-color'
+
 " JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
