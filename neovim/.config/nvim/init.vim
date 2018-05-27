@@ -36,6 +36,7 @@ Plug 'vim-airline/vim-airline'
 " General
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
