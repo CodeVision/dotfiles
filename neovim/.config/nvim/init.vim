@@ -48,6 +48,7 @@ Plug 'ap/vim-css-color'
 " JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Shell
 Plug 'chrisbra/vim-zsh'

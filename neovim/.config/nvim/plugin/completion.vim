@@ -22,4 +22,4 @@ let g:deoplete#max_list = 50
 
 " set sources
 let g:deoplete#sources = {}
-let g:deoplete#sources.javascript = ['LanguageClient', 'file']
+let g:deoplete#sources.javascript = ['LanguageClient', 'file', 'tern']
