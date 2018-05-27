@@ -22,6 +22,8 @@ call plug#begin('~/.local/share/nvim/plugins')
 " General
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Interface
 Plug 'dunstontc/vim-code-dark'
