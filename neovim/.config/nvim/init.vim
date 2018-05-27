@@ -42,6 +42,9 @@ Plug 'ap/vim-css-color'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 
+" Shell
+Plug 'chrisbra/vim-zsh'
+
 call plug#end()
 
 " ==============================================================================
