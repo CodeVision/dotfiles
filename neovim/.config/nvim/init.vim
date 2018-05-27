@@ -29,13 +29,17 @@ Plug 'junegunn/fzf.vim'
 Plug 'dunstontc/vim-code-dark'
 Plug 'vim-airline/vim-airline'
 
-" Coding (General)
+" ------------------------------------------------------------------------------
+" Coding
+" ------------------------------------------------------------------------------
+
+" General
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 
-" ------------------------------------------------------------------------------
-" Languages
-" ------------------------------------------------------------------------------
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " CSS
 Plug 'JulesWang/css.vim'
