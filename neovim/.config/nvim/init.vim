@@ -43,6 +43,8 @@ Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.s
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
+Plug 'w0rp/ale'
+
 " CSS
 Plug 'JulesWang/css.vim'
 Plug 'ap/vim-css-color'
