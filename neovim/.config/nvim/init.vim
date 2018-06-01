@@ -178,5 +178,10 @@ noremap gk 5k
 noremap <silent> <leader>l :ls<CR>
 noremap <silent> <leader>b <C-^>
 
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
 map <leader>r :source $MYVIMRC<CR>
 inoremap <C-U> <C-G>u<C-U>
