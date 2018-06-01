@@ -83,6 +83,8 @@ set matchtime=3                 " duration to show matching brackets
 set splitbelow                  " new split window goes below
 set splitright                  " new split window goes right
 
+set mouse=a
+
 scriptencoding = 'utf-8'
 
 " set characters to show when listing whitespace
