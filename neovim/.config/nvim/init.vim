@@ -26,7 +26,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Interface
-Plug 'dunstontc/vim-code-dark'
+Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline'
 
 " ------------------------------------------------------------------------------
