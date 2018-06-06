@@ -186,4 +186,7 @@ nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
 map <leader>r :source $MYVIMRC<CR>
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 inoremap <C-U> <C-G>u<C-U>
