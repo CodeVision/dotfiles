@@ -55,6 +55,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
+" Ruby
+Plug 'vim-ruby/vim-ruby'
+
 " Shell
 Plug 'chrisbra/vim-zsh'
 
