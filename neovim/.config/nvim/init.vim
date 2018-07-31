@@ -37,6 +37,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
 Plug 'sgur/vim-editorconfig'
 Plug 'tpope/vim-endwise'
 
@@ -54,6 +55,9 @@ Plug 'ap/vim-css-color'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+
+" Ruby
+Plug 'vim-ruby/vim-ruby'
 
 " Shell
 Plug 'chrisbra/vim-zsh'
