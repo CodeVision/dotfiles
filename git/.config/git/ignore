@@ -39,6 +39,7 @@ Thumbs.db
 # Editor files
 .idea/
 *.swp
+.tern-port
 
 # config files
 .nvmrc
