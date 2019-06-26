@@ -143,10 +143,6 @@ fpath=( $ZDOTDIR/funcs $fpath )
 ## load completions
 [[ -r $completions ]] && for f in $completions/*; do source $f; done
 
-## set path
-typeset -U path
-path=(~/bin "$HOME/.rvm/bin" /usr/local/heroku/bin $path)
-
 # external program configs
 eval $(dircolors -b)
 
@@ -164,4 +160,6 @@ eval $(dircolors -b)
 # load temp / package specific settings
 [ -f ~/.zshrc ] && source ~/.zshrc
 
-:
+## set path
+typeset -U path
+path=(~/bin "$HOME/.rvm/bin" /usr/local/heroku/bin $path)
