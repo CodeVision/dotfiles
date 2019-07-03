@@ -147,7 +147,11 @@ fpath=( $ZDOTDIR/funcs $fpath )
 eval $(dircolors -b)
 
 # start keychain
-[ -x "$(command -v keychain)" ] && eval $(keychain --eval --quiet id_rsa mkb)
+if [ -x "$(command -v keychain)" ]; then
+  trap "" SIGINT
+  eval $(keychain --eval --quiet id_rsa mkb)
+  trap - SIGINT
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
