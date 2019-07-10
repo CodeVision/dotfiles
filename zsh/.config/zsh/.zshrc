@@ -147,7 +147,11 @@ fpath=( $ZDOTDIR/funcs $fpath )
 eval $(dircolors -b)
 
 # start keychain
-[ -x "$(command -v keychain)" ] && eval $(keychain --eval --quiet id_rsa mkb)
+if [ -x "$(command -v keychain)" ]; then
+  trap "" SIGINT
+  eval $(keychain --eval --quiet id_rsa mkb)
+  trap - SIGINT
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -160,4 +164,6 @@ eval $(dircolors -b)
 # load temp / package specific settings
 [ -f ~/.zshrc ] && source ~/.zshrc
 
-:
+## set path
+typeset -U path
+path=(~/bin "$HOME/.rvm/bin" /usr/local/heroku/bin $path)
