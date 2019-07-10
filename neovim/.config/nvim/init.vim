@@ -48,6 +48,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'w0rp/ale'
 
+" Misc Languages
+Plug 'hashivim/vim-terraform'
+
 " Markup language
 Plug 'gabrielelana/vim-markdown'
 
