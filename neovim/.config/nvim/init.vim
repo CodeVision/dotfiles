@@ -48,6 +48,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'w0rp/ale'
 
+" Markup language
+Plug 'gabrielelana/vim-markdown'
+
 " CSS
 Plug 'JulesWang/css.vim'
 Plug 'ap/vim-css-color'
