@@ -40,6 +40,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'sgur/vim-editorconfig'
+Plug 'junegunn/vim-easy-align'
 
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
@@ -174,6 +175,12 @@ nnoremap Q @q
 " text editing (S-Enter does not work in the terminal)
 nnoremap <S-Enter> O<Esc>
 nnoremap <Enter> o<Esc>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap <leader>a <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap <leader>a <Plug>(EasyAlign)
 
 " movement
 noremap k gk
