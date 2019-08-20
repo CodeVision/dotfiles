@@ -1,19 +1,6 @@
 # vim: ft=zsh
 
 # aliases
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-
-alias ls='ls --classify --color=auto --escape --group-directories-first'
-alias la='ls -all --classify --color=auto --escape --human-readable'
-alias ll='ls --classify --color=auto --escape --human-readable -l'
-alias lla='ls --all --classify --color=auto --escape --human-readable -l'
-
-alias ssh='TERM=xterm ssh'
-alias vim=nvim
-
-alias ziplambda="zip -r9 lambda.zip . -x package.json README.md TEST_SCENARIOS.txt 'config.json.*' 'config.*.json' '*.git*' local.js .nvmrc .gitignore"
 
 # globals
 alias -g H='| head'
@@ -26,3 +13,22 @@ alias -g LL="2>&1 | less"
 alias -g CA="2>&1 | cat -A"
 alias -g NE="2> /dev/null"
 alias -g NUL="> /dev/null 2>&1"
+
+# directories
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# ls
+alias ls='ls --classify --color=auto --escape --group-directories-first'
+alias la='ls -all --classify --color=auto --escape --human-readable'
+alias ll='ls --classify --color=auto --escape --human-readable -l'
+alias lla='ls --all --classify --color=auto --escape --human-readable -l'
+
+alias ssh='TERM=xterm ssh'
+alias vim=nvim
+
+alias joplin='nvm use system; joplin'
+
+alias ziplambda="zip -r9 lambda.zip . -x package.json README.md TEST_SCENARIOS.txt 'config.json.*' 'config.*.json' '*.git*' local.js .nvmrc .gitignore"
+
