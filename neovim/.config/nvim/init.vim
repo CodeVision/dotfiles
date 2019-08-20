@@ -29,6 +29,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline'
 
+" Text manipulation
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
+
 " ------------------------------------------------------------------------------
 " Coding
 " ------------------------------------------------------------------------------
@@ -36,11 +42,8 @@ Plug 'vim-airline/vim-airline'
 " General
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-repeat'
 Plug 'sgur/vim-editorconfig'
-Plug 'junegunn/vim-easy-align'
 
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
