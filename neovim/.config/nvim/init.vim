@@ -28,6 +28,7 @@ Plug 'junegunn/fzf.vim'
 " Interface
 Plug 'tomasiser/vim-code-dark'
 Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdtree'
 
 " Text manipulation
 Plug 'tpope/vim-surround'
@@ -51,11 +52,15 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'w0rp/ale'
 
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 " Misc Languages
 Plug 'hashivim/vim-terraform'
 
 " Markup language
 Plug 'gabrielelana/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'sindresorhus/github-markdown-css', { 'dir': '~/.local/lib/github-markdown-css', 'branch': 'gh-pages' }
 
 " CSS
 Plug 'JulesWang/css.vim'
