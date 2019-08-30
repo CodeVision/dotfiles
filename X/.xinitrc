@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 userresources=$HOME/.config/X/Xresources
 usermodmap=$HOME/.Xmodmap
@@ -18,10 +18,10 @@ fi
 # start some nice programs
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
- for f in /etc/X11/xinit/xinitrc.d/?* ; do
-  [ -x "$f" ] && . "$f"
- done
- unset f
+  for f in /etc/X11/xinit/xinitrc.d/?* ; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
 fi
 
 if [ -f "$userresources" ]; then
@@ -35,9 +35,14 @@ fi
 # remap caps lock to ctrl
 setxkbmap -option ctrl:nocaps
 
-vboxclient=VBoxClient-all
-if [ $(type -P $vboxclient) ]; then
-    eval $vboxclient
+# vboxclient=VBoxClient-all
+# if [ $(type -P $vboxclient) ]; then
+#   eval $vboxclient
+# fi
+
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
 fi
 
 #twm &
@@ -48,4 +53,4 @@ fi
 
 i3_log_dir=~/.local/share/i3
 [ ! -d "$i3_log_dir" ] && mkdir -p "$i3_log_dir"
-exec i3 -V >> $i3_log_dir/log-$(date +'%F') 2>&1
+exec i3 -V >> "$i3_log_dir/log-$(date +'%F')" 2>&1
