@@ -48,6 +48,7 @@ Plug 'sgur/vim-editorconfig'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'w0rp/ale'
+Plug 'tpope/vim-fugitive'
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
