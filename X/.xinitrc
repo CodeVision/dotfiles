@@ -25,20 +25,20 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
+  xrdb -merge "$userresources"
 fi
 
 if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
+  xmodmap "$usermodmap"
 fi
 
 # remap caps lock to ctrl
 setxkbmap -option ctrl:nocaps
 
-# vboxclient=VBoxClient-all
-# if [ $(type -P $vboxclient) ]; then
-#   eval $vboxclient
-# fi
+
+if [ -f /usr/bin/VBoxClient-all ]; then
+  /usr/bin/VBoxClient-all
+fi
 
 if [[ $TERM == xterm-termite ]]; then
   . /etc/profile.d/vte.sh
