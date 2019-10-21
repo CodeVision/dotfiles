@@ -46,10 +46,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'sgur/vim-editorconfig'
 
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'w0rp/ale'
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -69,7 +66,6 @@ Plug 'ap/vim-css-color'
 " JavaScript
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
