@@ -1,6 +1,6 @@
 {
   "parserOptions": {
-    "ecmaVersion": 2017
+    "ecmaVersion": 2018
   },
   "env": {
     "browser": true,
@@ -10,8 +10,7 @@
     "jasmine": true
   },
   "plugins": [
-    "json",
-    "be-consistent"
+    "json"
   ],
   "extends": "eslint:recommended",
   "rules": {
@@ -42,7 +41,6 @@
     "semi": [
       "error",
       "always"
-    ],
-    "be-consistent/quotes": 2
+    ]
   }
 }
