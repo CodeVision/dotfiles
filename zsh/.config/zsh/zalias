@@ -31,4 +31,3 @@ alias vim=nvim
 alias joplin='nvm use system; joplin'
 
 alias ziplambda="zip -r9 lambda.zip . -x package.json README.md TEST_SCENARIOS.txt 'config.json.*' 'config.*.json' '*.git*' local.js .nvmrc .gitignore"
-
