@@ -54,6 +54,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Misc Languages
 Plug 'hashivim/vim-terraform'
+Plug 'CodeVision/Dockerfile.vim', { 'branch': 'develop' }
 
 " Markup language
 Plug 'gabrielelana/vim-markdown'
@@ -113,6 +114,8 @@ set backspace=indent,eol,start
 if v:version > 703 || v:version == 703 && has("patch541")
   set formatoptions+=j
 endif
+
+autocmd BufNewFile,BufRead * setlocal formatoptions-=r
 
 " ------------------------------------------------------------------------------
 " Default indentations / spacings (for unknown files)

@@ -1,6 +1,7 @@
 " Ale
 
 let g:ale_lint_on_text_changed = 1
+let g:ale_linters = { 'rust': ['rls'] }
 
 " CoC
 " You will have bad experience for diagnostic messages when it's default 4000.
