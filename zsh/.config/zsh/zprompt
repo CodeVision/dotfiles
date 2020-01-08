@@ -83,16 +83,24 @@ hg-status() {
     vcs_prompt="%B[%b %F{green}$branch%f %F{$mod_color}%B↯%b%f %B]─%b"
 }
 
+venv-status() {
+  venv_prompt=''
+  if [[ -n ${VIRTUAL_ENV} ]]; then
+    venv_prompt="%B[%b %F{blue}venv%f: $(basename $VIRTUAL_ENV) %B]─%b"
+  fi
+}
+
 # precmd is called just before the prompt is printed
 theme_precmd() {
     title "zsh" "%m:%55<...<%~"
     vcs-status
+    venv-status
     set_prompts
 }
 
 # preexec is called just before any command line is executed
 theme_preexec() {
-    # executes captured commands ($(..)) twice, e.g. $(docker run ...) runs docker 
+    # executes captured commands ($(..)) twice, e.g. $(docker run ...) runs docker
     # twice, so disabled for now (by disabling hook)
     title "$1" "%m:%35<...<%~"
 }
@@ -128,7 +136,7 @@ set_rprompt() {
 }
 
 set_prompts() {
-    PROMPT="%B┌─[%b %n${SSH_TTY:+@%m} %B]─[%b %~ %B]─$vcs_prompt$prompt_newline%B└─●%(?.%F{green}❯%f.%F{red}❯%f)%b "
+    PROMPT="%B┌─[%b %n${SSH_TTY:+@%m} %B]─[%b %~ %B]─$venv_prompt$vcs_prompt$prompt_newline%B└─●%(?.%F{green}❯%f.%F{red}❯%f)%b "
     PS4='+%N:%i:%_>'
 }
 
