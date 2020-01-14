@@ -157,9 +157,9 @@ fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 [[ -s "$HOME/.local/share/zsh/zsh-nvm/zsh-nvm.plugin.zsh" ]] && source "$HOME/.local/share/zsh/zsh-nvm/zsh-nvm.plugin.zsh"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 ## load hooks
 [[ -s "$hooks" ]] && for f in $hooks/*; do source "$f"; done
@@ -169,4 +169,4 @@ export NVM_DIR="$HOME/.nvm"
 
 ## set path
 typeset -U path
-path=(~/bin "$HOME/.rvm/bin" /usr/local/heroku/bin $path)
+path=(~/bin "$HOME/.rvm/bin" $HOME/.cargo/bin /usr/local/heroku/bin $path)

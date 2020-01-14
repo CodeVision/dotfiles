@@ -43,3 +43,7 @@ Thumbs.db
 
 # config files
 .nvmrc
+
+# python
+env/
+venv/
