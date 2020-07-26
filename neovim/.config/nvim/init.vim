@@ -132,6 +132,8 @@ endif
 
 autocmd BufNewFile,BufRead * setlocal formatoptions-=r
 
+let g:node_host_prog = fnamemodify($NEOVIM_NODE, ':p:h') . "/neovim-node-host"
+
 " ------------------------------------------------------------------------------
 " Default indentations / spacings (for unknown files)
 " ------------------------------------------------------------------------------
