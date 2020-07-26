@@ -40,9 +40,8 @@ if [ -f /usr/bin/VBoxClient-all ]; then
   /usr/bin/VBoxClient-all
 fi
 
-if [[ $TERM == xterm-termite ]]; then
-  . /etc/profile.d/vte.sh
-  __vte_osc7
+if [ -f $HOME/.config/X/xinit-$(hostname) ]; then
+  /$HOME/.config/X/xinit-$(hostname)
 fi
 
 #twm &

@@ -143,6 +143,12 @@ fpath=( $ZDOTDIR/funcs $fpath )
 ## load completions
 [[ -r $completions ]] && for f in $completions/*; do source $f; done
 
+# open terminal in current directory config
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
+
 # external program configs
 eval $(dircolors -b)
 

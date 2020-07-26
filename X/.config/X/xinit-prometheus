@@ -1,0 +1,8 @@
+#!/usr/bin/zsh
+
+# set monitor configuration
+xrandr --output DVI-I-1 --auto --primary --output DP-1 --auto --right-of DVI-I-1 --output HDMI-1 --auto --left-of DVI-I-1
+
+# set mouse acceleration
+xinput --set-prop 'Logitech Gaming Mouse G502' 'libinput Accel Speed' 0.7
+
