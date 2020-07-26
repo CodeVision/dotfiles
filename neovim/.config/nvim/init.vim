@@ -57,18 +57,29 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'hashivim/vim-terraform'
 Plug 'CodeVision/Dockerfile.vim', { 'branch': 'develop' }
 
+Plug 'shmup/vim-sql-syntax'
+
+Plug 'elzr/vim-json'
+
 " Markup language
 Plug 'gabrielelana/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'sindresorhus/github-markdown-css', { 'dir': '~/.local/lib/github-markdown-css', 'branch': 'gh-pages' }
 
+Plug 'mattn/emmet-vim'
+Plug 'digitaltoad/vim-pug'
+Plug 'leafoftree/vim-vue-plugin'
+
 " CSS
 Plug 'JulesWang/css.vim'
 Plug 'ap/vim-css-color'
+Plug 'iloginow/vim-stylus'
 
 " JavaScript
 Plug 'pangloss/vim-javascript'
-Plug 'elzr/vim-json'
+" Plug 'othree/yajs.vim'
+
+Plug 'HerringtonDarkholme/yats.vim'
 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -76,6 +87,9 @@ Plug 'vim-ruby/vim-ruby'
 " Shell
 Plug 'chrisbra/vim-zsh'
 
+
+" --- load last
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " ==============================================================================
