@@ -104,6 +104,8 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+bindsym $mod+Ctrl+1 move container to workspace 1, workspace 1
+
 # move workspace to output
 bindsym $mod+Shift+Left move workspace to output left
 bindsym $mod+Shift+Right move workspace to output right
@@ -114,9 +116,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-bindsym $mod+grave move scratchpad
-bindsym $mod+Tab scratchpad show
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -153,7 +152,22 @@ bar {
 }
 
 # allow swapping to previous workspace by pressing active workspace key combo
-workspace_auto_back_and_forth yes
+# workspace_auto_back_and_forth yes
 
 # delay removal of urgency hints
 force_display_urgency_hint 1000 ms
+
+# application configuration
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+for_window [class="Galculator"] floating enable
+
+# scratchpad
+bindsym $mod+grave move scratchpad
+bindsym $mod+Tab scratchpad show
+
+bindsym $mod+c [class="Slack"] scratchpad show, resize set 1920 1080, move position center
+bindsym $mod+m [class="Mailspring"] scratchpad show, resize set 1920 1080, move position center
+bindsym $mod+n [class="notion"] scratchpad show, resize set 1920 1080, move position center
+
