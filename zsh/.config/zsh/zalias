@@ -28,7 +28,6 @@ alias lla='ls --all --classify --color=auto --escape --human-readable -l'
 alias ssh='TERM=xterm ssh'
 alias vim=nvim
 
-alias joplin='nvm use system; joplin'
-alias schrome='GDK_SCALE=0.5 GDK_DPI_SCALE=0.5 chromium'
-
 alias ziplambda="zip -r9 lambda.zip . -x package.json README.md TEST_SCENARIOS.txt 'config.json.*' 'config.*.json' '*.git*' local.js .nvmrc .gitignore"
+
+alias lumc="lumigo-cli"

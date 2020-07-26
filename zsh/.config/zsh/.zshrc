@@ -159,13 +159,19 @@ if [ -x "$(command -v keychain)" ]; then
   trap - SIGINT
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# fzf
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  source "$NVM_DIR/nvm.sh"  # This loads nvm
+  source "$ZDOTDIR/scripts/nvm-use.zsh"
+  source "$NVM_DIR/bash_completion"
+  export NEOVIM_NODE=$(nvm which neovim)
+fi
 
-[[ -s "$HOME/.local/share/zsh/zsh-nvm/zsh-nvm.plugin.zsh" ]] && source "$HOME/.local/share/zsh/zsh-nvm/zsh-nvm.plugin.zsh"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 ## load hooks
 [[ -s "$hooks" ]] && for f in $hooks/*; do source "$f"; done
