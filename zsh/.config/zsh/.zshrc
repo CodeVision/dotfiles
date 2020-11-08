@@ -178,3 +178,6 @@ fi
 ## set path
 typeset -U path
 path=(~/bin "$HOME/.rvm/bin" $HOME/.cargo/bin /usr/local/heroku/bin $path)
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
