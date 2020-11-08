@@ -42,6 +42,9 @@ Plug 'junegunn/vim-easy-align'
 " ------------------------------------------------------------------------------
 
 " General
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/playground'
+
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -133,6 +136,8 @@ endif
 autocmd BufNewFile,BufRead * setlocal formatoptions-=r
 
 let g:node_host_prog = fnamemodify($NEOVIM_NODE, ':p:h') . "/neovim-node-host"
+
+lua require('init')
 
 " ------------------------------------------------------------------------------
 " Default indentations / spacings (for unknown files)

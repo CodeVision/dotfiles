@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+firefox -P notion --class="notion" https://notion.so
