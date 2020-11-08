@@ -144,6 +144,7 @@ endif
 autocmd BufNewFile,BufRead * setlocal formatoptions-=r
 
 let g:node_host_prog = fnamemodify($NEOVIM_NODE, ':p:h') . '/neovim-node-host'
+let g:ruby_host_prog = 'rvm neovim do neovim-ruby-host'
 
 lua require('init')
 
