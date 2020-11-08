@@ -74,7 +74,7 @@ git-status() {
         mod_color=green
     fi
 
-    vcs_prompt="%B[%b %F{green}$branch%f %F{$mod_color}%B∓%b%f %B]─%b"
+    vcs_prompt="%B[%b %B%b %F{green}$branch%f%F{$mod_color}%f %B]─%b"
 
     return 0
 }
