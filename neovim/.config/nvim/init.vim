@@ -64,6 +64,7 @@ Plug 'CodeVision/Dockerfile.vim', { 'branch': 'develop' }
 Plug 'shmup/vim-sql-syntax'
 
 Plug 'elzr/vim-json'
+Plug 'neoclide/jsonc.vim'
 
 " Markup language
 Plug 'gabrielelana/vim-markdown'
