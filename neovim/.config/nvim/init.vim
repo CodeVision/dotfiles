@@ -28,6 +28,7 @@ Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePl
 
 " Interface
 Plug 'tomasiser/vim-code-dark'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 
@@ -183,12 +184,18 @@ set suffixes+=.ind,.idx,.ilg,.inx,.out,.toc
 " ------------------------------------------------------------------------------
 " Syntax highlighting & Colorschemes
 " ------------------------------------------------------------------------------
+" let g:nvcode_termcolors=256
+
 syntax on
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-colorscheme codedark
+colorscheme nvcode
+if (has("termguicolors"))
+  set termguicolors
+  hi LineNr ctermbg=NONE guibg=NONE
+endif
 
 " ------------------------------------------------------------------------------
 " Filetype settings
