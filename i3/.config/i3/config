@@ -141,7 +141,7 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+Ctrl+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -162,12 +162,23 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
 for_window [class="Galculator"] floating enable
+for_window [class="Spotify"] floating enable, resize set 1920 1080, move position center;
 
 # scratchpad
 bindsym $mod+grave move scratchpad
 bindsym $mod+Tab scratchpad show
 
-bindsym $mod+c [class="Slack"] scratchpad show, resize set 1920 1080, move position center
-bindsym $mod+m [class="Mailspring"] scratchpad show, resize set 1920 1080, move position center
-bindsym $mod+n [class="notion"] scratchpad show, resize set 1920 1080, move position center
+mode "commands" {
+  bindsym c [class="Slack"] scratchpad show, resize set 1920 1080, move position center; mode "default"
+  bindsym m [class="Mailspring"] scratchpad show, resize set 1920 1080, move position center; mode "default"
+  bindsym t [instance="todoist"] scratchpad show, resize set 1920 1080, move position center; mode "default"
+  bindsym i [instance="feedreader"] scratchpad show, resize set 1920 1080, move position center; mode "default"
+  bindsym n [instance="joplin"] scratchpad show, resize set 1920 1080, move position center; mode "default"
+  bindsym s [instance="spotify"] scratchpad show, resize set 1920 1080, move position center; mode "default"
+  bindsym k [instance="kanbanflow.com"] scratchpad show, resize set 1920 1080, move position center; mode "default"
+
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+bindsym $mod+c mode "commands"
 
