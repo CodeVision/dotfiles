@@ -69,12 +69,15 @@ Plug 'shmup/vim-sql-syntax'
 Plug 'elzr/vim-json'
 Plug 'neoclide/jsonc.vim'
 
+Plug 'jparise/vim-graphql'
+
 " Markup language
 Plug 'gabrielelana/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'sindresorhus/github-markdown-css', { 'dir': '~/.local/lib/github-markdown-css', 'branch': 'gh-pages' }
 
 Plug 'mattn/emmet-vim'
+Plug 'DougBeney/pickachu'
 Plug 'digitaltoad/vim-pug'
 Plug 'leafoftree/vim-vue-plugin'
 
@@ -85,7 +88,6 @@ Plug 'iloginow/vim-stylus'
 
 " JavaScript
 Plug 'pangloss/vim-javascript'
-" Plug 'othree/yajs.vim'
 
 Plug 'HerringtonDarkholme/yats.vim'
 
