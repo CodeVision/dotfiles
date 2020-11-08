@@ -152,12 +152,8 @@ fi
 # external program configs
 eval $(dircolors -b)
 
-# start keychain
-if [ -x "$(command -v keychain)" ]; then
-  trap "" SIGINT
-  eval $(keychain --eval --quiet id_rsa mkb)
-  trap - SIGINT
-fi
+# keychain
+source "$ZDOTDIR/programs/keychain.sh" $(cat ~/config/settings/.current-profile)
 
 # fzf
 source /usr/share/fzf/key-bindings.zsh
