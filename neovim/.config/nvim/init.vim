@@ -47,7 +47,7 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/playground'
 
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-endwise'
 Plug 'sgur/vim-editorconfig'
 
