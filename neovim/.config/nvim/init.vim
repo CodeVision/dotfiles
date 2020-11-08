@@ -137,13 +137,13 @@ set showbreak=↪
 
 set backspace=indent,eol,start
 
-if v:version > 703 || v:version == 703 && has("patch541")
+if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j
 endif
 
 autocmd BufNewFile,BufRead * setlocal formatoptions-=r
 
-let g:node_host_prog = fnamemodify($NEOVIM_NODE, ':p:h') . "/neovim-node-host"
+let g:node_host_prog = fnamemodify($NEOVIM_NODE, ':p:h') . '/neovim-node-host'
 
 lua require('init')
 
