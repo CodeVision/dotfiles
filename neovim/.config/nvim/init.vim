@@ -99,7 +99,8 @@ Plug 'chrisbra/vim-zsh'
 
 
 " --- load last
-Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
 call plug#end()
 
 " ==============================================================================
