@@ -1,3 +1,4 @@
 {
-  "diagnostic.displayByAle": true
+  "diagnostic.displayByAle": true,
+  "tsserver.npm": "/home/codevision/.nvm/versions/node/v15.2.0/bin/npm"
 }

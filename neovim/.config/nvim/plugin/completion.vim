@@ -1,13 +1,30 @@
 " Ale
 
+let g:ale_disable_lsp = 1
 let g:ale_lint_on_text_changed = 1
+let g:ale_virtualtext_cursor = 1
+let g:ale_sign_error = '✖'
+let g:ale_sign_warn = '⚠'
+
 let g:ale_linters = { 'rust': ['rls'] }
 
-" CoC
-" You will have bad experience for diagnostic messages when it's default 4000.
+" " completion-nvim
+"
+" " Use <Tab> and <S-Tab> to navigate through popup menu
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"
+" " Set completeopt to have a better completion experience
+" set completeopt=menuone,noinsert,noselect
+"
+" " Avoid showing message extra message when using completion
+
 set updatetime=300
 
 set shortmess+=c
+
+" CoC
+" You will have bad experience for diagnostic messages when it's default 4000.
 
 set signcolumn=yes
 

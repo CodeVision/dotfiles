@@ -32,6 +32,8 @@ Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 
+Plug 'christoomey/vim-tmux-navigator'
+
 " Text manipulation
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -146,8 +148,6 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=r
 let g:node_host_prog = fnamemodify($NEOVIM_NODE, ':p:h') . '/neovim-node-host'
 let g:ruby_host_prog = 'rvm neovim do neovim-ruby-host'
 
-lua require('init')
-
 " ------------------------------------------------------------------------------
 " Default indentations / spacings (for unknown files)
 " ------------------------------------------------------------------------------
@@ -214,6 +214,7 @@ filetype plugin indent on
 
 set autoindent
 
+lua require('init')
 " ==============================================================================
 " Mappings
 " ==============================================================================
