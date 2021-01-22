@@ -91,10 +91,10 @@ venv-status() {
 }
 
 aws-profile() {
-  (which lumigo-cli &> /dev/null) || return 1
+  (which rust-aws-profile &> /dev/null) || return 1
 
   aws_prompt=''
-  profile=$(lumigo-cli whoami | cut -d \  -f 6 | tr -d '[]')
+  profile=$(rust-aws-profile | cut -d \  -f 3)
   mod_color=cyan
   if [[ $profile == *"prod"* ]]; then
     mod_color=red
