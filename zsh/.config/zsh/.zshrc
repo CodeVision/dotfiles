@@ -149,6 +149,10 @@ if [[ $TERM == xterm-termite && -z $tmux_version ]]; then
   __vte_osc7
 fi
 
+## set path
+typeset -U path
+path=(~/bin $HOME/.local/share/fnm $HOME/.cargo/bin /usr/local/heroku/bin $path)
+
 # external program configs
 eval $(dircolors -b)
 
@@ -159,12 +163,10 @@ source "$ZDOTDIR/programs/keychain.sh" $(cat ~/config/settings/.current-profile)
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-export NVM_DIR="$HOME/.nvm"
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-  source "$NVM_DIR/nvm.sh"  # This loads nvm
-  source "$ZDOTDIR/scripts/nvm-use.zsh"
-  source "$NVM_DIR/bash_completion"
-  export NEOVIM_NODE=$(nvm which neovim)
+export FNM_DIR="$HOME/.local/share/fnm"
+if [ -s "$FNM_DIR/fnm" ]; then
+  eval "$(fnm env)"
+  export NEOVIM_NODE="$FNM_DIR/aliases/neovim/bin"
 fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -174,10 +176,6 @@ fi
 
 # load temp / package specific settings
 [ -f ~/.zshrc ] && source ~/.zshrc
-
-## set path
-typeset -U path
-path=(~/bin "$HOME/.rvm/bin" $HOME/.cargo/bin /usr/local/heroku/bin $path)
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
