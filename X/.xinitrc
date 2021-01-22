@@ -34,7 +34,7 @@ fi
 
 # remap caps lock to ctrl
 setxkbmap -option ctrl:nocaps
-
+setxkbmap -option compose:menu
 
 if [ -f /usr/bin/VBoxClient-all ]; then
   /usr/bin/VBoxClient-all
