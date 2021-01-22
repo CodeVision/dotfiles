@@ -24,13 +24,15 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc' }
 
 " Interface
 Plug 'tomasiser/vim-code-dark'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
+
+Plug 'ryanoasis/vim-devicons'
 
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -45,7 +47,7 @@ Plug 'junegunn/vim-easy-align'
 " ------------------------------------------------------------------------------
 
 " General
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/playground'
 
 Plug 'Yggdroot/indentLine'
@@ -58,9 +60,14 @@ Plug 'sgur/vim-editorconfig'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'w0rp/ale'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'steelsojka/completion-buffers'
 Plug 'tpope/vim-fugitive'
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
+
+Plug 'AndrewRadev/splitjoin.vim'
 
 " Misc Languages
 Plug 'hashivim/vim-terraform'

@@ -1,7 +1,7 @@
 " FZF
 
 let g:fzf_preview_directory_files_command = 'rg --files --hidden --follow --no-messages -g "!.git"'
-nnoremap <silent> <C-p>        :<C-u>FzfPreviewFromResources directory<CR>
+nnoremap <silent> <C-p>        :<C-u>FzfPreviewFromResourcesRpc directory<CR>
 
 " NerdTree
 nnoremap <Leader>n :NERDTreeToggle<CR>
