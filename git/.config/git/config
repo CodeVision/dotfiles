@@ -22,3 +22,5 @@
 	path = ~/.local/share/gitconfig
 [push]
 	default = simple
+[init]
+	defaultBranch = master
