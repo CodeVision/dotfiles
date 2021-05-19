@@ -178,6 +178,7 @@ for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Msgcompose"] floating enable
 
 for_window [class="Galculator"] floating enable
+for_window [class="mpv"] floating enable
 for_window [class="Pavucontrol"] floating enable, resize set 1024 768, move position center;
 for_window [class="Spotify"] floating enable, resize set 1920 1080, move position center;
 
@@ -194,7 +195,7 @@ mode "commands" {
   bindsym n [instance="obsidian"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
   bindsym s [instance="spotify"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
   bindsym k [instance="kanbanflow.com"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
-  bindsym r [class="Zotero"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
+  bindsym g [class="discord"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
 
   bindsym Escape mode "default"
   bindsym Return mode "default"
