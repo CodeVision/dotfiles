@@ -151,7 +151,7 @@ fi
 
 ## set path
 typeset -U path
-path=(~/bin $HOME/.local/share/fnm $HOME/.cargo/bin /usr/local/heroku/bin $path)
+path=(~/bin $HOME/.local/share/fnm $CARGO_HOME/bin /usr/local/heroku/bin /opt/cuda/bin $path)
 
 # external program configs
 eval $(dircolors -b)
