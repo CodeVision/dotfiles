@@ -40,8 +40,8 @@ if [ -f /usr/bin/VBoxClient-all ]; then
   /usr/bin/VBoxClient-all
 fi
 
-if [ -f $HOME/.config/X/xinit-$(hostname) ]; then
-  /$HOME/.config/X/xinit-$(hostname)
+if [ -f $HOME/.config/X/xinit-$(uname -n) ]; then
+  /$HOME/.config/X/xinit-$(uname -n)
 fi
 
 #twm &
