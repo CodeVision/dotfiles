@@ -17,11 +17,11 @@ _fnm_use() {
 
 autoload -U add-zsh-hook
 _fnm_autoload_hook() {
-	nvmrc_path=$(find-up .nvmrc | tr -d '[:space:]')
+	nvmrc_path=$(find-up .node-version | tr -d '[:space:]')
 
 	if [ -n "$nvmrc_path" ]; then
 		FNM_USING_LOCAL_VERSION=1
-		nvm_version=$(cat $nvmrc_path/.nvmrc)
+		nvm_version=$(cat $nvmrc_path/.node-version)
 		_fnm_use $nvm_version
 	elif [ $FNM_USING_LOCAL_VERSION -eq 1 ]; then
 		FNM_USING_LOCAL_VERSION=0
