@@ -151,7 +151,7 @@ set_rprompt() {
 }
 
 set_prompts() {
-    PROMPT="%B┌─[%b %n${SSH_TTY:+@%m} %B]─[%b %~ %B]─$aws_prompt$venv_prompt$vcs_prompt$prompt_newline%B└─●%(?.%F{green}❯%f.%F{red}❯%f)%b "
+    PROMPT="%B┌─[%b %n${SSH_TTY:+@%m} %B]─[%b %~ %B]─$aws_prompt$venv_prompt$vcs_prompt$prompt_newline%B└─⦁%(?.%F{green}❯%f.%F{red}❯%f)%b "
     PS4='+%N:%i:%_>'
 }
 
