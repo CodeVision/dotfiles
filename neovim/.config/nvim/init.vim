@@ -47,27 +47,30 @@ Plug 'junegunn/vim-easy-align'
 " ------------------------------------------------------------------------------
 
 " General
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-Plug 'nvim-treesitter/playground'
-
 Plug 'Yggdroot/indentLine'
 Plug 'lukas-reineke/indent-blankline.nvim'
 
-Plug 'jiangmiao/auto-pairs'
-Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-endwise'
+Plug 'jiangmiao/auto-pairs'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'tomtom/tcomment_vim'
 Plug 'sgur/vim-editorconfig'
-
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'w0rp/ale'
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-lua/completion-nvim'
-" Plug 'steelsojka/completion-buffers'
-Plug 'tpope/vim-fugitive'
 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-Plug 'AndrewRadev/splitjoin.vim'
+Plug 'tpope/vim-fugitive'
+
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'w0rp/ale'
+
+Plug 'honza/vim-snippets'
+
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+Plug 'nvim-treesitter/playground'
+
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'steelsojka/completion-buffers'
 
 " Misc Languages
 Plug 'hashivim/vim-terraform'
@@ -83,7 +86,7 @@ Plug 'jparise/vim-graphql'
 " Markup language
 Plug 'gabrielelana/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-Plug 'sindresorhus/github-markdown-css', { 'dir': '~/.local/lib/github-markdown-css', 'branch': 'gh-pages' }
+" Plug 'sindresorhus/github-markdown-css', { 'dir': '~/.local/lib/github-markdown-css', 'branch': 'gh-pages' }
 
 Plug 'mattn/emmet-vim'
 Plug 'DougBeney/pickachu'
@@ -105,7 +108,6 @@ Plug 'vim-ruby/vim-ruby'
 
 " Shell
 Plug 'chrisbra/vim-zsh'
-
 
 " --- load last
 Plug 'kyazdani42/nvim-web-devicons'
