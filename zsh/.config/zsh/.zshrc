@@ -143,12 +143,6 @@ fpath=( $ZDOTDIR/funcs $fpath )
 ## load completions
 [[ -r $completions ]] && for f in $completions/*; do source $f; done
 
-# open terminal in current directory config
-if [[ $TERM == xterm-termite && -z $tmux_version ]]; then
-  . /etc/profile.d/vte.sh
-  __vte_osc7
-fi
-
 ## set path
 typeset -U path
 path=(~/bin $HOME/.local/share/fnm $CARGO_HOME/bin /usr/local/heroku/bin /opt/cuda/bin $path)
