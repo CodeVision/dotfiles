@@ -159,7 +159,7 @@ source /usr/share/fzf/completion.zsh
 
 export FNM_DIR="$HOME/.local/share/fnm"
 if [ -s "$FNM_DIR/fnm" ]; then
-  eval "$(fnm env)"
+  eval "$(fnm env --use-on-cd)"
   export NEOVIM_NODE="$FNM_DIR/aliases/neovim/bin"
 fi
 
