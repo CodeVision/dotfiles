@@ -189,9 +189,11 @@ bindsym $mod+Tab scratchpad show
 mode "commands" {
   set $cw_width 1880
   set $cw_height 1080
+  set $cw_width_large 2560
+  set $cw_height_large 1280
   bindsym c [class="Slack"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
-  bindsym m [class="Thunderbird"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
-  bindsym t [instance="todoist"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
+  bindsym m [class="thunderbird"] scratchpad show, resize set $cw_width_large $cw_height_large, move position center; mode "default"
+  bindsym t [instance="ticktick"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
   bindsym n [instance="obsidian"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
   bindsym s [instance="spotify"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
   bindsym k [instance="kanbanflow.com"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
@@ -207,3 +209,4 @@ bindsym $mod+g exec ~/dev/scripts/i3-load-layout.sh
 
 exec --no-startup-id i3-msg "exec /usr/bin/pasystray"
 exec --no-startup-id i3-msg "workspace 1; exec /usr/bin/thunderbird"
+exec --no-startup-id i3-msg "workspace 1; exec /usr/bin/slack"
