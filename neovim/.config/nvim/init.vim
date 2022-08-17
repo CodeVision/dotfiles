@@ -61,7 +61,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 Plug 'honza/vim-snippets'
 
@@ -112,6 +112,7 @@ Plug 'chrisbra/vim-zsh'
 " --- load last
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
+
 call plug#end()
 
 " ==============================================================================

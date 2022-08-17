@@ -2,7 +2,11 @@
 
 let g:ale_disable_lsp = 1
 let g:ale_lint_on_text_changed = 1
+" let g:ale_cursor_detail = 1
+" let g:ale_floating_preview = 1
+" let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
 let g:ale_virtualtext_cursor = 1
+" let g:ale_send_to_neovim_diagnostics = 0
 let g:ale_sign_error = '✖'
 let g:ale_sign_warn = '⚠'
 
