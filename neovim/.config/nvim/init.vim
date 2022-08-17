@@ -62,6 +62,7 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'dense-analysis/ale'
+" Plug 'dbalatero/ale', { 'branch': 'dbalatero/send-ale-to-neovim-diagnostics' }
 
 Plug 'honza/vim-snippets'
 
@@ -157,6 +158,7 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=r
 
 let g:node_host_prog = fnamemodify($NEOVIM_NODE, ':p:h') . '/neovim-node-host'
 let g:ruby_host_prog = 'rvm neovim do neovim-ruby-host'
+let g:python3_host_prog = fnamemodify($PYENV_ROOT, ':p:h') . '/versions/3.10.3/bin/python'
 
 " ------------------------------------------------------------------------------
 " Default indentations / spacings (for unknown files)

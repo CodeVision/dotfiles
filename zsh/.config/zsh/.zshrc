@@ -145,7 +145,7 @@ fpath=( $ZDOTDIR/funcs $fpath )
 
 ## set path
 typeset -U path
-path=(~/bin $HOME/.local/share/fnm $CARGO_HOME/bin /usr/local/heroku/bin /opt/cuda/bin $path)
+path=(~/bin $HOME/.local/share/fnm $PYENV_ROOT/bin $CARGO_HOME/bin /usr/local/heroku/bin /opt/cuda/bin $path)
 
 # external program configs
 eval $(dircolors -b)
@@ -164,6 +164,11 @@ if [ -s "$FNM_DIR/fnm" ]; then
 fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+if [[ -s "$HOME/.local/share/pyenv/bin/pyenv" ]]; then
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
 
 ## load hooks
 [[ -s "$hooks" ]] && for f in $hooks/*; do source "$f"; done
