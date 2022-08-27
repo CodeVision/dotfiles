@@ -145,7 +145,7 @@ fpath=( $ZDOTDIR/funcs $fpath )
 
 ## set path
 typeset -U path
-path=(~/bin $HOME/.local/share/fnm $PYENV_ROOT/bin $CARGO_HOME/bin /usr/local/heroku/bin /opt/cuda/bin $path)
+path=(~/.local/bin $HOME/.local/share/fnm $PYENV_ROOT/bin $CARGO_HOME/bin /usr/local/heroku/bin /opt/cuda/bin $path)
 
 # external program configs
 eval $(dircolors -b)
