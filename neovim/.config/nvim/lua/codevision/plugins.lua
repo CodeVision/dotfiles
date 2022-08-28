@@ -35,9 +35,6 @@ return require('packer').startup(function(use)
   use { 'nvim-telescope/telescope-fzy-native.nvim', run = 'make' }
 
   -- coding
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'neovim/nvim-lspconfig'
-
   use {
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup({}) end
@@ -46,6 +43,10 @@ return require('packer').startup(function(use)
     'numToStr/Comment.nvim',
     config = function() require("Comment").setup() end
   }
+
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'neovim/nvim-lspconfig'
+  use 'onsails/lspkind.nvim'
 
   -- completion
   use 'hrsh7th/nvim-cmp'

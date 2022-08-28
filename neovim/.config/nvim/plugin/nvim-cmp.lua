@@ -1,4 +1,5 @@
 local cmp = require('cmp')
+local lspkind = require('lspkind')
 
 cmp.setup({
   snippet = {
@@ -19,19 +20,21 @@ cmp.setup({
   }),
   formatting = {
     fields = { 'menu', 'abbr', 'kind' },
-    format = function(entry, item)
-      local menu_icon = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      maxwidth = 50,
+      menu = ({
         nvim_lsp = 'λ',
         nvim_lua = '☾',
         luasnip = '⋗',
         buffer = 'Ω',
         path = '🖫'
-      }
+      }),
 
-      item.menu = menu_icon[entry.source.name]
-
-      item.dup = ({ nvim_lua = 0 })[entry.source.name] or 0
-      return item
-    end
+      before = function(entry, item)
+        item.dup = ({ nvim_lua = 0 })[entry.source.name] or 0
+        return item
+      end
+    })
   }
 })
