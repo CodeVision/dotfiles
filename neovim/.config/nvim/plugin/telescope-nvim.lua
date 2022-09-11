@@ -1,4 +1,6 @@
-require('telescope').setup({
+local telescope = require('telescope')
+
+telescope.setup({
   defaults = {
     color_devicons = true,
     layout_config = {
@@ -10,9 +12,14 @@ require('telescope').setup({
       override_generic_sorter = true,
       override_file_sorter = true
     }
+  },
+  pickers = {
+    diagnostics = {
+      layout_strategy = 'vertical'
+    }
   }
 })
-require('telescope').load_extension('fzy_native')
+telescope.load_extension('fzy_native')
 
 local keymap = vim.keymap.set
 
