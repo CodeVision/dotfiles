@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
     'AndrewRadev/splitjoin.vim',
     keys = { "gJ", "gS" }
   }
+  use 'NvChad/nvim-colorizer.lua'
   use {
     'numToStr/Comment.nvim',
     config = function() require("Comment").setup() end
