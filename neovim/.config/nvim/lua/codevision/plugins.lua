@@ -90,4 +90,10 @@ return require('packer').startup(function(use)
   -- graphics
   use 'kyazdani42/nvim-web-devicons'
   use 'Mofiqul/vscode.nvim'
+
+  -- plugin development
+  use {
+    'tpope/vim-scriptease',
+    cmd = 'Messages'
+  }
 end)
