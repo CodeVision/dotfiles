@@ -48,6 +48,7 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'onsails/lspkind.nvim'
+  use 'glepnir/lspsaga.nvim'
 
   -- completion
   use 'hrsh7th/nvim-cmp'
