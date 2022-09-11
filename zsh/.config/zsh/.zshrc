@@ -145,7 +145,7 @@ fpath=( $ZDOTDIR/funcs $fpath )
 
 ## set path
 typeset -U path
-path=(~/.local/bin $HOME/.local/share/fnm $PYENV_ROOT/bin $CARGO_HOME/bin /usr/local/heroku/bin /opt/cuda/bin $path)
+path=(~/.local/bin $HOME/.local/share/fnm $HOME/.local/share/rbenv/bin $PYENV_ROOT/bin $CARGO_HOME/bin /usr/local/heroku/bin /opt/cuda/bin $path)
 
 # external program configs
 eval $(dircolors -b)
@@ -163,7 +163,9 @@ if [ -s "$FNM_DIR/fnm" ]; then
   export NEOVIM_NODE="$FNM_DIR/aliases/neovim/bin"
 fi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+if [[ -s "$HOME/.local/share/rbenv/bin/rbenv" ]]; then
+  eval "$(rbenv init - zsh)"
+fi
 
 if [[ -s "$HOME/.local/share/pyenv/bin/pyenv" ]]; then
   eval "$(pyenv init --path)"
