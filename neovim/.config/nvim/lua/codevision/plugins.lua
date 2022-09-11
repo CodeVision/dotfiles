@@ -64,6 +64,10 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'onsails/lspkind.nvim'
   use 'glepnir/lspsaga.nvim'
+  use {
+    'j-hui/fidget.nvim',
+    config = function() require('fidget').setup({}) end
+  }
 
   -- completion
   use 'hrsh7th/nvim-cmp'
