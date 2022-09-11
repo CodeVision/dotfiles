@@ -11,17 +11,17 @@
             "current_border_width": 2,
             "floating": "auto_off",
             "geometry": {
-               "height": 1156,
-               "width": 1916,
-               "x": 4482,
-               "y": 42
+               "height": 1200,
+               "width": 1276,
+               "x": 0,
+               "y": 0
             },
-            "name": "New Tab - Chromium",
+            "name": "FVD Speed Dial - Last Month - Mozilla Firefox",
             "percent": 0.5,
             "swallows": [
                {
-                   "class": "^Chromium$",
-                   "instance": "^chromium$"
+                   "class": "^firefox$",
+                   "instance": "^Navigator$"
                }
             ],
             "type": "con"
