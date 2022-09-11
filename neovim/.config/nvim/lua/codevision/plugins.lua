@@ -44,6 +44,10 @@ return require('packer').startup(function(use)
     config = function() require("nvim-surround").setup({}) end
   }
   use {
+    'AndrewRadev/splitjoin.vim',
+    keys = { "gJ", "gS" }
+  }
+  use {
     'numToStr/Comment.nvim',
     config = function() require("Comment").setup() end
   }
