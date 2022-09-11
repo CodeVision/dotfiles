@@ -4,4 +4,11 @@ vscode.setup({
   disable_nvimtree_bg = true
 })
 
-vscode.change_style('dark')
+local function setStyle()
+  local print = _G.print
+  _G.print = function() end
+  vscode.change_style('dark')
+  _G.print = print
+end
+
+setStyle()
