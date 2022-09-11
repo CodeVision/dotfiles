@@ -74,19 +74,19 @@ git-status() {
         mod_color=green
     fi
 
-    vcs_prompt="%B[%b %B%b %F{green}$branch%f%F{$mod_color}%f %B]─%b"
+    vcs_prompt="%F{white}%B[%b %B%b%f %F{green}$branch%f%F{$mod_color}%f %F{white}%B]─%b%f"
 
     return 0
 }
 
 hg-status() {
-    vcs_prompt="%B[%b %F{green}$branch%f %F{$mod_color}%B↯%b%f %B]─%b"
+    vcs_prompt="%F{white}%B[%b%f %F{green}$branch%f %F{$mod_color}%B↯%b%f %F{white}%B]─%b%f"
 }
 
 venv-status() {
   venv_prompt=''
   if [[ -n ${VIRTUAL_ENV} ]]; then
-    venv_prompt="%B[%b %F{blue}venv%f: $(basename $VIRTUAL_ENV) %B]─%b"
+    venv_prompt="%F{white}%B[%b%f %F{blue}venv%f: $(basename $VIRTUAL_ENV) %F{white}%B]─%b%f"
   fi
 }
 
@@ -99,7 +99,7 @@ aws-profile() {
   if [[ $profile == *"prod"* ]]; then
     mod_color=red
   fi
-  aws_prompt="%B[%b %F{yellow}%BAWS%b%f: %F{$mod_color}${profile}%f %B]─%b"
+  aws_prompt="%F{white}%B[%b%f %F{yellow}%BAWS%b%f: %F{$mod_color}${profile}%f %F{white}%B]─%b%f"
 
   return 0
 }
@@ -151,7 +151,7 @@ set_rprompt() {
 }
 
 set_prompts() {
-    PROMPT="%B┌─[%b %n${SSH_TTY:+@%m} %B]─[%b %~ %B]─$aws_prompt$venv_prompt$vcs_prompt$prompt_newline%B└─⦁%(?.%F{green}❯%f.%F{red}❯%f)%b "
+    PROMPT="%F{white}%B┌─[%b%f %n${SSH_TTY:+@%m} %F{white}%B]─[%b%f %~ %F{white}%B]─%b%f$aws_prompt$venv_prompt$vcs_prompt$prompt_newline%F{white}%B└─⦁%f%(?.%F{green}❯%f.%F{red}❯%f)%b "
     PS4='+%N:%i:%_>'
 }
 

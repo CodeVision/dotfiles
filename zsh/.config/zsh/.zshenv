@@ -1,6 +1,6 @@
 export EDITOR=nvim
 export PAGER=less
-export TERMINAL=alacritty
+export TERMINAL=kitty
 export GPG_KEY=BED3ED4A
 
 export XDG_CONFIG_DIR=~/.config
