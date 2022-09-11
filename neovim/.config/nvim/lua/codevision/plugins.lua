@@ -69,11 +69,17 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-nvim-lua'
+  -- use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-nvim-lsp'
 
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
+
+  -- languages
+  use {
+    'folke/lua-dev.nvim',
+    config = function() require('lua-dev').setup({}) end
+  }
 
   -- graphics
   use 'kyazdani42/nvim-web-devicons'
