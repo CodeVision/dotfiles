@@ -23,7 +23,7 @@ options.mouse = a                  -- enable mouse in all modes
 options.listchars = { tab = '▸ ', eol = '¬', extends = '❯', precedes = '❮', trail = '·', nbsp = '·' }
 options.showbreak = '↪'
 
-options.signcolumn = 'auto:1-3'
+options.signcolumn = 'auto:2-3'
 options.pumheight = 8
 
 -- indentations / spacings
@@ -31,6 +31,10 @@ options.expandtab = true           -- insert spaces for tabs
 options.shiftwidth = 2             -- number of spaces to shift by
 options.softtabstop = 2            -- number of spaces tab counts for while performing edits
 options.tabstop = 2                -- number of spaces tab counts for
+
+-- command completions
+options.wildmenu = true
+options.wildmode = 'full'
 
 -- completions
 options.completeopt = { 'menu', 'menuone', 'noselect' }
