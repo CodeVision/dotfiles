@@ -76,6 +76,7 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
 
   -- languages
+  use 'simrat39/rust-tools.nvim'
   use {
     'folke/lua-dev.nvim',
     config = function() require('lua-dev').setup({}) end
