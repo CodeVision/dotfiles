@@ -28,9 +28,9 @@ options.pumheight = 8
 
 -- indentations / spacings
 options.expandtab = true           -- insert spaces for tabs
-options.shiftwidth = 4             -- number of spaces to shift by
-options.softtabstop = 4            -- number of spaces tab counts for while performing edits
-options.tabstop = 4                -- number of spaces tab counts for
+options.shiftwidth = 2             -- number of spaces to shift by
+options.softtabstop = 2            -- number of spaces tab counts for while performing edits
+options.tabstop = 2                -- number of spaces tab counts for
 
 -- completions
 options.completeopt = { 'menu', 'menuone', 'noselect' }
