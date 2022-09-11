@@ -53,6 +53,10 @@ return require('packer').startup(function(use)
     config = function() require("Comment").setup() end
   }
   use 'gpanders/editorconfig.nvim'
+  use {
+    'folke/trouble.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+  }
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'neovim/nvim-lspconfig'
