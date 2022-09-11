@@ -52,6 +52,7 @@ return require('packer').startup(function(use)
     'numToStr/Comment.nvim',
     config = function() require("Comment").setup() end
   }
+  use 'gpanders/editorconfig.nvim'
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'neovim/nvim-lspconfig'
