@@ -28,7 +28,7 @@ local startup = function(use)
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     tag = '0.1.0',
-    config = load_config('telescope-nvim')
+    config = load_config('telescope-nvim'),
   }
   use { 'nvim-telescope/telescope-fzy-native.nvim', run = 'make' }
   use {
@@ -52,10 +52,30 @@ local startup = function(use)
   }
   --  use { 'nvim-treesitter/playground' }
   --  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+
+  -- completion
+  use { 'hrsh7th/nvim-cmp', config = load_config('nvim-cpm') }
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-nvim-lsp'
+
+  use {
+    'neovim/nvim-lspconfig',
+    config = load_config('lsp'),
+  }
+  use 'onsails/lspkind.nvim'
+  use {
+    'glepnir/lspsaga.nvim',
+    config = load_config('lspsaga-nvim')
+  }
+  --  use {
+  --    'j-hui/fidget.nvim',
+  --    config = function() require('fidget').setup({}) end
+  --  }
   use {
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async',
-    config = load_config(' nvim-ufo'),
+    config = load_config('nvim-ufo'),
   }
 
   -- interface
