@@ -1,6 +1,10 @@
 return function()
   local telescope = require('telescope')
 
+  local settings = {
+    hidden = true,
+    no_ignore = false,
+  }
   local bind = function(func, args)
     return function() 
       func(args)
@@ -23,6 +27,22 @@ return function()
     pickers = {
       diagnostics = {
         layout_strategy = 'vertical'
+      },
+      find_files = {
+        mappings = {
+          i = {
+            ["<C-h>"] = function(prompt_bufnr)
+              require("telescope.actions").close(prompt_bufnr)
+              settings.hidden = not settings.hidden
+              require("telescope.builtin").find_files(settings)
+            end,
+            ["<C-i>"] = function(prompt_bufnr)
+              require("telescope.actions").close(prompt_bufnr)
+              settings.no_ignore = not settings.no_ignore
+              require("telescope.builtin").find_files(settings)
+            end
+          }
+        }
       }
     }
   })
@@ -31,7 +51,7 @@ return function()
   local keymap = vim.keymap.set
 
   local builtin = require('telescope.builtin')
-  keymap('n', '<c-p>', bind(builtin.find_files, { hidden = true }), { silent = true })
+  keymap('n', '<c-p>', bind(builtin.find_files, settings), { silent = true })
   keymap('n', '<leader>fg', builtin.live_grep, { silent = true })
   keymap('n', '<leader>fh', builtin.help_tags, { silent = true })
 end
