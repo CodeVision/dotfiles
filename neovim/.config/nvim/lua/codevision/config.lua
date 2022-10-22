@@ -1,2 +1,2 @@
 -- language configuration
-vim.g.node_host_prog = vim.fn.fnamemodify(vim.env.NEOVIM_NODE, ':p:h') .. '/neovim-node-host'
+vim.g.node_host_prog = vim.fn.fnamemodify(vim.env.NEOVIM_NODE, ':p:h') .. '/bin/neovim-node-host'

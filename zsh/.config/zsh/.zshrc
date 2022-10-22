@@ -143,9 +143,9 @@ fpath=( $ZDOTDIR/funcs $fpath )
 ## load completions
 [[ -r $completions ]] && for f in $completions/*; do source $f; done
 
-## set path
-typeset -U path
-path=(~/.local/bin $HOME/.local/share/fnm $HOME/.local/share/rbenv/bin $PYENV_ROOT/bin $CARGO_HOME/bin /usr/local/heroku/bin /opt/cuda/bin $path)
+## set programs and paths
+typeset -Ux path PATH
+path=($path)
 
 # external program configs
 eval $(dircolors -b)
@@ -157,23 +157,33 @@ source "$ZDOTDIR/programs/keychain.sh" $(cat ~/config/settings/.current-profile)
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-export FNM_DIR="$HOME/.local/share/fnm"
-if [ -s "$FNM_DIR/fnm" ]; then
-  eval "$(fnm env --use-on-cd)"
-  export NEOVIM_NODE="$FNM_DIR/aliases/neovim/bin"
-fi
-
-if [[ -s "$HOME/.local/share/rbenv/bin/rbenv" ]]; then
-  eval "$(rbenv init - zsh)"
-fi
-
-if [[ -s "$HOME/.local/share/pyenv/bin/pyenv" ]]; then
-  eval "$(pyenv init --path)"
+if [[ -s "$PYENV_ROOT/bin/pyenv" ]]; then
+  path=($PYENV_ROOT/bin $path)
   eval "$(pyenv init -)"
+fi
+
+if [[ -d "$CARGO_HOME/bin" ]]; then
+  path=($CARGO_HOME/bin $path)
+fi
+
+if [[ -s "$RBENV_ROOT/bin/rbenv" ]]; then
+  path=($RBENV_ROOT/bin $path)
+  eval "$(rbenv init -)"
+fi
+
+export FNM_DIR="$HOME/.local/share/fnm"
+if [[ -s "$FNM_DIR/fnm" ]]; then
+  path=($HOME/.local/share/fnm $path)
+  eval "$(fnm env --use-on-cd)"
+  export NEOVIM_NODE="$FNM_DIR/aliases/neovim"
 fi
 
 ## load hooks
 [[ -s "$hooks" ]] && for f in $hooks/*; do source "$f"; done
 
 # load temp / package specific settings
-[ -f ~/.zshrc ] && source ~/.zshrc
+if [[ -f ~/.zshrc ]]; then
+  source ~/.zshrc
+fi
+
+path=($HOME/.local/bin $path)
