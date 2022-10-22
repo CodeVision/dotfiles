@@ -11,97 +11,125 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-local load_config = function(name)
-  local success, conf = pcall(require, 'codevision.plugins.' .. name)
-  if success then
-    return conf
+local configs = {}
+local load_config = function()
+  for _, v in ipairs(configs) do
+    local module_location = v
+    if not vim.startswith(v, 'codevision') then
+      module_location = 'codevision.plugins.' .. v
+    end
+    local success = pcall(require, module_location)
+    if not success then
+      print('failed loading ' .. v)
+    end
   end
 end
 
+local add_config = function(config)
+  table.insert(configs, config)
+end
+
+local setup = {}
+local perform_setup = function()
+  for _, v in ipairs(setup) do
+    local success, module = pcall(require, v)
+    if success and module then
+      module.setup({})
+    else
+      print('failed to setup ' .. v)
+    end
+  end
+end
+
+local add_setup = function(name)
+  table.insert(setup, name)
+end
+
+local configure = function()
+  load_config()
+  perform_setup()
+end
+
 local startup = function(use)
+  local config_use = function(plugin, config)
+    use(plugin)
+
+    if config ~= nil then
+      add_config(config)
+    end
+  end
+
+  local setup_use = function(plugin, name)
+    use(plugin)
+
+    add_setup(name)
+  end
+
   --  plugins
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
 
   -- files
-  use {
+  config_use({
     'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     tag = '0.1.0',
-    config = load_config('telescope-nvim'),
-  }
+  }, 'telescope-nvim')
   use { 'nvim-telescope/telescope-fzy-native.nvim', run = 'make' }
-  use {
-    "kylechui/nvim-surround",
-    config = function() require("nvim-surround").setup({}) end
-  }
+  setup_use({ 'kylechui/nvim-surround' }, 'nvim-surround')
 
   -- coding
-  use {
-    'AndrewRadev/splitjoin.vim',
-    keys = { "gJ", "gS" }
-  }
-  use {
-    'numToStr/Comment.nvim',
-    config = function() require("Comment").setup({}) end
-  }
-  use {
+  use 'gpanders/editorconfig.nvim'
+  use { 'AndrewRadev/splitjoin.vim', keys = { 'gJ', 'gS' } }
+  setup_use({ 'numToStr/Comment.nvim' }, 'Comment')
+  config_use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = load_config('nvim-treesitter')
-  }
+  }, 'nvim-treesitter')
   --  use { 'nvim-treesitter/playground' }
   --  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
 
   -- completion
-  use { 'hrsh7th/nvim-cmp', config = load_config('nvim-cpm') }
+  config_use({ 'hrsh7th/nvim-cmp' }, 'nvim-cmp')
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-nvim-lsp'
 
-  use {
-    'neovim/nvim-lspconfig',
-    config = load_config('lsp'),
-  }
+  config_use({ 'neovim/nvim-lspconfig' }, 'codevision.lsp')
   use 'onsails/lspkind.nvim'
-  use {
-    'glepnir/lspsaga.nvim',
-    config = load_config('lspsaga-nvim')
-  }
-  --  use {
-  --    'j-hui/fidget.nvim',
-  --    config = function() require('fidget').setup({}) end
-  --  }
-  use {
+  config_use({ 'glepnir/lspsaga.nvim' }, 'lspsaga-nvim')
+  use 'jose-elias-alvarez/null-ls.nvim'
+  setup_use({ 'j-hui/fidget.nvim' }, 'fidget' )
+  config_use({
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async',
-    config = load_config('nvim-ufo'),
-  }
+  }, 'nvim-ufo')
+
+  -- snippets
+  config_use({ 'L3MON4D3/LuaSnip' }, 'luasnip')
+  use 'saadparwaiz1/cmp_luasnip'
 
   -- interface
-  use {
+  config_use({
     'nvim-neo-tree/neo-tree.nvim',
     requires = {
       use 'nvim-tree/nvim-web-devicons',
       use 'MunifTanjim/nui.nvim'
     },
     branch = 'v2.x',
-    config = load_config('neo-tree-nvim')
-  }
-  use {
-    'mrjones2014/smart-splits.nvim',
-    config = load_config('smart-splits-nvim')
-  }
-  use {
-    'Mofiqul/vscode.nvim',
-    config = load_config('vscode-nvim')
-  }
+  }, 'neo-tree-nvim')
+  config_use({ 'mrjones2014/smart-splits.nvim' }, 'smart-splits-nvim')
+  config_use({ 'Mofiqul/vscode.nvim' }, 'vscode-nvim')
 
   if packer_bootstrap then
     require('packer').sync()
   end
 end
 
-return require('packer').startup({
+local packer = require('packer').startup({
   startup
 })
+
+configure()
+
+return packer

@@ -1,8 +1,8 @@
 local lspconfig = require'lspconfig'
 local lspconfig_configs = require'lspconfig.configs'
 local util = require 'lspconfig.util'
-local capabilities = require('codevision.plugins.lsp.util').capabilities
-local on_attach = require('codevision.plugins.lsp.util').on_attach
+local capabilities = require('codevision.lsp.util').capabilities
+local on_attach = require('codevision.lsp.util').on_attach
 
 
 local function on_new_config(new_config, new_root_dir)

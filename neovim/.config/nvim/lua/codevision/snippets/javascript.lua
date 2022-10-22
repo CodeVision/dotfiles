@@ -19,13 +19,15 @@ ls.add_snippets("javascript", {
     i(1)
   })),
   ps("cl", "console.log('$0');"),
+  ps("cjp", "console.log(JSON.stringify($0, null, 2));"),
+  ps("cjs", "console.log(JSON.stringify($0));"),
   s("describe", fmt([[
   describe("{}", () => {{
     {}
   }});
   ]], {
     d(1, function(_, parent)
-        local source_name = vim.split(parent.snippet.env.TM_FILENAME, '.', true)
+        local source_name = vim.split(parent.snippet.env.TM_FILENAME, '.')
         return sn(nil, {
           i(1, source_name[1])
         })
