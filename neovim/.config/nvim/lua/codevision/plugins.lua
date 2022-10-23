@@ -76,12 +76,12 @@ local startup = function(use)
     tag = '0.1.0',
   }, 'telescope-nvim')
   use { 'nvim-telescope/telescope-fzy-native.nvim', run = 'make' }
-  setup_use({ 'kylechui/nvim-surround' }, 'nvim-surround')
+  setup_use('kylechui/nvim-surround', 'nvim-surround')
 
   -- coding
   use 'gpanders/editorconfig.nvim'
   use { 'AndrewRadev/splitjoin.vim', keys = { 'gJ', 'gS' } }
-  setup_use({ 'numToStr/Comment.nvim' }, 'Comment')
+  setup_use('numToStr/Comment.nvim', 'Comment')
   config_use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
@@ -90,41 +90,41 @@ local startup = function(use)
   --  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
 
   -- completion
-  config_use({ 'hrsh7th/nvim-cmp' }, 'nvim-cmp')
+  config_use('hrsh7th/nvim-cmp', 'nvim-cmp')
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-nvim-lsp'
 
-  config_use({ 'neovim/nvim-lspconfig' }, 'codevision.lsp')
+  config_use('neovim/nvim-lspconfig', 'codevision.lsp')
   use 'onsails/lspkind.nvim'
-  config_use({ 'glepnir/lspsaga.nvim' }, 'lspsaga-nvim')
+  config_use('glepnir/lspsaga.nvim', 'lspsaga-nvim')
   use 'jose-elias-alvarez/null-ls.nvim'
-  setup_use({ 'j-hui/fidget.nvim' }, 'fidget' )
+  setup_use('j-hui/fidget.nvim', 'fidget' )
   config_use({
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async',
   }, 'nvim-ufo')
 
   -- snippets
-  config_use({ 'L3MON4D3/LuaSnip' }, 'luasnip')
+  config_use('L3MON4D3/LuaSnip', 'luasnip')
   use 'saadparwaiz1/cmp_luasnip'
 
   -- interface
   config_use({
     'nvim-neo-tree/neo-tree.nvim',
     requires = {
-      use 'nvim-tree/nvim-web-devicons',
-      use 'MunifTanjim/nui.nvim'
+      'nvim-tree/nvim-web-devicons',
+      'MunifTanjim/nui.nvim'
     },
     branch = 'v2.x',
   }, 'neo-tree-nvim')
-  config_use({ 'mrjones2014/smart-splits.nvim' }, 'smart-splits-nvim')
-  config_use({ 'Mofiqul/vscode.nvim' }, 'vscode-nvim')
   config_use('vim-airline/vim-airline', 'vim-airline')
   use {
     'tomasiser/vim-code-dark',
     run = 'cp autoload/airline/themes/codedark.vim ../vim-airline/autoload/airline/themes'
   }
+  config_use('mrjones2014/smart-splits.nvim', 'smart-splits-nvim')
+  config_use('Mofiqul/vscode.nvim', 'vscode-nvim')
 
   if packer_bootstrap then
     require('packer').sync()
