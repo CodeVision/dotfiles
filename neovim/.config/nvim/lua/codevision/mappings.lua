@@ -2,13 +2,12 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
-local keymap = vim.keymap.set
-keymap('n', '<F3>', ':source %<CR>', { silent = true })
+vim.keymap.set('n', '<F3>', ':source %<CR>', { silent = true })
 
-keymap('!', 'jj', '<Esc>', { noremap = true })
+vim.keymap.set('!', 'jj', '<Esc>')
 
-keymap('n', '<leader>b', '<c-^>', { noremap = true })
-keymap('n', '<leader>q', ':bd<cr>', { noremap = true })
+vim.keymap.set('n', '<leader>b', '<c-^>')
+vim.keymap.set('n', '<leader>q', ':bd<cr>')
 
 -- keymap({ 'n', 'v' }, 'k', 'gk')
 -- keymap({ 'n', 'v' }, 'j', 'gj')
