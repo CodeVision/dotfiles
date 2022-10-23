@@ -88,6 +88,7 @@ local startup = function(use)
   }, 'nvim-treesitter')
   --  use { 'nvim-treesitter/playground' }
   --  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+  config_use('NvChad/nvim-colorizer.lua', 'nvim-colorizer')
 
   -- completion
   config_use('hrsh7th/nvim-cmp', 'nvim-cmp')
