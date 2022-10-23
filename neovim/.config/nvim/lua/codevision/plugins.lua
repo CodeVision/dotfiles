@@ -98,6 +98,7 @@ local startup = function(use)
 
   -- coding
   use 'gpanders/editorconfig.nvim'
+  setup_use('windwp/nvim-autopairs')
   use { 'AndrewRadev/splitjoin.vim', keys = { 'gJ', 'gS' } }
   setup_use('numToStr/Comment.nvim')
   config_use({
