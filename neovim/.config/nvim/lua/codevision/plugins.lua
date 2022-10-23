@@ -50,19 +50,37 @@ local configure = function()
   perform_setup()
 end
 
+local get_name = function(plugin)
+  local plugin_name
+  if type(plugin) == 'table' then
+    plugin_name = plugin[1]
+  else
+    plugin_name = plugin
+  end
+
+  return vim.fs.basename(plugin_name)
+end
+
 local startup = function(use)
-  local config_use = function(plugin, config)
+  local config_use = function(plugin, config_file)
     use(plugin)
 
-    if config ~= nil then
-      add_config(config)
+    if config_file == nil then
+      local config_files = vim.fn.fnamemodify(get_name(plugin):lower(), ':r')
+      add_config(config_files)
+    else
+      add_config(config_file)
     end
   end
 
   local setup_use = function(plugin, name)
     use(plugin)
 
-    add_setup(name)
+    if name == nil then
+      add_setup(vim.fn.fnamemodify(get_name(plugin), ':r'))
+    else
+      add_setup(name)
+    end
   end
 
   --  plugins
@@ -76,22 +94,22 @@ local startup = function(use)
     tag = '0.1.0',
   }, 'telescope-nvim')
   use { 'nvim-telescope/telescope-fzy-native.nvim', run = 'make' }
-  setup_use('kylechui/nvim-surround', 'nvim-surround')
+  setup_use('kylechui/nvim-surround')
 
   -- coding
   use 'gpanders/editorconfig.nvim'
   use { 'AndrewRadev/splitjoin.vim', keys = { 'gJ', 'gS' } }
-  setup_use('numToStr/Comment.nvim', 'Comment')
+  setup_use('numToStr/Comment.nvim')
   config_use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-  }, 'nvim-treesitter')
+  })
   --  use { 'nvim-treesitter/playground' }
   --  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
-  config_use('NvChad/nvim-colorizer.lua', 'nvim-colorizer')
+  config_use('NvChad/nvim-colorizer.lua')
 
   -- completion
-  config_use('hrsh7th/nvim-cmp', 'nvim-cmp')
+  config_use('hrsh7th/nvim-cmp')
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -100,14 +118,14 @@ local startup = function(use)
   use 'onsails/lspkind.nvim'
   config_use('glepnir/lspsaga.nvim', 'lspsaga-nvim')
   use 'jose-elias-alvarez/null-ls.nvim'
-  setup_use('j-hui/fidget.nvim', 'fidget' )
+  setup_use('j-hui/fidget.nvim')
   config_use({
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async',
-  }, 'nvim-ufo')
+  })
 
   -- snippets
-  config_use('L3MON4D3/LuaSnip', 'luasnip')
+  config_use('L3MON4D3/LuaSnip')
   use 'saadparwaiz1/cmp_luasnip'
 
   -- interface
@@ -119,7 +137,7 @@ local startup = function(use)
     },
     branch = 'v2.x',
   }, 'neo-tree-nvim')
-  config_use('vim-airline/vim-airline', 'vim-airline')
+  config_use('vim-airline/vim-airline')
   use {
     'tomasiser/vim-code-dark',
     run = 'cp autoload/airline/themes/codedark.vim ../vim-airline/autoload/airline/themes'
