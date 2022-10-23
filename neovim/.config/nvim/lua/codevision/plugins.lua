@@ -120,6 +120,11 @@ local startup = function(use)
   }, 'neo-tree-nvim')
   config_use({ 'mrjones2014/smart-splits.nvim' }, 'smart-splits-nvim')
   config_use({ 'Mofiqul/vscode.nvim' }, 'vscode-nvim')
+  config_use('vim-airline/vim-airline', 'vim-airline')
+  use {
+    'tomasiser/vim-code-dark',
+    run = 'cp autoload/airline/themes/codedark.vim ../vim-airline/autoload/airline/themes'
+  }
 
   if packer_bootstrap then
     require('packer').sync()
