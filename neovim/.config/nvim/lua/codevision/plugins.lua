@@ -137,6 +137,10 @@ local startup = function(use)
     },
     branch = 'v2.x',
   }, 'neo-tree-nvim')
+  config_use({
+    'romgrk/barbar.nvim',
+    requires = 'nvim-tree/nvim-web-devicons',
+  }, 'barbar-nvim')
   config_use('vim-airline/vim-airline')
   use {
     'tomasiser/vim-code-dark',
