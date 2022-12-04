@@ -2,6 +2,10 @@ theme = "modern"
 icons = "awesome6"
 
 [[block]]
+block = "custom"
+command = "echo '\uf085' `cat $HOME/config/settings/.current-profile`"
+
+[[block]]
 block = "disk_space"
 path = "/"
 alias = "/"

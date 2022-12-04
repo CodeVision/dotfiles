@@ -112,9 +112,10 @@ set $mon_left "HDMI-0"
 set $mon_right "DP-0"
 
 workspace 1 output $mon_main
-workspace 2 output $mon_right
+workspace 2 output $mon_left
 workspace 3 output $mon_right
-workspace 4 output $mon_left
+workspace 4 output $mon_right
+workspace 9 output $mon_left
 
 # move workspace to output
 bindsym $mod+Shift+Left move workspace to output left
@@ -231,4 +232,4 @@ bindsym $mod+o "exec ~/dev/scripts/sound-output-toggle.sh toggle"
 
 exec --no-startup-id i3-msg "exec /usr/bin/pasystray"
 exec --no-startup-id i3-msg "workspace 1; exec /usr/bin/thunderbird"
-exec --no-startup-id i3-msg "workspace 1; exec /usr/bin/slack"
+exec --no-startup-id i3-msg "workspace 1; exec /usr/bin/slack; move scratchpad"

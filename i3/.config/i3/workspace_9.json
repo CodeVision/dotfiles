@@ -1,5 +1,4 @@
 {
-    // tabbed split container with 2 children
     "border": "normal",
     "floating": "auto_off",
     "layout": "tabbed",
