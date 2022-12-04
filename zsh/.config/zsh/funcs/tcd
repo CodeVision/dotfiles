@@ -1,0 +1,18 @@
+#/bin/zsh
+# vim: ft=zsh
+emulate -RL zsh
+
+tcd() {
+  tmux list-panes -F '#{pane_id} #{pane_active} #{pane_current_path}' | while read pi; do
+    pane_active=$(echo "$pi" | cut -d \  -f 2)
+    if [[ "$pane_active" == "0" ]]; then
+      pane_id=$(echo "$pi" | cut -d \  -f 1)
+      pane_path=$(echo "$pi" | cut -d \  -f 3)
+
+      cd "$pane_path"
+      break
+    fi
+  done
+}
+
+tcd
