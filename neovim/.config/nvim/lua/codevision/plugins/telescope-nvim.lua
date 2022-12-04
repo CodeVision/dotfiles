@@ -1,11 +1,11 @@
 local telescope = require('telescope')
 
 local settings = {
-  hidden = true,
+  hidden = false,
   no_ignore = false,
 }
 local bind = function(func, args)
-  return function() 
+  return function()
     func(args)
   end
 end
