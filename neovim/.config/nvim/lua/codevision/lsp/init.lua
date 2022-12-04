@@ -3,6 +3,7 @@ require('codevision.lsp.servers.lua')
 -- require('codevision.plugins.lsp.servers.rust')
 require('codevision.lsp.servers.typescript')
 require('codevision.lsp.servers.vue')
+require('codevision.lsp.servers.python')
 
 local nls = require('null-ls')
 nls.setup({
