@@ -133,6 +133,9 @@ local startup = function(use)
   config_use('L3MON4D3/LuaSnip')
   use 'saadparwaiz1/cmp_luasnip'
 
+  -- languages
+  use 'stevearc/vim-arduino'
+
   -- interface
   config_use({
     'nvim-neo-tree/neo-tree.nvim',
