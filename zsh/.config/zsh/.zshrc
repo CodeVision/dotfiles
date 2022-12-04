@@ -143,6 +143,12 @@ fpath=( $ZDOTDIR/funcs $fpath )
 ## load completions
 [[ -r $completions ]] && for f in $completions/*; do source $f; done
 
+## load suggestions
+auto_suggestions=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -r $auto_suggestions ]] && source $auto_suggestions
+
+bindkey -M viins '^y' autosuggest-accept
+
 ## set programs and paths
 typeset -Ux path PATH
 path=($path)
@@ -160,6 +166,7 @@ source /usr/share/fzf/completion.zsh
 if [[ -s "$PYENV_ROOT/bin/pyenv" ]]; then
   path=($PYENV_ROOT/bin $path)
   eval "$(pyenv init -)"
+  export NEOVIM_PYTHON="$(pyenv virtualenv-prefix neovim)/envs/neovim"
 fi
 
 if [[ -d "$CARGO_HOME/bin" ]]; then
