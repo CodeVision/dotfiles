@@ -90,7 +90,7 @@ local startup = function(use)
   -- files
   config_use({
     'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
+    requires = 'nvim-lua/plenary.nvim',
     tag = '0.1.0',
   }, 'telescope-nvim')
   use { 'nvim-telescope/telescope-fzy-native.nvim', run = 'make' }
@@ -108,6 +108,10 @@ local startup = function(use)
   --  use { 'nvim-treesitter/playground' }
   --  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
   config_use('NvChad/nvim-colorizer.lua')
+  config_use({
+    'folke/trouble.nvim',
+    requires = 'nvim-tree/nvim-web-devicons',
+  }, 'trouble-nvim')
 
   -- completion
   config_use('hrsh7th/nvim-cmp')
