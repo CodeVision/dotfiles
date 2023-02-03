@@ -1,4 +1,5 @@
 require('codevision.lsp.servers.lua')
+require('codevision.lsp.servers.ruby')
 require('codevision.lsp.servers.rust')
 require('codevision.lsp.servers.typescript')
 require('codevision.lsp.servers.vue')

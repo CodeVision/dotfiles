@@ -20,7 +20,13 @@ require('nvim-treesitter.configs').setup({
       if ok and stats and stats.size > max_filesize then
         return true
       end
-    end
+    end,
+    additional_vim_regex_highlighting = {
+      "ruby"
+    }
+  },
+  endwise = {
+    enable = true
   }
 })
 
