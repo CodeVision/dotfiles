@@ -4,7 +4,7 @@ options.foldcolumn = '1'
 options.foldlevel = 99
 options.foldlevelstart = 99
 options.foldenable = true
-options.fillchars = [[eob: ,fold: ,foldopen:⮟,foldsep:|,foldclose:⮞]]
+options.fillchars = [[eob: ,fold: ,foldopen:⮟,foldsep: ,foldclose:⮞]]
 
 local ufo = require('ufo')
 

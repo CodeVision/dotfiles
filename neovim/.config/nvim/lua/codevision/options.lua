@@ -18,7 +18,7 @@ options.matchtime = 2              -- duration to show the matching bracket for
 options.splitbelow = true          -- new splits go to the bottom
 options.splitright = true          -- new splits go to the right
 
-options.mouse = a                  -- enable mouse in all modes
+options.mouse = "n"                -- enable mouse in all modes
 
 options.listchars = { tab = '▸ ', eol = '¬', extends = '❯', precedes = '❮', trail = '·', nbsp = '·' }
 options.showbreak = '↪'
