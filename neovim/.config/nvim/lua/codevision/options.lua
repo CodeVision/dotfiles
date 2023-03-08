@@ -41,3 +41,5 @@ options.completeopt = { 'menu', 'menuone', 'noselect' }
 
 -- graphics
 options.termguicolors = true
+
+options.conceallevel = 2
