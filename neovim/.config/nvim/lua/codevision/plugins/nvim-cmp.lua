@@ -37,7 +37,7 @@ cmp.setup({
     { name = 'path' },
     { name = 'luasnip' },
   }, {
-    { name = 'buffer', keyword_length = 4 },
+    { name = 'buffer', keyword_length = 3 },
   }),
   formatting = {
     fields = { 'abbr', 'kind' }, -- removed menu for rust analyzer
