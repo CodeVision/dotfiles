@@ -134,6 +134,13 @@ local startup = function()
     config('L3MON4D3/LuaSnip'),
     'saadparwaiz1/cmp_luasnip',
 
+    -- misc
+    config({
+      'nvim-neorg/neorg',
+      build = ':Neorg sync-parsers',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+    }, 'nvim-neorg'),
+
     -- languages
     'stevearc/vim-arduino',
     'simrat39/rust-tools.nvim',
