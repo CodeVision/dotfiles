@@ -15,7 +15,7 @@ local on_attach = function(_, bufnr)
   end, bufopts)
   vim.keymap.set('n', 'gT', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename<cr>', bufopts)
-  vim.keymap.set('n', '<leader>ca', '<cmd>Lspsaga code_action<cr>', bufopts)
+  vim.keymap.set({ 'n', 'v' }, '<leader>ca', '<cmd>Lspsaga code_action<cr>', bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
