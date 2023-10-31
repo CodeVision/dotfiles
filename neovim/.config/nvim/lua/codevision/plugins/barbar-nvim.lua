@@ -1,5 +1,5 @@
 require('bufferline').setup({
-  icons = 'both'
+  icons = { buffer_index = true, filetype = { enabled = true } }
 })
 
 local opts = { silent = true }

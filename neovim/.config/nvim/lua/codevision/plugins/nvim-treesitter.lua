@@ -25,6 +25,9 @@ require('nvim-treesitter.configs').setup({
       "ruby"
     }
   },
+  indent = {
+    disable = true,
+  },
   endwise = {
     enable = true
   }
