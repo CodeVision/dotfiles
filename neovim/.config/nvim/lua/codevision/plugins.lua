@@ -85,7 +85,6 @@ local startup = function()
 
   return {
     --  plugins
-    'wbthomason/packer.nvim',
     'nvim-lua/plenary.nvim',
 
     -- files
@@ -106,8 +105,6 @@ local startup = function()
       build = ':TSUpdate',
     }),
     'RRethy/nvim-treesitter-endwise',
-
-    --  { 'nvim-treesitter/playground' }
     --  { 'nvim-treesitter/nvim-treesitter-textobjects' }
     config('NvChad/nvim-colorizer.lua'),
     config({
@@ -136,10 +133,6 @@ local startup = function()
 
     -- misc
     config({
-      'nvim-neorg/neorg',
-      build = ':Neorg sync-parsers',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-    }, 'nvim-neorg'),
 
     -- languages
     'stevearc/vim-arduino',
