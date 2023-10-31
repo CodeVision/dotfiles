@@ -151,6 +151,11 @@ local startup = function()
     'mattn/emmet-vim',
     -- misc
     config({
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      build = "cd app && yarn install",
+      ft = { "markdown" },
+    }, 'markdown-preview-nvim'),
 
     -- languages
     'stevearc/vim-arduino',
