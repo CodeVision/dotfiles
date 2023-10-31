@@ -148,7 +148,7 @@ local startup = function()
     config('L3MON4D3/LuaSnip'),
     'saadparwaiz1/cmp_luasnip',
 
-    config('mattn/emmet-vim'),
+    'mattn/emmet-vim',
     -- misc
     config({
 
