@@ -98,7 +98,11 @@ local startup = function()
 
     -- coding
     setup('windwp/nvim-autopairs'),
-    -- { 'AndrewRadev/splitjoin.vim' },
+    config({
+      'Wansmer/treesj',
+      keys = { 'gM', 'gJ', 'gS' },
+      dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    }, 'treesj'),
     setup('numToStr/Comment.nvim'),
     config({
       'nvim-treesitter/nvim-treesitter',
@@ -111,6 +115,18 @@ local startup = function()
       'folke/trouble.nvim',
       dependencies = { 'nvim-tree/nvim-web-devicons' },
     }, 'trouble-nvim'),
+    setup({
+      'folke/flash.nvim',
+      event = 'VeryLazy',
+      opts = {},
+      keys = {
+        { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Flash" },
+        { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+        { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+        { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+        { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+      }
+    }),
 
     -- completion
     config('hrsh7th/nvim-cmp'),
@@ -118,6 +134,7 @@ local startup = function()
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-nvim-lsp',
 
+    config('folke/neodev.nvim', 'neodev'),
     config('neovim/nvim-lspconfig', 'codevision.lsp'),
     'onsails/lspkind.nvim',
     config({
@@ -131,6 +148,7 @@ local startup = function()
     config('L3MON4D3/LuaSnip'),
     'saadparwaiz1/cmp_luasnip',
 
+    config('mattn/emmet-vim'),
     -- misc
     config({
 
@@ -148,6 +166,10 @@ local startup = function()
       'kevinhwang91/nvim-ufo',
       dependencies = { 'kevinhwang91/promise-async' },
     }),
+    setup({
+      'kevinhwang91/nvim-bqf',
+      ft = 'qf'
+    }, 'bqf'),
     config('luukvbaal/statuscol.nvim', 'statuscol-nvim'),
     config({
       'nvim-neo-tree/neo-tree.nvim',
