@@ -124,8 +124,8 @@ local startup = function()
     config('neovim/nvim-lspconfig', 'codevision.lsp'),
     'onsails/lspkind.nvim',
     config({
-      'glepnir/lspsaga.nvim',
-      event = 'BufRead',
+      'nvimdev/lspsaga.nvim',
+      event = 'LspAttach',
       dependencies = { 'nvim-tree/nvim-web-devicons' },
     }, 'lspsaga-nvim'),
     'jose-elias-alvarez/null-ls.nvim',
@@ -147,7 +147,10 @@ local startup = function()
     'vim-ruby/vim-ruby',
 
     -- interface
-    setup('j-hui/fidget.nvim'),
+    setup({
+      'j-hui/fidget.nvim',
+      tag = 'legacy'
+    }),
     config({
       'kevinhwang91/nvim-ufo',
       dependencies = { 'kevinhwang91/promise-async' },
@@ -157,9 +160,9 @@ local startup = function()
       'nvim-neo-tree/neo-tree.nvim',
       dependencies = {
         'nvim-tree/nvim-web-devicons',
-        'MunifTanjim/nui.nvim'
+        'MunifTanjim/nui.nvim',
       },
-      branch = 'v2.x',
+      branch = 'v3.x',
     }, 'neo-tree-nvim'),
     config({
       'romgrk/barbar.nvim',
@@ -170,7 +173,10 @@ local startup = function()
       'tomasiser/vim-code-dark',
       build = 'cp autoload/airline/themes/codedark.vim ../vim-airline/autoload/airline/themes'
     },
-    config('mrjones2014/smart-splits.nvim', 'smart-splits-nvim'),
+    config({
+      'mrjones2014/smart-splits.nvim',
+      commit = '3d4239b',
+    }, 'smart-splits-nvim'),
     config('Mofiqul/vscode.nvim', 'vscode-nvim'),
   }
 end
