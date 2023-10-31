@@ -1,28 +1,58 @@
-local on_attach = function(_, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-  local bufopts = { silent = true, buffer = bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', '<leader>pd', '<cmd>Lspsaga peek_definition<cr>', bufopts)
-  vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<cr>', bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', 'H', vim.lsp.buf.signature_help, bufopts)
-  vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<leader>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
-  vim.keymap.set('n', 'gT', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename<cr>', bufopts)
-  vim.keymap.set({ 'n', 'v' }, '<leader>ca', '<cmd>Lspsaga code_action<cr>', bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+local function get_package_json(filename)
+  if vim.fn.filereadable(filename) == 1 then
+    local lines = vim.fn.readfile(filename)
+
+    local config = vim.json.decode(table.concat(lines, ""))
+    return config
+  end
+
+  return nil
 end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local function is_vue_project(root_dir)
+  if not root_dir then
+    return false
+  end
+
+  local package_json = get_package_json(vim.fs.joinpath(root_dir, 'package.json'))
+
+  if
+    package_json
+    and package_json.dependencies
+    and package_json.dependencies.vue
+  then
+    return true
+  else
+    return false
+  end
+end
+
+local function lsp_setup(config)
+  local root_dir = vim.fs.dirname(vim.fs.find(config.root_dir_files, { upward = true })[1])
+  local base_config = {
+    cmd = { config.executable },
+    root_dir = root_dir,
+    capabilities = capabilities,
+    single_file_support = true,
+    settings = {}
+  }
+  local lsp_config = vim.tbl_deep_extend("force", base_config, config.custom_config)
+
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = config.pattern,
+    callback = function()
+      if vim.fn.executable(config.executable) == 1 then
+        vim.lsp.start(lsp_config)
+      end
+    end
+  })
+end
 
 return {
   capabilities = capabilities,
-  on_attach = on_attach
+  get_package_json = get_package_json,
+  is_vue_project = is_vue_project,
+  lsp_setup = lsp_setup
 }
