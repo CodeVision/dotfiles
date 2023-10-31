@@ -18,9 +18,9 @@ local load_config = function()
     if not vim.startswith(v, 'codevision') then
       module_location = 'codevision.plugins.' .. v
     end
-    local success = pcall(require, module_location)
+    local success, result = pcall(require, module_location)
     if not success then
-      print('failed loading ' .. v)
+      print('failed loading ' .. v .. ': ' .. result)
     end
   end
 end
