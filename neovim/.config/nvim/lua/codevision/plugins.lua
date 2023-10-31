@@ -91,7 +91,7 @@ local startup = function()
     config({
       'nvim-telescope/telescope.nvim',
       dependencies = { 'nvim-lua/plenary.nvim' },
-      tag = '0.1.0',
+      branch = '0.1.x',
     }, 'telescope-nvim'),
     { 'nvim-telescope/telescope-fzy-native.nvim', build = 'make' },
     setup('kylechui/nvim-surround'),
