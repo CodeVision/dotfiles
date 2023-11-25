@@ -103,8 +103,6 @@ KEYTIMEOUT=25
 bindkey -v
 
 # insert mode
-bindkey -M viins 'jj' vi-cmd-mode
-
 bindkey -M viins '\C-i' complete-word
 bindkey -M viins '\eu' undo
 
@@ -118,13 +116,6 @@ bindkey -M viins '\ee' edit-command-line
 bindkey -M viins ' ' magic-space
 
 bindkey -M viins '\e^M' self-insert-unmeta
-bindkey -M viins '\eh' run-help
-
-bindkey -M viins '^H' backward-delete-char
-bindkey -M viins '^?' backward-delete-char
-
-# normal mode
-bindkey -M vicmd '\eh' run-help
 
 # list scroll
 bindkey -M listscroll q send-break
