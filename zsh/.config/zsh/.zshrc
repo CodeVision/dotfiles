@@ -6,9 +6,7 @@ named_dirs="$ZDOTDIR/named_dirs"
 
 completions="/home/$USER/.local/share/zsh/completions"
 hooks="$ZDOTDIR/hooks"
-
-# prompt
-[[ -f "$zprompt" ]] && source "$zprompt"
+plugins="$ZDOTDIR/plugins"
 
 # aliases
 [[ -f "$zalias" ]] && source "$zalias"
@@ -132,6 +130,23 @@ bindkey -M vicmd '\eh' run-help
 bindkey -M listscroll q send-break
 bindkey -M listscroll j accept-line
 
+# keychain
+source "$ZDOTDIR/programs/keychain.sh" $(cat ~/config/settings/.current-profile)
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+
+# plugins
+[[ -s "$plugins" ]] && for f in $plugins/*.zsh; do source "$f"; done
+
+source ~/.local/share/zsh/antidote/antidote.zsh
+antidote load
+
+
 ## load funcs
 typeset -U fpath
 fpath=( $ZDOTDIR/funcs $fpath )
@@ -143,12 +158,6 @@ fpath=( $ZDOTDIR/funcs $fpath )
 ## load completions
 [[ -r $completions ]] && for f in $completions/*; do source $f; done
 
-## load suggestions
-auto_suggestions=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-[[ -r $auto_suggestions ]] && source $auto_suggestions
-
-bindkey -M viins '^y' autosuggest-accept
-
 ## set programs and paths
 typeset -Ux path PATH
 path=($path)
@@ -156,21 +165,18 @@ path=($path)
 # external program configs
 eval $(dircolors -b)
 
-# keychain
-source "$ZDOTDIR/programs/keychain.sh" $(cat ~/config/settings/.current-profile)
-
-# fzf
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-
 if [[ -s "$PYENV_ROOT/bin/pyenv" ]]; then
   path=($PYENV_ROOT/bin $path)
   eval "$(pyenv init -)"
-  export NEOVIM_PYTHON="$(pyenv virtualenv-prefix neovim)/envs/neovim"
+  export NEOVIM_PYTHON="$(pyenv root)/shims"
 fi
 
 if [[ -d "$CARGO_HOME/bin" ]]; then
   path=($CARGO_HOME/bin $path)
+fi
+
+if [[ -d "$GOPATH/bin" ]]; then
+  path=($GOPATH/bin $path)
 fi
 
 if [[ -s "$RBENV_ROOT/bin/rbenv" ]]; then

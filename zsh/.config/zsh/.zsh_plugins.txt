@@ -1,0 +1,9 @@
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+
+jeffreytse/zsh-vi-mode
+
+# olets/zsh-abbr kind:defer
+zdharma-continuum/fast-syntax-highlighting kind:defer
+
+romkatv/powerlevel10k

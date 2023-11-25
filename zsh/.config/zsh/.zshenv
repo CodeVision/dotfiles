@@ -17,3 +17,4 @@ export FZF_ALT_C_COMMAND='fd --type d'
 
 export RBENV_ROOT="$HOME/.local/share/rbenv"
 export PYENV_ROOT="$HOME/.local/share/pyenv"
+export GOPATH="$HOME/.local/share/go"
