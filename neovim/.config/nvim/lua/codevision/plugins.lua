@@ -149,6 +149,23 @@ local startup = function()
     'saadparwaiz1/cmp_luasnip',
 
     'mattn/emmet-vim',
+
+    -- debugging
+    'mfussenegger/nvim-dap',
+    setup({
+      'rcarriga/nvim-dap-ui',
+      dependencies = 'mfussenegger/nvim-dap'
+    }, 'dapui'),
+    {
+      'microsoft/vscode-js-debug',
+      build = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out && git co -- package-lock.json',
+      lazy = true
+    },
+    config({
+      'mxsdev/nvim-dap-vscode-js',
+      dependencies = { 'mfussenegger/nvim-dap' }
+    }, 'dap-vscode-js'),
+
     -- misc
     config({
       "iamcco/markdown-preview.nvim",
