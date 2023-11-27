@@ -3,7 +3,6 @@ local capabilities = require('codevision.lsp.util').capabilities
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'go', 'gomod', 'gowork', 'gotmpl' },
   callback = function()
-    P('starting go pls')
     local executable = vim.fn.fnamemodify(vim.env.GOPATH, ':p:h') .. '/bin/gopls'
     if vim.fn.executable(executable) == 1 then
       vim.lsp.start({
