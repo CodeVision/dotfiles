@@ -142,7 +142,7 @@ local startup = function()
       event = 'LspAttach',
       dependencies = { 'nvim-tree/nvim-web-devicons' },
     }, 'lspsaga-nvim'),
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
 
     -- snippets
     config('L3MON4D3/LuaSnip'),
