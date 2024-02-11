@@ -112,9 +112,13 @@ set $mon_left "HDMI-0"
 set $mon_right "DP-0"
 
 workspace 1 output $mon_main
-workspace 2 output $mon_left
-workspace 3 output $mon_right
-workspace 4 output $mon_right
+workspace 2 output $mon_main
+workspace 3 output $mon_main
+workspace 4 output $mon_main
+workspace 5 output $mon_left
+workspace 6 output $mon_main
+workspace 7 output $mon_left
+workspace 8 output $mon_right
 workspace 9 output $mon_left
 
 # move workspace to output
@@ -215,12 +219,14 @@ mode "commands" {
   set $cw_height_large 1280
   bindsym c [class="Slack"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
   bindsym m [class="thunderbird"] scratchpad show, resize set $cw_width_large $cw_height_large, move position center; mode "default"
-  bindsym t [instance="todoist"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
-  bindsym n [title="norg"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
+  bindsym o [class="obsidian"] scratchpad show, resize set $cw_width_large $cw_height_large, move position center; mode "default"
+  bindsym n [instance="neovide"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
   bindsym s [instance="spotify"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
   bindsym k [instance="kanbanflow.com"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
+  bindsym p [instance="bitwarden"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
   bindsym g [class="discord"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
   bindsym z [class="Zotero"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
+  bindsym w [instance="ticktick"] scratchpad show, resize set $cw_width $cw_height, move position center; mode "default"
 
   bindsym Escape mode "default"
   bindsym Return mode "default"
@@ -231,8 +237,9 @@ bindsym $mod+c mode "commands"
 bindsym $mod+i exec --no-startup-id zsh -c "rofi -modi emoji -show emoji -kb-custom-1 Ctrl+C"
 bindsym $mod+g exec ~/dev/scripts/i3-load-layout.sh
 bindsym $mod+o "exec ~/dev/scripts/sound-output-toggle.sh toggle"
-bindsym $mod+n exec kitty --title norg --directory ~/data/norg nvim
+bindsym $mod+n exec neovide -- --cmd 'cd ~/data/notes'
+bindsym $mod+p exec flameshot full -p ~/temp/captures/
 
 exec --no-startup-id i3-msg "exec /usr/bin/pasystray"
+exec --no-startup-id i3-msg "exec /usr/bin/megasync"
 exec --no-startup-id i3-msg "workspace 1; exec /usr/bin/thunderbird"
-exec --no-startup-id i3-msg "workspace 1; exec /usr/bin/slack; move scratchpad"
