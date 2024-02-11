@@ -197,13 +197,20 @@ local startup = function()
       ft = 'qf'
     }, 'bqf'),
     config('luukvbaal/statuscol.nvim', 'statuscol-nvim'),
+    -- config({
+    --   'nvim-neo-tree/neo-tree.nvim',
+    --   dependencies = {
+    --     'nvim-tree/nvim-web-devicons',
+    --     'MunifTanjim/nui.nvim',
+    --   },
+    --   branch = 'v3.x',
+    -- }, 'neo-tree-nvim'),
     config({
-      'nvim-neo-tree/neo-tree.nvim',
+      dir = '~/dev/contrib/neo-tree.nvim',
       dependencies = {
         'devicons',
         'MunifTanjim/nui.nvim',
       },
-      branch = 'v3.x',
     }, 'neo-tree-nvim'),
     config({
       'romgrk/barbar.nvim',
