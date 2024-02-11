@@ -50,6 +50,8 @@ telescope.load_extension('fzy_native')
 local keymap = vim.keymap.set
 
 local builtin = require('telescope.builtin')
+keymap('n', '<leader>ff', builtin.git_files, { silent = true })
 keymap('n', '<c-p>', bind(builtin.find_files, settings), { silent = true })
 keymap('n', '<leader>fg', builtin.live_grep, { silent = true })
 keymap('n', '<leader>fh', builtin.help_tags, { silent = true })
+keymap('n', '<leader>fw', builtin.grep_string, { silent = true })
