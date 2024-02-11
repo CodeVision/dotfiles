@@ -85,12 +85,13 @@ local startup = function()
 
   return {
     --  plugins
-    'nvim-lua/plenary.nvim',
+    { name = 'plenary', 'nvim-lua/plenary.nvim' },
+    { name = 'devicons', 'nvim-tree/nvim-web-devicons' },
 
     -- files
     config({
       'nvim-telescope/telescope.nvim',
-      dependencies = { 'nvim-lua/plenary.nvim' },
+      dependencies = 'plenary',
       branch = '0.1.x',
     }, 'telescope-nvim'),
     { 'nvim-telescope/telescope-fzy-native.nvim', build = 'make' },
@@ -113,7 +114,7 @@ local startup = function()
     config('NvChad/nvim-colorizer.lua'),
     config({
       'folke/trouble.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons' },
+      dependencies = { 'devicons' },
     }, 'trouble-nvim'),
     setup({
       'folke/flash.nvim',
@@ -140,7 +141,7 @@ local startup = function()
     config({
       'nvimdev/lspsaga.nvim',
       event = 'LspAttach',
-      dependencies = { 'nvim-tree/nvim-web-devicons' },
+      dependencies = { 'devicons' },
     }, 'lspsaga-nvim'),
     'nvimtools/none-ls.nvim',
 
@@ -199,14 +200,14 @@ local startup = function()
     config({
       'nvim-neo-tree/neo-tree.nvim',
       dependencies = {
-        'nvim-tree/nvim-web-devicons',
+        'devicons',
         'MunifTanjim/nui.nvim',
       },
       branch = 'v3.x',
     }, 'neo-tree-nvim'),
     config({
       'romgrk/barbar.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons' },
+      dependencies = { 'devicons' },
     }, 'barbar-nvim'),
     config('vim-airline/vim-airline'),
     {
