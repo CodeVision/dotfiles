@@ -186,7 +186,10 @@ local startup = function()
     }),
     config({
       'kevinhwang91/nvim-ufo',
-      dependencies = { 'kevinhwang91/promise-async' },
+      dependencies = {
+        'kevinhwang91/promise-async',
+        'luukvbaal/statuscol.nvim'
+      },
     }),
     setup({
       'kevinhwang91/nvim-bqf',
