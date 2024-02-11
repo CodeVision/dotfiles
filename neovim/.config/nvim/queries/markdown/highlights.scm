@@ -5,3 +5,6 @@
 (atx_heading (atx_h4_marker) @headings.h4.marker (#set! conceal "✺"))
 (atx_heading (atx_h5_marker) @headings.h5.marker (#set! conceal "▶"))
 (atx_heading (atx_h6_marker) @headings.h6.marker (#set! conceal "⤷"))
+
+(list_item (task_list_marker_unchecked) @checkmarks.unchecked (#set! conceal "☐"))
+(list_item (task_list_marker_checked) @checkmarks.checked (#set! conceal "☑"))
