@@ -96,6 +96,7 @@ local startup = function()
     }, 'telescope-nvim'),
     { 'nvim-telescope/telescope-fzy-native.nvim', build = 'make' },
     setup('kylechui/nvim-surround'),
+    config('junegunn/vim-easy-align'),
 
     -- coding
     setup('windwp/nvim-autopairs'),
