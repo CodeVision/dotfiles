@@ -29,21 +29,31 @@ local function is_vue_project(root_dir)
   end
 end
 
+local function get_executable(config)
+  if type(config.cmd) == "string" then
+    return config.cmd
+  end
+  return config.cmd[1]
+end
+
 local function lsp_setup(config)
   local root_dir = vim.fs.dirname(vim.fs.find(config.root_dir_files, { upward = true })[1])
   local base_config = {
-    cmd = { config.executable },
     root_dir = root_dir,
     capabilities = capabilities,
     single_file_support = true,
-    settings = {}
+    settings = {},
+    init_options = {}
   }
+  if config.executable ~= nil then
+    base_config.cmd = { config.executable }
+  end
   local lsp_config = vim.tbl_deep_extend("force", base_config, config.custom_config)
 
   vim.api.nvim_create_autocmd('FileType', {
     pattern = config.pattern,
     callback = function()
-      if vim.fn.executable(config.executable) == 1 then
+      if vim.fn.executable(get_executable(lsp_config)) == 1 then
         vim.lsp.start(lsp_config)
       end
     end

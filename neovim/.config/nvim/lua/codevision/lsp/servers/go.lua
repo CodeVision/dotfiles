@@ -1,16 +1,24 @@
-local capabilities = require('codevision.lsp.util').capabilities
+local lsp_setup = require('codevision.lsp.util').lsp_setup
 
-vim.api.nvim_create_autocmd('FileType', {
+local executable = vim.fn.fnamemodify(vim.env.GOPATH, ':p:h') .. '/bin/gopls'
+lsp_setup({
+  name = 'Go Language Server',
   pattern = { 'go', 'gomod', 'gowork', 'gotmpl' },
-  callback = function()
-    local executable = vim.fn.fnamemodify(vim.env.GOPATH, ':p:h') .. '/bin/gopls'
-    if vim.fn.executable(executable) == 1 then
-      vim.lsp.start({
-        name = 'Go Language Server',
-        cmd = { executable },
-        root_dir = vim.fs.dirname(vim.fs.find({ "go.work", "go.mod", ".git" }, { upward = true })[1]),
-        capabilities = capabilities,
-      })
-    end
-  end
+  executable = executable,
+  root_dir_files = { "go.work", "go.mod", ".git" },
+  custom_config = {
+    settings = {
+      gopls = {
+        experimentalPostfixCompletions = true,
+        analysis = {
+          unusedparams = true,
+          shadow = true,
+        },
+        staticcheck = true,
+      }
+    },
+    init_options = {
+      usePlaceholders = true
+    }
+  }
 })

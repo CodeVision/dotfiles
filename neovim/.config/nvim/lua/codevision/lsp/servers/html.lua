@@ -10,7 +10,6 @@ lsp_setup({
   custom_config = {
     name = 'HTML Language Server',
     cmd = { executable, '--stdio' },
-    capabilities = capabilities,
     init_options = {
       configurationSection = { 'html', 'css', 'javascript' },
       embeddedLanguages = {

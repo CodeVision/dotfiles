@@ -1,13 +1,14 @@
-require('codevision.lsp.servers.lua')
-require('codevision.lsp.servers.html')
-require('codevision.lsp.servers.emmet')
 require('codevision.lsp.servers.css')
+require('codevision.lsp.servers.emmet')
+require('codevision.lsp.servers.go')
+require('codevision.lsp.servers.html')
+require('codevision.lsp.servers.lua')
+require('codevision.lsp.servers.markdown')
+require('codevision.lsp.servers.python')
 require('codevision.lsp.servers.ruby')
 require('codevision.lsp.servers.rust')
-require('codevision.lsp.servers.go')
 require('codevision.lsp.servers.typescript')
 require('codevision.lsp.servers.vue')
-require('codevision.lsp.servers.python')
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
