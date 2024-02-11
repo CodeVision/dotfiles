@@ -126,7 +126,7 @@ local startup = function()
         { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
         { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
         { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-        { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+        { "c-s", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
       }
     }),
 
@@ -184,7 +184,7 @@ local startup = function()
     -- interface
     setup({
       'j-hui/fidget.nvim',
-      tag = 'legacy'
+      dependencies = 'rcarriga/nvim-notify'
     }),
     config({
       'kevinhwang91/nvim-ufo',
@@ -224,7 +224,6 @@ local startup = function()
     },
     config({
       'mrjones2014/smart-splits.nvim',
-      commit = '3d4239b',
     }, 'smart-splits-nvim'),
     config('Mofiqul/vscode.nvim', 'vscode-nvim'),
   }
