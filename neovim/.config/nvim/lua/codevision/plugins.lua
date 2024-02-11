@@ -198,6 +198,18 @@ local startup = function()
       ft = 'qf'
     }, 'bqf'),
     config('luukvbaal/statuscol.nvim', 'statuscol-nvim'),
+    {
+      dir = '~/dev/spike/neo-tree-basic/',
+      dependencies = 'nvim-neo-tree/neo-tree.nvim'
+    },
+    {
+      dir = '~/dev/projects/nvim/neo-tree-aws-cdk/',
+      dependencies = 'nvim-neo-tree/neo-tree.nvim'
+    },
+    {
+      'Olivine-Labs/lustache',
+      build = 'mv src lua'
+    },
     -- config({
     --   'nvim-neo-tree/neo-tree.nvim',
     --   dependencies = {
@@ -226,6 +238,11 @@ local startup = function()
       'mrjones2014/smart-splits.nvim',
     }, 'smart-splits-nvim'),
     config('Mofiqul/vscode.nvim', 'vscode-nvim'),
+
+    -- personal plugins
+    config({
+      dir = '~/dev/projects/nvim/dorkmode',
+    }, 'dorkmode'),
   }
 end
 
