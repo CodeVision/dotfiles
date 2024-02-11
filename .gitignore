@@ -3,6 +3,7 @@ userconfig
 
 # zsh temp files
 .zcompdump
+.zsh_plugins.zsh
 
 # neovim files
 .netrwhist

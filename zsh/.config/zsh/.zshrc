@@ -156,10 +156,12 @@ path=($path)
 # external program configs
 eval $(dircolors -b)
 
-if [[ -s "$PYENV_ROOT/bin/pyenv" ]]; then
-  path=($PYENV_ROOT/bin $path)
-  eval "$(pyenv init -)"
-  export NEOVIM_PYTHON="$(pyenv root)/shims"
+if [[ -d $PYENV_ROOT ]]; then
+  if [[ -d $PYENV_ROOT/bin ]]; then
+    path=($PYENV_ROOT/bin $path)
+    export NEOVIM_PYTHON="$(pyenv virtualenv-prefix neovim)/envs/neovim"
+  fi
+    eval "$(pyenv init -)"
 fi
 
 if [[ -d "$CARGO_HOME/bin" ]]; then
