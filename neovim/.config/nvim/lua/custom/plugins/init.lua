@@ -12,10 +12,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local config = function(plugin, name)
-  plugin.config = function()
-    local success = pcall(require, "custom.plugins." .. name)
-    if not success then
-      print("failed to load config for: " .. name)
+  if name then
+    plugin.config = function()
+      local success = pcall(require, "custom.plugins." .. name)
+      if not success then
+        print("failed to load config for: " .. name)
+      end
     end
   end
   return plugin
@@ -27,29 +29,47 @@ local setup = function(plugin)
 end
 
 require("lazy").setup({
-  { name = 'plenary', 'nvim-lua/plenary.nvim' },
-  { name = 'devicons', 'nvim-tree/nvim-web-devicons' },
+  { name = 'plenary',    'nvim-lua/plenary.nvim' },
+  { name = 'devicons',   'nvim-tree/nvim-web-devicons' },
+  { name = 'treesitter', 'nvim-treesitter/nvim-treesitter', build = ":TSUpdate" },
 
-  -- formatting
+  -- treesitter
+  config({
+    'RRethy/nvim-treesitter-endwise',
+    dependencies = { 'treesitter' },
+  }, 'treesitter'),
+
+  -- text
   setup({
     'kylechui/nvim-surround',
     version = "*",
     event = "VeryLazy",
   }),
+  config({ 'windwp/nvim-autopairs', event = 'InsertEnter' }, 'autopairs'),
   config({
     'Wansmer/treesj',
     keys = { 'gM', 'gJ', 'gS' },
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-  }, 'formatting'),
-  'RRethy/nvim-treesitter-endwise',
+    dependencies = { 'treesitter' },
+  }, 'text'),
+  config({ 'junegunn/vim-easy-align' }, 'easy-align'),
 
-  -- treesitter
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  -- search
+  setup({
+    'folke/flash.nvim',
+    event = "VeryLazy",
+    keys = {
+      { "s",   mode = { "n", "o", "x" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "S",   mode = { "n", "o", "x" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",   mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",   mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "c-s", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+    }
+  }),
 
   -- telescope
   config({
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
+    branch = "master",
     dependencies = {
       'plenary',
       'devicons',
@@ -58,14 +78,29 @@ require("lazy").setup({
   }, 'telescope'),
 
   -- lsp
+  {
+    'folke/lazydev.nvim',
+    ft = 'lua',
+  },
+  {
+    'Bilal2453/luvit-meta',
+    lazy = true
+  },
   config({
     'neovim/nvim-lspconfig',
     dependencies = {
-      'folke/neodev.nvim',
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
     }
   }, 'lsp'),
+  'Bekaboo/dropbar.nvim',
+  config({
+    'nvimdev/lspsaga.nvim',
+    dependencies = {
+      'treesitter',
+      'devicons'
+    }
+  }, 'lspsaga'),
   setup({ 'j-hui/fidget.nvim' }),
 
   -- completion
@@ -77,13 +112,39 @@ require("lazy").setup({
       'onsails/lspkind.nvim',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-buffer'
+      'hrsh7th/cmp-buffer',
+      { 'L3MON4D3/LuaSnip', version = 'v2.*', build = 'make install_jsregexp' },
+      'saadparwaiz1/cmp_luasnip'
     }
   }, 'completion'),
 
   -- visual
-  config({ 'Mofiqul/vscode.nvim' }, 'visual'),
+  config({ 'Mofiqul/vscode.nvim' }, 'vscode'),
+  config({
+    'akinsho/bufferline.nvim',
+    branch = 'main',
+    requires = 'devicons'
+  }, 'bufferline'),
+  config({ 'luukvbaal/statuscol.nvim' }, 'statuscol'),
+  setup({ 'nvim-lualine/lualine.nvim' }),
+  config({
+    'kevinhwang91/nvim-ufo',
+    dependencies = { 'kevinhwang91/promise-async' }
+  }, 'folds'),
+  config({
+    'NvChad/nvim-colorizer.lua',
+    opts = {
+      filetypes = { 'css', 'conf', 'lua' }
+    }
+  }),
+  config({
+    dir = '~/dev/contrib/neo-tree.nvim',
+    dependencies = {
+      'devicons',
+      'MunifTanjim/nui.nvim'
+    },
+  }, 'neo-tree'),
 
-  -- splits
+  -- navigation
   config({ 'mrjones2014/smart-splits.nvim' }, 'splits')
 })

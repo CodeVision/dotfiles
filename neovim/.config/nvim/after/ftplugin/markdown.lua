@@ -12,7 +12,7 @@ vim.api.nvim_set_hl(0, '@headings.h4.marker.markdown', { link = "@string" })
 vim.api.nvim_set_hl(0, '@headings.h5.marker.markdown', { link = "@label" })
 vim.api.nvim_set_hl(0, '@headings.h6.marker.markdown', { link = "@constructor" })
 
-vim.keymap.set("n", "<c-space>", function ()
+vim.keymap.set("n", "<c-space>", function()
   local node = vim.treesitter.get_node()
   if node ~= nil then
     local root = node:tree():root()
@@ -33,7 +33,7 @@ vim.keymap.set("n", "<c-space>", function ()
           if current:sub(2, 2) ~= "x" then
             replacement = "[x]"
           end
-          vim.api.nvim_buf_set_text(0, row, col, row, col + 3, {replacement})
+          vim.api.nvim_buf_set_text(0, row, col, row, col + 3, { replacement })
         end
       end
     end
