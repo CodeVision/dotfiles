@@ -138,6 +138,41 @@ require("lazy").setup({
       filetypes = { 'css', 'conf', 'lua' }
     }
   }),
+  {
+    'cameron-wags/rainbow_csv.nvim',
+    config = true,
+    ft = {
+      'csv',
+      'tsv',
+      'csv_semicolon',
+      'csv_whitespace',
+      'csv_pipe',
+      'rfc_csv',
+      'rfc_semicolon'
+    },
+    cmd = {
+      'RainbowDelim',
+      'RainbowDelimSimple',
+      'RainbowDelimQuoted',
+      'RainbowMultiDelim',
+    }
+  },
+  setup({
+    'MeanderingProgrammer/markdown.nvim',
+    dependencies = {
+      'treesitter',
+      'devicons'
+    }
+  }),
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = "cd app && npx --yes yarn install"
+  },
+
+  -- navigation
+  config({ 'mrjones2014/smart-splits.nvim' }, 'splits'),
   config({
     dir = '~/dev/contrib/neo-tree.nvim',
     dependencies = {
@@ -145,7 +180,4 @@ require("lazy").setup({
       'MunifTanjim/nui.nvim'
     },
   }, 'neo-tree'),
-
-  -- navigation
-  config({ 'mrjones2014/smart-splits.nvim' }, 'splits')
 })
