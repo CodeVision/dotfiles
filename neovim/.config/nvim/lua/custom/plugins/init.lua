@@ -102,6 +102,7 @@ require("lazy").setup({
     }
   }, 'lspsaga'),
   setup({ 'j-hui/fidget.nvim' }),
+  config({ 'mfussenegger/nvim-lint' }, 'nvim-lint'),
 
   -- completion
   config({
