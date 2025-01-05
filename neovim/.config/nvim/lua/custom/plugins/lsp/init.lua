@@ -5,11 +5,13 @@ require('mason-lspconfig').setup()
 require('custom.plugins.lsp.servers.go')
 require('custom.plugins.lsp.servers.lua')
 require('custom.plugins.lsp.servers.typescript')
+require('custom.plugins.lsp.servers.json')
+require('custom.plugins.lsp.servers.yaml')
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
-    local bufopts = { silent = true, buffer = ev.buf }
+  callback = function(args)
+    local bufopts = { silent = true, buffer = args.buf }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', '<leader>pd', '<cmd>Lspsaga peek_definition<cr>', bufopts)
