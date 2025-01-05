@@ -165,7 +165,7 @@ require("lazy").setup({
     }
   },
   setup({
-    'MeanderingProgrammer/markdown.nvim',
+    'MeanderingProgrammer/render-markdown.nvim',
     dependencies = {
       'treesitter',
       'devicons'
