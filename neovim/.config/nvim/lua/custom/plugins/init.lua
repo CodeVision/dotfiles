@@ -127,6 +127,7 @@ require("lazy").setup({
     branch = 'main',
     requires = 'devicons'
   }, 'bufferline'),
+  'famiu/bufdelete.nvim',
   config({ 'luukvbaal/statuscol.nvim' }, 'statuscol'),
   setup({ 'nvim-lualine/lualine.nvim' }),
   config({

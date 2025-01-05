@@ -1,4 +1,5 @@
-require('bufferline').setup({
+local bufferline = require("bufferline")
+bufferline.setup({
   options = {
     mode = "buffers",
     numbers = "ordinal",
@@ -39,5 +40,5 @@ vim.keymap.set('n', '8<leader>b', go(8))
 vim.keymap.set('n', '9<leader>b', go(9))
 vim.keymap.set('n', '0<leader>b', go(-1))
 
-vim.keymap.set('n', '<leader>bq', ':bdelete<cr>')
+vim.keymap.set('n', '<leader>bq', ':Bdelete<cr>')
 vim.keymap.set('n', '<leader>bo', '<cmd>BufferLineCloseOthers<cr>')
