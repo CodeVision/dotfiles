@@ -24,7 +24,7 @@ local config = function(plugin, name)
 end
 
 local setup = function(plugin)
-  plugin.opts = {}
+  plugin.opts = plugin.opts or {}
   return plugin
 end
 
@@ -81,6 +81,11 @@ require("lazy").setup({
   {
     'folke/lazydev.nvim',
     ft = 'lua',
+    opts = {
+      library = {
+        'luvit-meta/library'
+      }
+    }
   },
   {
     'Bilal2453/luvit-meta',
