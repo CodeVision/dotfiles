@@ -16,7 +16,8 @@ local config_map = {
 
 require("lint").linters_by_ft = {
   javascript = { "eslint" },
-  typescript = { "eslint" }
+  typescript = { "eslint" },
+  json = { "jsonlint" }
 }
 
 local find_config = function(config_files)
@@ -40,6 +41,8 @@ vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
         if find_config(config_map[linter]) then
           table.insert(run_linters, linter)
         end
+      else
+        table.insert(run_linters, linter)
       end
     end
 
