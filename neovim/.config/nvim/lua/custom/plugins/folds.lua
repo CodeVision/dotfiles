@@ -53,7 +53,7 @@ end
 
 ufo.setup({
   open_fold_hl_timeout = 400,
-  close_fold_kinds_for_ft = { 'imports', 'comment'},
+  close_fold_kinds_for_ft = { default = { 'imports', 'comment'} },
   preview = {
     win_config = {
       border = { "", "-", "", "", "", "-", "", ""},
