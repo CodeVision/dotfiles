@@ -7,3 +7,7 @@ vim.keymap.set('n', '<leader>b', '<c-^>')
 vim.keymap.set('n', '<leader>em', ':messages<CR>')
 
 vim.keymap.set('n', '<leader>x', ':source %<cr>')
+
+vim.g.user_emmet_leader_key='<C-t>'
+
+vim.keymap.set('i', '<c-y>', '<c-k>')

@@ -118,6 +118,7 @@ require("lazy").setup({
       'saadparwaiz1/cmp_luasnip'
     }
   }, 'completion'),
+  'mattn/emmet-vim',
 
   -- visual
   config({ 'Mofiqul/vscode.nvim' }, 'vscode'),
