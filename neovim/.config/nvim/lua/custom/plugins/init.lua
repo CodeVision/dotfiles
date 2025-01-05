@@ -177,6 +177,9 @@ require("lazy").setup({
     ft = { "markdown" },
     build = "cd app && npx --yes yarn install"
   },
+  "tpope/vim-dadbod",
+  "kristijanhusak/vim-dadbod-completion",
+  "kristijanhusak/vim-dadbod-ui",
 
   -- navigation
   config({ 'mrjones2014/smart-splits.nvim' }, 'splits'),
