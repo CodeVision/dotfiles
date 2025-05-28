@@ -1,12 +1,23 @@
-require('mason').setup()
-require('mason-lspconfig').setup()
-
 -- servers
-require('custom.plugins.lsp.servers.go')
-require('custom.plugins.lsp.servers.lua')
-require('custom.plugins.lsp.servers.typescript')
-require('custom.plugins.lsp.servers.json')
-require('custom.plugins.lsp.servers.yaml')
+require('custom.lsp.servers.css')
+require('custom.lsp.servers.go')
+require('custom.lsp.servers.json')
+require('custom.lsp.servers.lua')
+require('custom.lsp.servers.terraform')
+require('custom.lsp.servers.typescript')
+require('custom.lsp.servers.vue')
+require('custom.lsp.servers.yaml')
+
+vim.lsp.enable({
+  "cssls",
+  "gopls",
+  "jsonls",
+  "luals",
+  "yamlls",
+  "ts_ls",
+  "vue_ls",
+  "terraformls"
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),

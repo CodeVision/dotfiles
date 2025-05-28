@@ -1,4 +1,4 @@
-require("lspconfig").yamlls.setup({
+vim.lsp.config('yamlls', {
   settings = {
     redhat = {
       telemetry = {

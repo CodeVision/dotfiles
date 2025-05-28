@@ -1,4 +1,17 @@
 local hl_disabled_langs = { 'csv' }
+
+vim.filetype.add({
+  extension = {
+    gotmpl = 'gotmpl',
+    gohtml = 'gotmpl',
+    gohtmltmpl = 'gotmpl',
+    gohtxtmpl = 'gotmpl',
+    gohtexttmpl = 'gotmpl',
+  }
+})
+
+
+---@diagnostic disable-next-line:missing-fields
 require('nvim-treesitter.configs').setup({
   ensure_installed = {
     "lua",
@@ -25,7 +38,11 @@ require('nvim-treesitter.configs').setup({
     end,
     additional_vim_regex_highlighting = { "ruby" }
   },
-  endwise = {
-    enable = true
+  indent = {
+    enable = true,
+    disable = function(lang)
+      local enabled_langs = { "vue" }
+      return not vim.list_contains(enabled_langs, lang)
+    end
   }
 })

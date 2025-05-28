@@ -1,17 +1,3 @@
-vim.api.nvim_set_hl(0, '@text.title.1.markdown', { link = "@attribute" })
-vim.api.nvim_set_hl(0, '@text.title.2.markdown', { link = "@label" })
-vim.api.nvim_set_hl(0, '@text.title.3.markdown', { link = "@constant" })
-vim.api.nvim_set_hl(0, '@text.title.4.markdown', { link = "@string" })
-vim.api.nvim_set_hl(0, '@text.title.5.markdown', { link = "@label" })
-vim.api.nvim_set_hl(0, '@text.title.6.markdown', { link = "@constructor" })
-
-vim.api.nvim_set_hl(0, '@headings.h1.marker.markdown', { link = "@attribute" })
-vim.api.nvim_set_hl(0, '@headings.h2.marker.markdown', { link = "@label" })
-vim.api.nvim_set_hl(0, '@headings.h3.marker.markdown', { link = "@constant" })
-vim.api.nvim_set_hl(0, '@headings.h4.marker.markdown', { link = "@string" })
-vim.api.nvim_set_hl(0, '@headings.h5.marker.markdown', { link = "@label" })
-vim.api.nvim_set_hl(0, '@headings.h6.marker.markdown', { link = "@constructor" })
-
 vim.keymap.set("n", "<c-space>", function()
   local node = vim.treesitter.get_node()
   if node ~= nil then

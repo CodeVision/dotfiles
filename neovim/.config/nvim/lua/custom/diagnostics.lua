@@ -15,6 +15,6 @@ vim.diagnostic.config({
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<leader>dp', function() vim.diagnostic.jump({ count = -1}) end, opts)
+vim.keymap.set('n', '<leader>dn', function() vim.diagnostic.jump({ count = 1}) end, opts)
 vim.keymap.set('n', '<leader>dl', '<cmd>Telescope diagnostics<cr>', opts)

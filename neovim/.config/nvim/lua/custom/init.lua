@@ -5,3 +5,4 @@ require("custom.diagnostics")
 require('custom.config')
 
 require("custom.plugins")
+require("custom.lsp")

@@ -1,0 +1,81 @@
+local capabilities = require('custom.lsp.util').capabilities
+
+local mod_cache = nil
+
+local function get_root(fname)
+  if mod_cache and fname:sub(1, #mod_cache) == mod_cache then
+    local clients = vim.lsp.get_clients({ name = "gopls" })
+    if #clients > 0 then
+      return clients[#clients].config.root_dir
+    end
+  end
+  return vim.fs.root(fname, { "go.work", "go.mod", ".git/" })
+end
+
+vim.lsp.config.gopls = {
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = function(bufnr, on_dir)
+    local fname = vim.api.nvim_buf_get_name(bufnr)
+    if mod_cache then
+      on_dir(get_root(fname))
+      return
+    end
+
+    local cmd = { "go", "env", "GOMODCACHE" }
+    vim.system(cmd, { text = true }, function (output)
+      if output.code == 0 then
+        if output.stdout then
+          mod_cache = vim.trim(output.stdout)
+        end
+        on_dir(get_root(fname))
+      else
+        vim.notify(('[gopls] cmd failed with code %d: %s\n%s'):format(output.code, cmd, output.stderr))
+      end
+    end)
+
+  end,
+  capabilities = capabilities,
+  init_options = {
+    usePlaceholders = true
+  },
+  settings = {
+    gopls = {
+      analyses = {
+        append = true,
+        assign = true,
+        atomic = true,
+        nilness = true,
+        nonewvars = true,
+        shadow = true,
+        undeclaredname = true,
+        unreachable = true,
+        unusedparams = true,
+        unusedvariable = true,
+        unusedwrite = true,
+        useany = true
+      },
+      codelenses = {
+        generate = true,
+        gc_details = true,
+        test = true,
+        tidy = true,
+        vendor = true,
+        upgrade_dependency = true
+      },
+      experimentalPostfixCompletions = true,
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true
+      },
+      -- diagnosticsDelay = '500ms',
+      staticcheck = true,
+      gofumpt = true
+    }
+  },
+}
