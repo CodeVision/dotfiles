@@ -56,8 +56,15 @@ setopt c_bases              # print hexidecimals in C format (0xFF)
 setopt notify
 # - input / output
 
+## load funcs
+typeset -U fpath
+fpath=($ZDOTDIR/funcs $completions $fpath)
+[[ -n ${fpath[1]}/* ]] && autoload -U ${fpath[1]}/*(:t)
+
 # completions
 # TODO: configure and options
+autoload bashcompinit
+bashcompinit
 autoload -Uz compinit
 compinit
 
@@ -122,7 +129,15 @@ bindkey -M listscroll q send-break
 bindkey -M listscroll j accept-line
 
 # keychain
-source "$ZDOTDIR/programs/keychain.sh" $(cat ~/config/settings/.current-profile)
+# source "$ZDOTDIR/programs/keychain.sh" $(cat ~/config/settings/.current-profile)
+# source "$ZDOTDIR/programs/keychain.sh" ~/.ssh/codevision
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+fi
+export GPG_TTY="${TTY:-"$(tty)"}"
+gpg-connect-agent updatestartuptty /bye > /dev/null
+
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -137,17 +152,11 @@ source "$ZDOTDIR/programs/keychain.sh" $(cat ~/config/settings/.current-profile)
 source ~/.local/share/zsh/antidote/antidote.zsh
 antidote load
 
-
-## load funcs
-typeset -U fpath
-fpath=( $ZDOTDIR/funcs $fpath )
-[[ -n ${fpath[1]}/* ]] && autoload -U ${fpath[1]}/*(:t)
-
 ## load named dirs
 [[ -r $named_dirs ]] && source $named_dirs
 
-## load completions
-[[ -r $completions ]] && for f in $completions/*; do source $f; done
+## load custom completers
+complete -C '/usr/bin/aws_completer' aws
 
 ## set programs and paths
 typeset -Ux path PATH
@@ -156,12 +165,14 @@ path=($path)
 # external program configs
 eval $(dircolors -b)
 
+source $ZDOTDIR/scripts/fzf-git.sh
+
 if [[ -d $PYENV_ROOT ]]; then
   if [[ -d $PYENV_ROOT/bin ]]; then
     path=($PYENV_ROOT/bin $path)
     export NEOVIM_PYTHON="$(pyenv virtualenv-prefix neovim)/envs/neovim"
   fi
-    eval "$(pyenv init -)"
+  eval "$(pyenv init -)"
 fi
 
 if [[ -d "$CARGO_HOME/bin" ]]; then
@@ -184,8 +195,15 @@ if [[ -s "$FNM_DIR/fnm" ]]; then
   export NEOVIM_NODE="$FNM_DIR/aliases/neovim"
 fi
 
+if [ -x "$(command -v thefuck)" ]; then
+  eval $(thefuck --alias)
+fi
+eval "$(zoxide init zsh)"
+eval $(atuin init zsh)
+
 ## load hooks
 [[ -s "$hooks" ]] && for f in $hooks/*; do source "$f"; done
+
 
 # load temp / package specific settings
 if [[ -f ~/.zshrc ]]; then
