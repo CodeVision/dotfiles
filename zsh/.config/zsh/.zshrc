@@ -55,6 +55,10 @@ setopt c_bases              # print hexidecimals in C format (0xFF)
 # - job control
 setopt notify
 # - input / output
+ 
+# load completion modules
+autoload -Uz compinit && compinit
+autoload -Uz bashcompinit && bashcompinit
 
 ## load funcs
 typeset -U fpath
@@ -62,12 +66,6 @@ fpath=($ZDOTDIR/funcs $completions $fpath)
 [[ -n ${fpath[1]}/* ]] && autoload -U ${fpath[1]}/*(:t)
 
 # completions
-# TODO: configure and options
-autoload bashcompinit
-bashcompinit
-autoload -Uz compinit
-compinit
-
 setopt list_ambiguous       # show completion list on ambigious input
 setopt complete_in_word     # allow completion inside words
 
@@ -157,6 +155,7 @@ antidote load
 
 ## load custom completers
 complete -C '/usr/bin/aws_completer' aws
+source $completions/_az
 
 ## set programs and paths
 typeset -Ux path PATH

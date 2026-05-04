@@ -33,5 +33,9 @@ alias bw-work="BITWARDENCLI_APPDATA_DIR=~/.config/Bitwarden\ CLI\ Work bw $@"
 
 alias lumc="lumigo-cli"
 alias aur="auracle"
+alias task="go-task"
 
+alias podm=podman
 alias k=kubectl
+alias kns="kubectl config set-context --current --namespace "
+alias zl="zellij"
