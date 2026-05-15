@@ -1,0 +1,9 @@
+- link:
+    ~/.config/git: config/git
+
+- unipkg:
+    update: true
+    verbose: true
+    install:
+      - git
+      - git-delta
