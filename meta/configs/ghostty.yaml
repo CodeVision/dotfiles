@@ -1,0 +1,7 @@
+- link:
+    ~/.config/ghostty: config/ghostty
+- unipkg:
+    update: true
+    verbose: true
+    install:
+      - ghostty
