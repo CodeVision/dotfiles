@@ -84,7 +84,6 @@ add({
   { name = 'devicons', src = 'nvim-tree/nvim-web-devicons' },
 })
 
-
 -- treesitter
 add({{ name = 'treesitter-parser-registry', src = 'neovim-treesitter/treesitter-parser-registry' }})
 add({{ name = 'treesitter', src = 'neovim-treesitter/nvim-treesitter', version = 'main' }}) -- build = ":TSUpdate"
@@ -171,4 +170,5 @@ load({ src = '~/dev/contrib/neo-tree.nvim' }, 'neo-tree')
   --     rocks = { "molde" }
   --   }
   -- },
+config({ src = 'nvim-orgmode/orgmode' }, 'orgmode')
 load({ src = '~/dev/projects/nvim/whatodo.nvim' }, 'whatodo')

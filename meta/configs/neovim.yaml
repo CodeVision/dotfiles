@@ -1,0 +1,8 @@
+- link:
+    ~/.config/nvim: config/neovim
+
+- unipkg:
+    update: true
+    verbose: true
+    install:
+      - neovim
