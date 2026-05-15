@@ -36,7 +36,7 @@ format = " $icon $1m.eng(w:4) "
 
 [[block]]
 block = "net"
-device = "enp5s0"
+device = "enp7s0f1"
 format = " $icon $ip "
 interval = 5
 
