@@ -1,0 +1,9 @@
+- link:
+    ~/.config/dunst: config/dunst
+
+- unipkg:
+    update: true
+    verbose: true
+    install:
+      - dunst
+
