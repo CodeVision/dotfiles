@@ -4,6 +4,7 @@ userresources=$HOME/.config/X/Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
+userbindkeys=$HOME/.config/X/xbindkeysrc
 
 # merge in defaults and keymaps
 
@@ -33,8 +34,8 @@ if [ -f "$usermodmap" ]; then
 fi
 
 # remap caps lock to ctrl
-setxkbmap -option ctrl:nocaps
-setxkbmap -option compose:menu
+# setxkbmap -option ctrl:nocaps
+# setxkbmap -option compose:menu
 
 if [ -f /usr/bin/VBoxClient-all ]; then
   /usr/bin/VBoxClient-all
@@ -50,6 +51,10 @@ fi
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 
+# if command -v "xbindkeys" > /dev/null 2>&1 && [ -f "$userbindkeys" ]; then
+#   xbindkeys --file $userbindkeys
+# fi
+lxsession &
 i3_log_dir=~/.local/share/i3
 [ ! -d "$i3_log_dir" ] && mkdir -p "$i3_log_dir"
 exec i3 -V >> "$i3_log_dir/log-$(date +'%F')" 2>&1

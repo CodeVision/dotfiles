@@ -25,14 +25,14 @@
 #   Release, Control, Shift, Mod1 (Alt), Mod2 (NumLock),
 #   Mod3 (CapsLock), Mod4, Mod5 (Scroll).
 #
-"volume up"
-  XF86AudioRaiseVolume
-
-"volume down"
-  XF86AudioLowerVolume
-
-"volume mute"
-  XF86AudioMute
+# "volume up"
+#   XF86AudioRaiseVolume
+#
+# "volume down"
+#   XF86AudioLowerVolume
+#
+# "volume mute"
+#   XF86AudioMute
 
 # The release modifier is not a standard X modifier, but you can
 # use it if you want to catch release events instead of press events

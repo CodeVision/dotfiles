@@ -1,0 +1,16 @@
+#!/usr/bin/zsh
+
+# set monitor configuration
+xrandr \
+  --output DisplayPort-0 --primary \
+  --output DisplayPort-1 --rotate right \
+  --output HDMI-A-0 --left-of DisplayPort-0 
+# xrandr \
+#   --output HDMI-A-0 --primary \
+#   --output DisplayPort-6 --left-of HDMI-A-0 \
+#   --output DisplayPort-1 --right-of HDMI-A-0 --rotate right
+#xrandr --setmonitor 'MR' 1442/597x1920/336+5360+0 DP-0
+#xrandr --setmonitor 'MR' 1200/518x1680/324+5360+0 DP-0
+
+# set mouse acceleration
+xinput --set-prop 'Logitech Gaming Mouse G502' 'libinput Accel Speed' 0.7

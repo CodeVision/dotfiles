@@ -1,0 +1,4 @@
+- link:
+    ~/.config/X: config/X
+    ~/.xinitrc: home/.xinitrc
+
