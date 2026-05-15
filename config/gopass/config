@@ -1,0 +1,5 @@
+[mounts]
+	path = $HOME/.local/share/pass
+
+[core]
+	autosync = false

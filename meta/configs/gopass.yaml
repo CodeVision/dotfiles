@@ -1,0 +1,9 @@
+- link:
+    ~/.config/gopass: config/gopass
+
+- unipkg:
+    update: true
+    verbose: true
+    install:
+      - gopass
+
