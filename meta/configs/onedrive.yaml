@@ -1,0 +1,11 @@
+- link:
+    ~/.config/onedrive: config/onedrive
+
+# install using aur
+
+- create:
+    - ~/.local/state/onedrive
+
+# create sync_dir link
+- shell:
+    - ln -sfn ~/media/pictures ~/.local/state/onedrive/Pictures 

@@ -1,0 +1,7 @@
+items.sqlite3
+items.sqlite3-shm
+items.sqlite3-wal
+refresh_token
+.config.hash
+.config.backup
+.sync_list.hash
