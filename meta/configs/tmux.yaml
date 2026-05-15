@@ -1,0 +1,8 @@
+- link:
+    ~/.config/tmux: config/tmux
+
+- unipkg:
+    update: true
+    verbose: true
+    install:
+      - tmux
