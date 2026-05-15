@@ -1,0 +1,14 @@
+- link:
+    ~/.config/zellij: config/zellij
+
+- unipkg:
+    update: true
+    verbose: true
+    install:
+      - zellij
+
+- create:
+    - ~/.local/share/zellij/plugins
+
+- shell:
+    - cd ~/.local/share/zellij/plugins/ && curl -LO https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm && cd -

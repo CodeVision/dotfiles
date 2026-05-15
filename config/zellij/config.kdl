@@ -18,14 +18,12 @@ keybinds clear-defaults=true {
         bind "s" { SwitchToMode "scroll"; }
         bind "t" { SwitchToMode "tab"; }
         bind "w" {
-          LaunchOrFocusPlugin "zellij-sessionizer" {
+          LaunchOrFocusPlugin "zellij-sesshimi" {
             floating true
             move_to_focused_tab true
-            cwd "/"
-            root_dirs "/home/codevision/dev/"
-            individual_dirs "/home/codevision/config/dotfiles;/home/codevision/.config"
-            session_layout "split"
-          }; 
+
+            base_dirs "dev=~/dev;config=~/.config:1"
+          };
           SwitchToMode "Normal";
         }
     }
@@ -355,7 +353,7 @@ plugins {
         welcome_screen true
     }
     vim-zellij-navigator location="file:~/.local/share/zellij/plugins/vim-zellij-navigator.wasm"
-    zellij-sessionizer location="file:~/.local/share/zellij/plugins/zellij-sessionizer.wasm"
+    zellij-sesshimi location="file:~/dev/projects/plugins/zellij-sesshimi/target/wasm32-wasip1/release/zellij-sesshimi.wasm"
 }
 
 // Plugins to load in the background when a new session starts
