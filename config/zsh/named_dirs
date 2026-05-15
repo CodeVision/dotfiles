@@ -2,11 +2,14 @@
 typeset -A NAMED_DIRS
 
 NAMED_DIRS=(
-    bin       ~/bin
+    bin       ~/.local/bin
     conf      ~/.config
     dot       ~/config/dotfiles
     edu       ~/dev/education
     training  ~/dev/education/open/training
+    homelab   ~/dev/infra/homelab
+    okeanos   ~/dev/infra/homelab/okeanos
+
 )
 local_named_dirs=~/.local/share/zsh/named_dirs
 

@@ -1,0 +1,11 @@
+#/bin/zsh
+# vim: ft=zsh
+
+incog() {
+  autoload -U add-zsh-hook
+
+  add-zsh-hook -d precmd _atuin_precmd
+  add-zsh-hook -d preexec _atuin_preexec
+
+  unset HISTFILE
+}

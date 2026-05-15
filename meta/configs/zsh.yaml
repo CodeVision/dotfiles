@@ -1,0 +1,14 @@
+- link:
+    ~/.config/zsh: config/zsh
+
+- unipkg:
+    update: true
+    verbose: true
+    install:
+      - zsh
+
+- create:
+    - ~/.local/share/zsh
+
+- shell:
+    - git -C "~/.local/share/zsh/antidote" rev-parse --is-inside-work-tree >/dev/null 2>&1 && git -C "~/.local/share/zsh/antidote" pull || git clone --depth=1 "https://github.com/mattmc3/antidote.git" $HOME/.local/share/zsh/antidote

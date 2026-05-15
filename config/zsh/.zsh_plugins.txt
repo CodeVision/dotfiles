@@ -7,3 +7,4 @@ jeffreytse/zsh-vi-mode
 zdharma-continuum/fast-syntax-highlighting kind:defer
 
 romkatv/powerlevel10k
+# atuinsh/atuin
