@@ -1,0 +1,7 @@
+[submodule "dotbot"]
+	path = meta/dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+[submodule "meta/plugins/dotbot-unipkg"]
+	path = meta/plugins/dotbot-unipkg
+	url = https://github.com/smitropoulos/dotbot-unipkg

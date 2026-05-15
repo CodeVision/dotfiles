@@ -1,0 +1,6 @@
+- defaults:
+    link:
+      relink: true
+
+- plugins:
+    - meta/plugins/dotbot-unipkg
