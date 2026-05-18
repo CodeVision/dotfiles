@@ -170,5 +170,8 @@ load({ src = '~/dev/contrib/neo-tree.nvim' }, 'neo-tree')
   --     rocks = { "molde" }
   --   }
   -- },
-config({ src = 'nvim-orgmode/orgmode' }, 'orgmode')
+setup({ src = 'nvim-orgmode/orgmode' })
+-- setup({ src = 'lukas-reineke/headlines.nvim', name = 'headlines' })
+load({ src = "~/dev/contrib/org-super-agenda.nvim/" }, 'orgmode')
+
 load({ src = '~/dev/projects/nvim/whatodo.nvim' }, 'whatodo')
