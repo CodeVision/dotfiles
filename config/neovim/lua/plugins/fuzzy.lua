@@ -48,5 +48,8 @@ fzf.register_ui_select()
 
 vim.keymap.set("n", "<leader>ff", fzf.git_files)
 vim.keymap.set("n", "<c-p>", fzf.files)
+vim.keymap.set("n", "<leader>fo", function ()
+  fzf.files({ cwd = "~/data/orgfiles/", previewer = "bat" })
+end)
 vim.keymap.set("n", "<leader>fg", fzf.live_grep)
 vim.keymap.set("n", "<leader>fh", fzf.help_tags)
