@@ -198,6 +198,9 @@ bar {
 # delay removal of urgency hints
 force_display_urgency_hint 1000 ms
 
+set $show_standard move to workspace current, floating enable, resize set 1880 1080, move position center, focus
+set $show_large move to workspace current, floating enable, resize set 2560 1280, move position center, focus
+
 # application configuration
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -208,15 +211,13 @@ for_window [class="mpv"] floating enable
 for_window [class="Pavucontrol"] floating enable, resize set 1024 768, move position center;
 for_window [class="Spotify"] floating enable, resize set 1920 1080, move position center;
 for_window [class="PacketTracer" title="(?!Cisco Packet Tracer).*"] floating enable
+for_window [instance="neovide"] $show_standard;
 
 # scratchpad
 bindsym $mod+grave move scratchpad
 bindsym $mod+Tab scratchpad show
 
 mode "commands" {
-  set $show_standard move to workspace current, floating enable, resize set 1880 1080, move position center, focus
-  set $show_large move to workspace current, floating enable, resize set 2560 1280, move position center, focus
-
   bindsym c [class="Slack"] $show_standard; mode "default"
   bindsym m [class="betterbird"] $show_large; mode "default"
   bindsym o [class="obsidian"] $show_large; mode "default"
