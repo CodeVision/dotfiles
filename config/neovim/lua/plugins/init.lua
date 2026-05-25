@@ -85,8 +85,7 @@ add({
 })
 
 -- treesitter
-add({{ name = 'treesitter-parser-registry', src = 'neovim-treesitter/treesitter-parser-registry' }})
-add({{ name = 'treesitter', src = 'neovim-treesitter/nvim-treesitter', version = 'main' }}) -- build = ":TSUpdate"
+config({ src = 'arborist-ts/arborist.nvim' }, 'treesitter') -- build = ":TSUpdate"
 config({ src = 'RRethy/nvim-treesitter-endwise' }, 'treesitter')
 
 -- text
