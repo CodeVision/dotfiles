@@ -113,13 +113,13 @@ add({
   { src = 'neovim/nvim-lspconfig' },
   'Bekaboo/dropbar.nvim',
 })
-setup({ name = 'ltex-client', src = "icewind/ltex-client.nvim" })
 config({ src = 'nvimdev/lspsaga.nvim'}, 'lspsaga')
 setup({ name = 'fidget', src = 'j-hui/fidget.nvim' })
 config({ src = 'mfussenegger/nvim-lint' }, 'nvim-lint')
 
 config({ src = "cenk1cenk2/schema-companion.nvim" }, 'schema-companion')
 add({{ src = "mfussenegger/nvim-ansible" }})
+add({{ src = "qvalentin/helm-ls.nvim" }})
 
 setup({ name = 'tiny-inline-diagnostic', src = "rachartier/tiny-inline-diagnostic.nvim" })
 vim.diagnostic.config({ virtual_text = false })
