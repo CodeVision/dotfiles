@@ -157,7 +157,7 @@ config({ src = 'MeanderingProgrammer/render-markdown.nvim' }, "markdown")
 add({{ name = 'markdown-preview', src = "iamcco/markdown-preview.nvim" }})  -- build = "cd app && npx --yes yarn install"
 
 -- operations
-config({ src = "mistweaverco/kulala.nvim", version = "v5.3.4"}, "kulala")
+config({ src = "mistweaverco/kulala.nvim", version = "v6.3.0"}, "kulala")
 -- "tpope/vim-dadbod",
 -- "kristijanhusak/vim-dadbod-completion",
 -- "kristijanhusak/vim-dadbod-ui",
