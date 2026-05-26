@@ -60,7 +60,7 @@
       "src": "https://github.com/folke/flash.nvim"
     },
     "fzf-lua": {
-      "rev": "71b45a044c4ef6ecb1910880ef642d5a0e1c02e9",
+      "rev": "c8aaa74c97157b2c62bdcfc1e57b15c052dc63ca",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "headlines": {
@@ -74,6 +74,11 @@
     "helm-ls.nvim": {
       "rev": "20df43509b02a3ce3c6b3eee254d6e2bffa9a370",
       "src": "https://github.com/qvalentin/helm-ls.nvim"
+    },
+    "kulala.nvim": {
+      "rev": "6656c9d332735ca6a27725e0fb45a1715c4372d9",
+      "src": "https://github.com/mistweaverco/kulala.nvim",
+      "version": "'v5.3.4'"
     },
     "lazydev": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
@@ -116,7 +121,7 @@
       "src": "https://github.com/nvim-neotest/neotest"
     },
     "neotest-golang": {
-      "rev": "5b15cab0e2475b036c2e2067b2a973b9e4ea3180",
+      "rev": "f0ba097d4af098c036aac24cd647480d0d301ad2",
       "src": "https://github.com/fredrikaverpil/neotest-golang"
     },
     "nui.nvim": {
@@ -144,9 +149,9 @@
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-surround": {
-      "rev": "1098d7b3c34adcfa7feb3289ee434529abd4afd1",
+      "rev": "2e93e154de9ff326def6480a4358bfc149d5da2c",
       "src": "https://github.com/kylechui/nvim-surround",
-      "version": "3.0.0 - 4.0.0"
+      "version": "4.0.0 - 5.0.0"
     },
     "nvim-treesitter-endwise": {
       "rev": "8fe8a95630f4f2c72a87ba1927af649e0bfaa244",
@@ -177,7 +182,7 @@
       "src": "https://github.com/cameron-wags/rainbow_csv.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "629eb9533ec989d9d5c6cab8f3ad5372422c24e0",
+      "rev": "dcb77511efb1665b5073d8396a0033b3e4d680f6",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "schema-companion.nvim": {
@@ -197,7 +202,7 @@
       "src": "https://github.com/luukvbaal/statuscol.nvim"
     },
     "tiny-inline-diagnostic": {
-      "rev": "147af4e49f51dd48f41972de26552872b8ba7b25",
+      "rev": "6bdbc9a2f5a846ff5fc55a998ff97c0e2968b7e5",
       "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
     },
     "treesitter": {

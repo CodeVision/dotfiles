@@ -89,7 +89,7 @@ config({ src = 'arborist-ts/arborist.nvim' }, 'treesitter') -- build = ":TSUpdat
 config({ src = 'RRethy/nvim-treesitter-endwise' }, 'treesitter')
 
 -- text
-setup({ src = 'kylechui/nvim-surround', version = vim.version.range("^3") })
+setup({ src = 'kylechui/nvim-surround', version = vim.version.range("^4") })
 config({ src = 'windwp/nvim-autopairs' }, 'autopairs')
 config({ src = 'Wansmer/treesj' }, 'text')
 
@@ -155,6 +155,9 @@ setup({ name = 'colorizer', src = 'NvChad/nvim-colorizer.lua' }, {
 setup({ name = 'rainbow_csv', src = 'cameron-wags/rainbow_csv.nvim' })
 config({ src = 'MeanderingProgrammer/render-markdown.nvim' }, "markdown")
 add({{ name = 'markdown-preview', src = "iamcco/markdown-preview.nvim" }})  -- build = "cd app && npx --yes yarn install"
+
+-- operations
+config({ src = "mistweaverco/kulala.nvim", version = "v5.3.4"}, "kulala")
 -- "tpope/vim-dadbod",
 -- "kristijanhusak/vim-dadbod-completion",
 -- "kristijanhusak/vim-dadbod-ui",
