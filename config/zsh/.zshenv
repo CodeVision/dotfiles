@@ -24,7 +24,7 @@ export GOPATH="$HOME/.local/share/go"
 
 export CLAUDE_CONFIG_DIR="$HOME/.config/claude"
 
-export KUBECONFIG="${KUBECONFIG}:${HOME}/.config/kubernetes/config:${HOME}/.config/kubernetes/okeanos:${HOME}/.config/kubernetes/cka01"
+export KUBECONFIG="${KUBECONFIG}:${HOME}/.kube/config:${HOME}/.kube/okeanos:${HOME}/.kube/omni/current.yaml"
 
 export PASSWORD_STORE_DIR=~/.local/share/pass/
 export SUMMON_PROVIDER=/usr/bin/gopass-summon-provider

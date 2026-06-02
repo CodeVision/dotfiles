@@ -6,6 +6,7 @@ named_dirs="$ZDOTDIR/named_dirs"
 
 completions="/home/$USER/.local/share/zsh/completions"
 hooks="$ZDOTDIR/hooks"
+custom_widgets="$ZDOTDIR/widgets"
 plugins="$ZDOTDIR/plugins"
 
 # aliases
@@ -202,6 +203,9 @@ eval $(atuin init zsh)
 
 ## load hooks
 [[ -s "$hooks" ]] && for f in $hooks/*; do source "$f"; done
+
+## load widgets
+[[ -s "$custom_widgets" ]] && for f in $custom_widgets/*; do source "$f"; done
 
 
 # load temp / package specific settings
