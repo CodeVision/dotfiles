@@ -164,6 +164,7 @@ config({ src = "mistweaverco/kulala.nvim", version = "v6.3.0"}, "kulala")
 
 -- navigation
 config({ src = 'mrjones2014/smart-splits.nvim' }, 'splits')
+config({ src = "CodeVision/zellij-pane-wd" }, "zellij-pane-wd")
 add({ 'MunifTanjim/nui.nvim' })
 load({ src = '~/dev/contrib/neo-tree.nvim' }, 'neo-tree')
   -- {
