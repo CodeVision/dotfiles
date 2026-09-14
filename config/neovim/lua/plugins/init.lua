@@ -164,7 +164,7 @@ config({ src = "mistweaverco/kulala.nvim", version = "v6.3.0"}, "kulala")
 
 -- navigation
 config({ src = 'mrjones2014/smart-splits.nvim' }, 'splits')
-config({ src = "CodeVision/zellij-pane-wd" }, "zellij-pane-wd")
+config({ src = "https://forgejo.dev.home.codevision.nl/codevision/zellij-pane-wd.git" }, "zellij-pane-wd")
 add({ 'MunifTanjim/nui.nvim' })
 load({ src = '~/dev/contrib/neo-tree.nvim' }, 'neo-tree')
   -- {
@@ -173,8 +173,7 @@ load({ src = '~/dev/contrib/neo-tree.nvim' }, 'neo-tree')
   --     rocks = { "molde" }
   --   }
   -- },
-setup({ src = 'nvim-orgmode/orgmode' })
 -- setup({ src = 'lukas-reineke/headlines.nvim', name = 'headlines' })
-load({ src = "~/dev/contrib/org-super-agenda.nvim/" }, 'orgmode')
 
 load({ src = '~/dev/projects/nvim/whatodo.nvim' }, 'whatodo')
+load({ src = '~/dev/projects/nvim/kube-yaml.nvim' }, 'kube-yaml')
